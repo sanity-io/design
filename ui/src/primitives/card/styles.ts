@@ -4,11 +4,17 @@ import {ThemeColorBase, ThemeColorCardState} from '../../theme'
 import {CardStyleProps} from './types'
 
 export function cardStyle(props: CardStyleProps & ThemeProps) {
-  return [cardBaseStyle, cardColorStyle(props)]
+  return [cardBaseStyle(props), cardColorStyle(props)]
 }
 
-export function cardBaseStyle() {
+export function cardBaseStyle(props: CardStyleProps & ThemeProps) {
+  const {theme} = props
+  const space = theme.sanity.space
+
   return css`
+    background-size: ${space[3]}px ${space[3]}px;
+    background-position: 50% 50%;
+
     &[data-as='button'] {
       -webkit-font-smoothing: inherit;
       appearance: none;
@@ -31,10 +37,22 @@ export function cardBaseStyle() {
   `
 }
 
-function vars(base: ThemeColorBase, color: ThemeColorCardState) {
+function vars(base: ThemeColorBase, color: ThemeColorCardState, checkered: boolean) {
   // Custom properties that may be used by other atoms
   return css`
-    --card-bg-color: ${color.bg};
+    ${!checkered &&
+    css`
+      --card-bg-color: ${color.bg};
+      --card-bg-image: none;
+    `}
+
+    ${checkered &&
+    css`
+      --card-bg-color: ${color.bg};
+      --card-bg-image: repeating-conic-gradient(${color.bg} 0% 25%, ${color.bg2} 0% 50%);
+    `}
+
+    /* --card-bg-color: ${checkered ? '' : color.bg}; */
     --card-fg-color: ${color.fg};
     --card-focus-ring-color: ${base.focusRing};
     --card-border-color: ${color.border};
@@ -58,39 +76,40 @@ function vars(base: ThemeColorBase, color: ThemeColorCardState) {
 }
 
 export function cardColorStyle(props: CardStyleProps & ThemeProps) {
-  const {theme} = props
+  const {$checkered, theme} = props
   const {base, card} = theme.sanity.color
 
   return css`
-    ${vars(base, card.enabled)}
+    ${vars(base, card.enabled, $checkered)}
 
     background-color: var(--card-bg-color);
+    background-image: var(--card-bg-image);
     color: var(--card-fg-color);
 
     /* &:is(button) */
     &[data-as='button'] {
       &:disabled {
-        ${vars(base, card.disabled)}
+        ${vars(base, card.disabled, $checkered)}
       }
 
       &:not(:disabled) {
         @media (hover: hover) {
           &:hover {
-            ${vars(base, card.hovered)}
+            ${vars(base, card.hovered, $checkered)}
           }
 
           &:active {
-            ${vars(base, card.pressed)}
+            ${vars(base, card.pressed, $checkered)}
           }
         }
 
         &:focus {
-          ${vars(base, card.selected)}
+          ${vars(base, card.selected, $checkered)}
         }
 
         &[aria-pressed='true'],
         [aria-selected='true'] > & {
-          ${vars(base, card.selected)}
+          ${vars(base, card.selected, $checkered)}
         }
       }
     }
@@ -98,7 +117,7 @@ export function cardColorStyle(props: CardStyleProps & ThemeProps) {
     /* &:is(a) */
     &[data-as='a'] {
       &[data-disabled] {
-        ${vars(base, card.disabled)}
+        ${vars(base, card.disabled, $checkered)}
       }
 
       &:not([data-disabled]) {
@@ -106,20 +125,20 @@ export function cardColorStyle(props: CardStyleProps & ThemeProps) {
           outline: none;
 
           &:hover {
-            ${vars(base, card.hovered)}
+            ${vars(base, card.hovered, $checkered)}
           }
 
           &:active {
-            ${vars(base, card.pressed)}
+            ${vars(base, card.pressed, $checkered)}
           }
         }
 
         &:focus {
-          ${vars(base, card.selected)}
+          ${vars(base, card.selected, $checkered)}
         }
 
         [aria-selected='true'] > & {
-          ${vars(base, card.selected)}
+          ${vars(base, card.selected, $checkered)}
         }
       }
     }

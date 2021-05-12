@@ -47,6 +47,7 @@ export interface ThemeColorButtonStates {
 
 export interface ThemeColorCardState {
   bg: string
+  bg2: string
   fg: string
   border: string
   muted: {
@@ -74,6 +75,7 @@ export interface ThemeColorCard {
 
 export interface ThemeColorBase {
   bg: string
+  bg2: string
   fg: string
   border: string
   focusRing: string
@@ -87,6 +89,7 @@ export interface ThemeColorBase {
 
 export interface ThemeColorGenericState {
   bg: string
+  bg2: string
   border: string
   fg: string
 }

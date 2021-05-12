@@ -22,6 +22,11 @@ export interface CardProps
     ResponsiveBorderProps,
     ResponsiveRadiusProps,
     ResponsiveShadowProps {
+  /**
+   * Do not use in production.
+   * @beta
+   */
+  checkered?: boolean
   scheme?: ThemeColorSchemeKey
   tone?: CardTone
 }
@@ -42,6 +47,7 @@ export const Card = forwardRef(
       borderRight,
       borderBottom,
       borderLeft,
+      checkered = false,
       radius = 0,
       scheme,
       shadow,
@@ -65,6 +71,7 @@ export const Card = forwardRef(
           $borderRight={borderRight}
           $borderBottom={borderBottom}
           $borderLeft={borderLeft}
+          $checkered={checkered}
           $radius={radius}
           $shadow={shadow}
           $tone={tone}

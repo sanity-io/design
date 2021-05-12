@@ -9,6 +9,7 @@ export default defineScope('primitives/card', 'Card', [
   {name: 'interactive', title: 'Interactive', component: InteractiveCardStory},
   {name: 'tones', title: 'Tones', component: AllTonesStory},
   {name: 'as-button', title: 'As button', component: AsButtonStory},
+  {name: 'checkered', title: 'Checkered', component: CheckeredStory},
 ])
 
 const AS_OPTIONS: {[key: string]: 'div' | 'span' | 'ol' | 'pre' | 'ul'} = {
@@ -60,18 +61,20 @@ const CARD_TONE_OPTIONS: {[key: string]: CardTone} = {
 }
 
 function PropsStory() {
-  const border = useBoolean('Border', false, 'Props')
   const as = useSelect('As', AS_OPTIONS, 'div', 'Props')
+  const border = useBoolean('Border', false, 'Props')
+  const checkered = useBoolean('Checkered', false, 'Props')
   const padding = useSelect('Padding', SPACE_OPTIONS, 0, 'Props')
   const radius = useSelect('Radius', RADIUS_OPTIONS, 0, 'Props')
   const shadow = useSelect('Shadow', SHADOW_OPTIONS, 0, 'Props')
   const tone = useSelect('Tone', CARD_TONE_OPTIONS, 'default', 'Props')
 
   return (
-    <Flex align="center" height="fill" justify="center">
+    <Flex align="center" height="fill" justify="center" padding={[4, 5, 6]} sizing="border">
       <Card
         as={as}
         border={border}
+        checkered={checkered}
         onClick={useAction('onClick')}
         padding={padding}
         radius={radius}
@@ -262,6 +265,21 @@ function AsButtonStory() {
           </Stack>
         </Grid>
       </Container>
+    </Flex>
+  )
+}
+
+function CheckeredStory() {
+  return (
+    <Flex align="center" height="fill" justify="center" padding={[4, 5, 6]} sizing="border">
+      <Stack space={1}>
+        <Card border checkered style={{width: 120, height: 60}} />
+        <Card border checkered style={{width: 120, height: 60}} tone="transparent" />
+        <Card border checkered style={{width: 120, height: 60}} tone="primary" />
+        <Card border checkered style={{width: 120, height: 60}} tone="positive" />
+        <Card border checkered style={{width: 120, height: 60}} tone="caution" />
+        <Card border checkered style={{width: 120, height: 60}} tone="critical" />
+      </Stack>
     </Flex>
   )
 }

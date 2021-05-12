@@ -17,6 +17,7 @@ export const color = createColorTheme({
       return {
         fg: dark ? white.hex : black.hex,
         bg: dark ? black.hex : white.hex,
+        bg2: hues.gray[dark ? 950 : 50].hex,
         border: hues.gray[dark ? 900 : 200].hex,
         focusRing: hues.blue[500].hex,
         shadow: {
@@ -34,6 +35,7 @@ export const color = createColorTheme({
       return {
         fg: tints[dark ? 100 : 900].hex,
         bg: tints[dark ? 950 : 50].hex,
+        bg2: hues.gray[dark ? 900 : 100].hex,
         border: tints[dark ? 800 : 300].hex,
         focusRing: hues.blue[500].hex,
         shadow: {
@@ -50,6 +52,7 @@ export const color = createColorTheme({
     return {
       fg: tints[dark ? 100 : 900].hex,
       bg: tints[dark ? 950 : 50].hex,
+      bg2: tints[dark ? 900 : 100].hex,
       border: tints[dark ? 800 : 200].hex,
       focusRing: tints[500].hex,
       shadow: {
@@ -68,6 +71,7 @@ export const color = createColorTheme({
     if (state === 'disabled') {
       return {
         bg: mix(base.bg, hues.gray[dark ? 800 : 200].hex),
+        bg2: mix(base.bg, hues.gray[dark ? 700 : 300].hex),
         border: mix(base.bg, hues.gray[dark ? 800 : 200].hex),
         fg: mix(base.bg, dark ? black.hex : white.hex),
       }
@@ -76,6 +80,7 @@ export const color = createColorTheme({
     if (state === 'hovered') {
       return {
         bg: mix(base.bg, tints[dark ? 300 : 600].hex),
+        bg2: mix(base.bg, tints[dark ? 400 : 500].hex),
         border: mix(base.bg, tints[dark ? 300 : 600].hex),
         fg: mix(base.bg, dark ? black.hex : white.hex),
       }
@@ -84,6 +89,7 @@ export const color = createColorTheme({
     if (state === 'pressed') {
       return {
         bg: mix(base.bg, tints[dark ? 200 : 800].hex),
+        bg2: mix(base.bg, tints[dark ? 100 : 900].hex),
         border: mix(base.bg, tints[dark ? 200 : 800].hex),
         fg: mix(base.bg, dark ? black.hex : white.hex),
       }
@@ -92,6 +98,7 @@ export const color = createColorTheme({
     if (state === 'selected') {
       return {
         bg: mix(base.bg, tints[dark ? 200 : 800].hex),
+        bg2: mix(base.bg, tints[dark ? 300 : 700].hex),
         border: mix(base.bg, tints[dark ? 200 : 800].hex),
         fg: mix(base.bg, dark ? black.hex : white.hex),
       }
@@ -100,6 +107,7 @@ export const color = createColorTheme({
     // state: "enabled" | unknown
     return {
       bg: mix(base.bg, tints[dark ? 400 : 500].hex),
+      bg2: mix(base.bg, tints[dark ? 500 : 400].hex),
       border: mix(base.bg, tints[dark ? 400 : 500].hex),
       fg: mix(base.bg, dark ? black.hex : white.hex),
     }
@@ -112,6 +120,7 @@ export const color = createColorTheme({
     if (state === 'disabled') {
       return {
         bg: mix(base.bg, hues.gray[dark ? 950 : 50].hex),
+        bg2: mix(base.bg, hues.gray[dark ? 900 : 100].hex),
         border: mix(base.bg, hues.gray[dark ? 950 : 50].hex),
         fg: mix(base.bg, hues.gray[dark ? 800 : 200].hex),
       }
@@ -120,6 +129,7 @@ export const color = createColorTheme({
     if (state === 'hovered') {
       return {
         bg: mix(base.bg, tints[dark ? 950 : 50].hex),
+        bg2: mix(base.bg, tints[dark ? 900 : 100].hex),
         border: mix(base.bg, tints[dark ? 950 : 50].hex),
         fg: mix(base.bg, tints[dark ? 100 : 900].hex),
       }
@@ -128,6 +138,7 @@ export const color = createColorTheme({
     if (state === 'pressed') {
       return {
         bg: mix(base.bg, tints[dark ? 900 : 100].hex),
+        bg2: mix(base.bg, tints[dark ? 800 : 200].hex),
         border: mix(base.bg, tints[dark ? 900 : 100].hex),
         fg: mix(base.bg, tints[dark ? 100 : 900].hex),
       }
@@ -136,6 +147,7 @@ export const color = createColorTheme({
     if (state === 'selected') {
       return {
         bg: mix(base.bg, tints[dark ? 900 : 100].hex),
+        bg2: mix(base.bg, tints[dark ? 800 : 200].hex),
         border: mix(base.bg, tints[dark ? 900 : 100].hex),
         fg: mix(base.bg, tints[dark ? 100 : 900].hex),
       }
@@ -143,6 +155,7 @@ export const color = createColorTheme({
 
     return {
       bg: mix(base.bg, tints[dark ? 900 : 100].hex),
+      bg2: mix(base.bg, tints[dark ? 800 : 200].hex),
       border: mix(base.bg, tints[dark ? 900 : 100].hex),
       fg: mix(base.bg, tints[dark ? 300 : 700].hex),
     }
@@ -227,9 +240,11 @@ export const color = createColorTheme({
 
       const tint = ['default', 'transparent'].includes(name) ? hues.blue : tones[name]
       const bg = tint[dark ? 400 : 500].hex
+      const bg2 = tint[dark ? 500 : 400].hex
 
       return {
         bg,
+        bg2,
         fg: dark ? black.hex : white.hex,
         border: tint[dark ? 300 : 400].hex,
         muted: {
@@ -312,6 +327,7 @@ export const color = createColorTheme({
 
     return {
       bg: base.bg,
+      bg2: base.bg2,
       fg: base.fg,
       border: base.border,
       muted: {
