@@ -1,7 +1,14 @@
-import {Card, CardTone, Container, Flex, Grid, Stack, Text} from '@sanity/ui'
+import {Card, Container, Flex, Grid, Stack, Text, TextSkeleton} from '@sanity/ui'
 import {defineScope, useAction, useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
 import styled from 'styled-components'
+import {
+  AS_OPTIONS,
+  CARD_TONE_OPTIONS,
+  RADIUS_OPTIONS,
+  SHADOW_OPTIONS,
+  SPACE_OPTIONS,
+} from './__workshop__/constants'
 
 export default defineScope('primitives/card', 'Card', [
   {name: 'props', title: 'Props', component: PropsStory},
@@ -9,56 +16,12 @@ export default defineScope('primitives/card', 'Card', [
   {name: 'interactive', title: 'Interactive', component: InteractiveCardStory},
   {name: 'tones', title: 'Tones', component: AllTonesStory},
   {name: 'as-button', title: 'As button', component: AsButtonStory},
+  {
+    name: 'selectable-items',
+    title: 'Selectable items',
+    resolveComponent: () => import('./__workshop__/selectableItemsStory'),
+  },
 ])
-
-const AS_OPTIONS: {[key: string]: 'div' | 'button' | 'span' | 'ol' | 'pre' | 'ul'} = {
-  'DIV (default)': 'div',
-  BUTTON: 'button',
-  SPAN: 'span',
-  OL: 'ol',
-  PRE: 'pre',
-  UL: 'ul',
-}
-
-const SPACE_OPTIONS = {
-  '0': 0,
-  '1': 1,
-  '2': 2,
-  '3': 3,
-  '4': 4,
-  '5': 5,
-  '6': 6,
-  '7': 7,
-}
-
-const RADIUS_OPTIONS = {
-  '0': 0,
-  '1': 1,
-  '2': 2,
-  '3': 3,
-  '4': 4,
-  '5': 5,
-  '6': 6,
-}
-
-const SHADOW_OPTIONS = {
-  '0': 0,
-  '1': 1,
-  '2': 2,
-  '3': 3,
-  '4': 4,
-  '5': 5,
-}
-
-const CARD_TONE_OPTIONS: {[key: string]: CardTone} = {
-  Default: 'default',
-  Inherit: 'inherit',
-  Transparent: 'transparent',
-  Primary: 'primary',
-  Positive: 'positive',
-  Caution: 'caution',
-  Critical: 'critical',
-}
 
 function PropsStory() {
   const border = useBoolean('Border', false, 'Props')
@@ -111,17 +74,19 @@ function StyledCardStory() {
 function InteractiveCardStory() {
   const selected = useBoolean('Selected', false, 'Props')
   const pressed = useBoolean('Pressed', false, 'Props')
+  const tone = useSelect('Tone', CARD_TONE_OPTIONS, 'default', 'Props')
 
   return (
     <Flex align="center" height="fill" justify="center">
       <div aria-selected={selected}>
-        <Card aria-pressed={pressed} as="button" padding={3} tabIndex={0}>
+        <Card aria-pressed={pressed} as="button" padding={3} tabIndex={0} tone={tone}>
           <Stack space={3}>
             <Text>
               Text <code>Code</code>
             </Text>
             <Text muted>Muted</Text>
             <Text accent>Accent</Text>
+            <TextSkeleton animated />
           </Stack>
         </Card>
       </div>
