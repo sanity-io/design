@@ -53,5 +53,7 @@ export function buildMenu(
     tree = set(tree, name, scope)
   }
 
-  return buildMenuItems([{children: collections}], tree)
+  console.log(tree)
+
+  return buildMenuItems([{children: collections}], tree, '$root')
 }
