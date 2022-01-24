@@ -26,8 +26,5 @@ export function resolveLocation(
 
   const story = (scope && scope.stories.find((story) => story.name === segments.join('/'))) || null
 
-  return {
-    scope,
-    story,
-  }
+  return {scope, story}
 }

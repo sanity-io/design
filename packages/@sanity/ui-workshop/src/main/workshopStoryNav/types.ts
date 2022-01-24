@@ -15,7 +15,7 @@ export interface MenuScope {
 }
 
 export interface MenuCollection {
-  name?: string
+  name: string
   title?: string
   children?: MenuCollection[]
 }

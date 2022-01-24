@@ -1,39 +1,38 @@
 import {Box, Card, Tree, TreeItem} from '@sanity/ui'
-import React, {useCallback, useMemo} from 'react'
+import React, {memo, useCallback, useMemo} from 'react'
 import {useWorkshop} from '../../useWorkshop'
-import {buildMenu} from './helpers'
-import {MenuCollection, MenuList, MenuScope} from './types'
+import {buildNavNodes, NavNode} from './navNodes'
+import {MenuCollection} from './types'
 
-export function WorkshopStoryNav(props: {collections?: MenuCollection[]}): React.ReactElement {
-  const {collections = []} = props
+const EMPTY_ARRAY: never[] = []
+
+export const WorkshopStoryNav = memo(function WorkshopStoryNav(props: {
+  collections?: MenuCollection[]
+}): React.ReactElement {
+  const {collections = EMPTY_ARRAY} = props
   const {scopes} = useWorkshop()
-  const menu = useMemo(() => buildMenu(collections, scopes), [collections, scopes])
+  const navNodes = useMemo(() => buildNavNodes(scopes, collections), [collections, scopes])
 
-  return useMemo(
-    () => (
-      <Card
-        borderRight
-        display={['none', 'none', 'block']}
-        flex={1}
-        overflow="auto"
-        style={{minWidth: 180, maxWidth: 300}}
-      >
-        {menu.type === 'list' && (
-          <Box padding={3}>
-            <Tree space={1}>
-              <MenuItems items={menu.items} />
-            </Tree>
-          </Box>
-        )}
-      </Card>
-    ),
-    [menu]
+  return (
+    <Card
+      borderRight
+      display={['none', 'none', 'block']}
+      flex={1}
+      overflow="auto"
+      style={{minWidth: 180, maxWidth: 300}}
+    >
+      <Box padding={3}>
+        <Tree space={1}>
+          <MenuItems items={navNodes} />
+        </Tree>
+      </Box>
+    </Card>
   )
-}
+})
 
-function MenuItems(props: {basePath?: string; items: Array<MenuList | MenuScope>}) {
+function MenuItems(props: {basePath?: string; items: NavNode[]}) {
   const {basePath = '', items} = props
-  const {location, scope: currentScope, story: currentStory, pushLocation} = useWorkshop()
+  const {location, pushLocation} = useWorkshop()
 
   const handleStoryClick = useCallback(
     (event: React.MouseEvent<HTMLLIElement>) => {
@@ -42,67 +41,48 @@ function MenuItems(props: {basePath?: string; items: Array<MenuList | MenuScope>
       const target = event.currentTarget
       const targetPath = target.getAttribute('data-path')
 
-      if (targetPath) {
-        pushLocation({path: targetPath})
-      }
+      if (targetPath) pushLocation({path: targetPath})
     },
     [pushLocation]
   )
 
-  return useMemo(() => {
-    if (items.length === 0) {
-      return null
-    }
+  return (
+    <>
+      {items.map((item, itemIndex) => {
+        const path = `${basePath}/${item.name}`
 
-    return (
-      <>
-        {items.map((item, itemIndex) => {
-          if (item.type === 'list') {
-            const path = `${basePath}/${item.name}`
+        if (item.type === 'scope') {
+          return (
+            <TreeItem
+              expanded={location.path.startsWith(path + '/')}
+              fontSize={1}
+              key={item.name}
+              padding={2}
+              text={item.title}
+              weight="semibold"
+            >
+              <MenuItems basePath={path} items={item.children} />
+            </TreeItem>
+          )
+        }
 
-            return (
-              <TreeItem
-                expanded={location.path.startsWith(path + '/')}
-                fontSize={1}
-                key={item.name || itemIndex}
-                padding={2}
-                text={item.title}
-                weight="semibold"
-              >
-                <MenuItems basePath={path} items={item.items} />
-              </TreeItem>
-            )
-          }
+        if (item.type === 'story') {
+          return (
+            <TreeItem
+              data-path={path}
+              fontSize={1}
+              href={path}
+              key={item.name}
+              onClick={handleStoryClick}
+              padding={2}
+              selected={path === location.path}
+              text={item.title}
+            />
+          )
+        }
 
-          if (item.type === 'scope') {
-            return (
-              <TreeItem
-                expanded={item.scope === currentScope}
-                fontSize={1}
-                key={item.name}
-                padding={2}
-                text={item.title}
-                weight="semibold"
-              >
-                {item.scope.stories.map((story) => (
-                  <TreeItem
-                    data-path={`/${item.scope.name}/${story.name}`}
-                    fontSize={1}
-                    href={`/${item.scope.name}/${story.name}`}
-                    key={story.name}
-                    onClick={handleStoryClick}
-                    padding={2}
-                    selected={currentStory === story}
-                    text={story.title}
-                  />
-                ))}
-              </TreeItem>
-            )
-          }
-
-          return <TreeItem key={itemIndex} text="unknown" />
-        })}
-      </>
-    )
-  }, [basePath, currentScope, currentStory, handleStoryClick, items, location.path])
+        return <TreeItem key={itemIndex} text="unknown" />
+      })}
+    </>
+  )
 }

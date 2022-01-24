@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`workshopStoryNav/navNodes should build menu 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "name": "story1",
+            "title": "Story 1",
+            "type": "story",
+          },
+          Object {
+            "children": Array [],
+            "name": "story2",
+            "title": "Story 3",
+            "type": "story",
+          },
+        ],
+        "name": "first",
+        "title": "First scope",
+        "type": "scope",
+      },
+    ],
+    "name": "lib1",
+    "title": "Library 1",
+    "type": "scope",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [],
+            "name": "story1",
+            "title": "Story 1",
+            "type": "story",
+          },
+          Object {
+            "children": Array [],
+            "name": "story2",
+            "title": "Story 3",
+            "type": "story",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "name": "story1",
+                "title": "Story 1",
+                "type": "story",
+              },
+              Object {
+                "children": Array [],
+                "name": "story2",
+                "title": "Story 3",
+                "type": "story",
+              },
+            ],
+            "name": "components",
+            "title": "Second components",
+            "type": "scope",
+          },
+        ],
+        "name": "first",
+        "title": "Second scope",
+        "type": "scope",
+      },
+    ],
+    "name": "lib2",
+    "title": "Library 2",
+    "type": "scope",
+  },
+]
+`;
