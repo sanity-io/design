@@ -1,5 +1,6 @@
 export * from './autocomplete'
 export * from './breadcrumbs'
+export * from './datetimeInput'
 export * from './dialog'
 export * from './hotkeys'
 export * from './menu'

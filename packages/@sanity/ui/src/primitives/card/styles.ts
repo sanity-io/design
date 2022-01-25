@@ -54,15 +54,27 @@ export function cardColorStyle(props: CardStyleProps & ThemeProps): FlattenSimpl
   return css`
     ${_colorVarsStyle(base, card.enabled, $checkered)}
 
+    --card-focus-ring-box-shadow: none;
+
     background-color: var(--card-bg-color);
     color: var(--card-fg-color);
+    box-shadow: var(--card-focus-ring-box-shadow);
+
+    outline: none;
+
+    &:focus {
+      --card-focus-ring-box-shadow: ${$focusRing
+        ? focusRingStyle({base, border, focusRing})
+        : undefined};
+    }
+
+    &:focus:not(:focus-visible) {
+      --card-focus-ring-box-shadow: ${$focusRing ? focusRingBorderStyle(border) : undefined};
+    }
 
     /* &:is(button) */
     &[data-as='button'] {
-      --card-focus-ring-box-shadow: none;
-
       cursor: default;
-      box-shadow: var(--card-focus-ring-box-shadow);
 
       &:disabled {
         ${_colorVarsStyle(base, card.disabled, $checkered)}
@@ -88,23 +100,12 @@ export function cardColorStyle(props: CardStyleProps & ThemeProps): FlattenSimpl
             }
           }
         }
-
-        &:focus {
-          --card-focus-ring-box-shadow: ${$focusRing
-            ? focusRingStyle({base, border, focusRing})
-            : undefined};
-        }
-
-        &:focus:not(:focus-visible) {
-          --card-focus-ring-box-shadow: ${$focusRing ? focusRingBorderStyle(border) : undefined};
-        }
       }
     }
 
     /* &:is(a) */
     &[data-as='a'] {
       cursor: pointer;
-      box-shadow: var(--card-focus-ring-box-shadow);
 
       &[data-disabled] {
         ${_colorVarsStyle(base, card.disabled, $checkered)}
@@ -129,16 +130,6 @@ export function cardColorStyle(props: CardStyleProps & ThemeProps): FlattenSimpl
               ${_colorVarsStyle(base, card.pressed, $checkered)}
             }
           }
-        }
-
-        &:focus {
-          --card-focus-ring-box-shadow: ${$focusRing
-            ? focusRingStyle({base, border, focusRing})
-            : undefined};
-        }
-
-        &:focus:not(:focus-visible) {
-          --card-focus-ring-box-shadow: ${$focusRing ? focusRingBorderStyle(border) : undefined};
         }
       }
     }
