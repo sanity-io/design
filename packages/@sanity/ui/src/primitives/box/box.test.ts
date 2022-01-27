@@ -1,7 +1,7 @@
-context('Primitives/Box', () => {
-  it('resizing window should hide and show responsive elements', () => {
-    cy.visit('http://localhost:9009/frame/?path=/primitives/box/responsive')
+import {browser} from '$test'
 
+describe('Box', () => {
+  it('resizing window should hide and show responsive elements', async () => {
     const sizes = [
       {viewport: [320, 600], css: {display: 'none', flex: '1 1 0%', boxSizing: 'content-box'}},
       {viewport: [360, 600], css: {display: 'block', flex: '2 1 0%', boxSizing: 'border-box'}},
@@ -14,12 +14,15 @@ context('Primitives/Box', () => {
 
     for (const size of sizes) {
       const {css, viewport} = size
+      const page = await browser.getPage('/primitives/box/responsive', {
+        viewport: {width: viewport[0], height: viewport[1]},
+      })
+      const $box = page.locator('#responsive-box')
+      const style = await $box.evaluate((el) => getComputedStyle(el))
 
-      cy.viewport(viewport[0], viewport[1])
-
-      cy.get('#responsive-box').should('have.css', 'display', css.display)
-      cy.get('#responsive-box').should('have.css', 'flex', css.flex)
-      cy.get('#responsive-box').should('have.css', 'boxSizing', css.boxSizing)
+      expect(style.display).toBe(css.display)
+      expect(style.flex).toBe(css.flex)
+      expect(style.boxSizing).toBe(css.boxSizing)
     }
   })
 })

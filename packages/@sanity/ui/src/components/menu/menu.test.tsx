@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 
 import React, {useCallback, useMemo} from 'react'
-import {render} from '../../../test'
 import {MenuContext, MenuContextValue} from './menuContext'
 import {useMenu} from './useMenu'
+import {render} from '$test'
 
 describe('components/menu', () => {
   describe('useMenu', () => {

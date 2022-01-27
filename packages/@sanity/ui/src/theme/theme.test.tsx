@@ -1,9 +1,9 @@
 import React from 'react'
-import {render} from '../../test'
 import {studioTheme} from './studioTheme'
 import {ThemeContext} from './themeContext'
 import {ThemeContextValue} from './types'
 import {useRootTheme} from './useRootTheme'
+import {render} from '$test'
 
 describe('theme', () => {
   describe('useRootTheme', () => {

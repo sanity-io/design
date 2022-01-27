@@ -24,6 +24,11 @@
         -webkit-font-smoothing: antialiased;
       }
     </style>
+    <script>
+      var appVersion = navigator.appVersion
+      var htmlElement = document.documentElement
+      if (appVersion.indexOf('Win') > -1) htmlElement.classList.add('windows')
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,8 +1,8 @@
 import React from 'react'
-import {render} from '../../../test'
 import {PortalContext} from './portalContext'
 import {PortalContextValue} from './types'
 import {usePortal} from './usePortal'
+import {render} from '$test'
 
 describe('utils/portal', () => {
   describe('usePortal', () => {

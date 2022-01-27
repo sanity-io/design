@@ -1,7 +1,7 @@
-context('Primitives/Grid', () => {
-  it('should have responsive styles', () => {
-    cy.visit('http://localhost:9009/frame/?path=/primitives/grid/responsive')
+import {browser} from '$test'
 
+describe('Grid', () => {
+  it('should have responsive styles', async () => {
     const sizes = [
       {
         viewport: [320, 600],
@@ -43,7 +43,7 @@ context('Primitives/Grid', () => {
         viewport: [1200, 1600],
         css: {
           gridGap: '20px 20px',
-          gridTemplateColumns: '203.188px 203.188px 203.188px 203.188px 203.188px',
+          gridTemplateColumns: '203.188px 203.203px 203.203px 203.203px 203.203px',
           gridTemplateRows: '11px 11px 11px 11px 11px',
         },
       },
@@ -62,7 +62,7 @@ context('Primitives/Grid', () => {
         css: {
           gridGap: '52px 52px',
           gridTemplateColumns:
-            '283.422px 283.422px 283.422px 283.422px 283.422px 283.422px 283.422px',
+            '283.422px 283.422px 283.438px 283.422px 283.438px 283.422px 283.438px',
           gridTemplateRows: '11px 11px 11px 11px 11px 11px 11px',
         },
       },
@@ -71,11 +71,15 @@ context('Primitives/Grid', () => {
     for (const size of sizes) {
       const {css, viewport} = size
 
-      cy.viewport(viewport[0], viewport[1])
+      const page = await browser.getPage('/primitives/grid/responsive', {
+        viewport: {width: viewport[0], height: viewport[1]},
+      })
 
-      cy.get('#responsive-grid').should('have.css', 'gridGap', css.gridGap)
-      cy.get('#responsive-grid').should('have.css', 'gridTemplateColumns', css.gridTemplateColumns)
-      cy.get('#responsive-grid').should('have.css', 'gridTemplateRows', css.gridTemplateRows)
+      const style = await page.locator('#responsive-grid').evaluate((el) => getComputedStyle(el))
+
+      expect(style.gridGap).toBe(css.gridGap)
+      expect(style.gridTemplateColumns).toBe(css.gridTemplateColumns)
+      expect(style.gridTemplateRows).toBe(css.gridTemplateRows)
     }
   })
 })

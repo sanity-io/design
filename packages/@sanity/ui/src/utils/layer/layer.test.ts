@@ -1,7 +1,7 @@
-context('Utils/Layer', () => {
-  it('should support responsize z-offset', () => {
-    cy.visit('http://localhost:9009/frame/?path=/utils/layer/responsive-z-offset')
+import {browser} from '$test'
 
+describe('Layer', () => {
+  it('should support responsize z-offset', async () => {
     const sizes = [
       {viewport: [320, 600], css: {zIndex: '1'}},
       {viewport: [360, 600], css: {zIndex: '2'}},
@@ -15,10 +15,13 @@ context('Utils/Layer', () => {
     for (const size of sizes) {
       const {css, viewport} = size
 
-      cy.viewport(viewport[0], viewport[1])
-      cy.reload()
+      const page = await browser.getPage('/utils/layer/responsive-z-offset', {
+        viewport: {width: viewport[0], height: viewport[1]},
+      })
 
-      cy.get('#responsive-layer').should('have.attr', 'style', `z-index: ${css.zIndex};`)
+      const style = await page.locator('#responsive-layer').evaluate((el) => getComputedStyle(el))
+
+      expect(style.zIndex).toBe(css.zIndex)
     }
   })
 })
