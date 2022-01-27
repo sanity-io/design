@@ -1,8 +1,8 @@
 import React from 'react'
-import {render} from '../../../test'
 import {ToastContext} from './toastContext'
 import {ToastContextValue} from './types'
 import {useToast} from './useToast'
+import {render} from '$test'
 
 describe('components/toast', () => {
   describe('useToast', () => {

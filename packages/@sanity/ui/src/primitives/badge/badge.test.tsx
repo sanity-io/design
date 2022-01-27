@@ -1,7 +1,7 @@
 import {axe} from 'jest-axe'
 import React from 'react'
-import {render} from '../../../test'
 import {Badge} from './badge'
+import {render} from '$test'
 
 describe('atoms/badge', () => {
   it('should have no violations (axe)', async () => {

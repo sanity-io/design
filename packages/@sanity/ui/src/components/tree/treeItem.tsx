@@ -145,6 +145,7 @@ export const TreeItem = memo(function TreeItem(
         data-tree-key={itemKey}
         data-ui="TreeItem"
         {...restProps}
+        id={idProp}
         onClick={handleClick}
         ref={rootRef}
         role="none"
@@ -176,6 +177,7 @@ export const TreeItem = memo(function TreeItem(
       data-tree-key={itemKey}
       {...restProps}
       aria-expanded={expanded}
+      id={idProp}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       ref={rootRef}

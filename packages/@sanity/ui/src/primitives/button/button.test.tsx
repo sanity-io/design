@@ -2,8 +2,8 @@ import {AddIcon} from '@sanity/icons'
 import {screen} from '@testing-library/react'
 import {axe} from 'jest-axe'
 import React from 'react'
-import {render} from '../../../test'
 import {Button, ButtonProps} from './button'
+import {render} from '$test'
 
 describe('atoms/button', () => {
   it('Axe: should have no violations', async () => {

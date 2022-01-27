@@ -1,6 +1,13 @@
 {
   "extends": "../../../tsconfig.settings",
-  "include": ["../ui-workshop/src/", "./src/", "./test/", "./typings/", "./workshop.config.ts"],
+  "include": [
+    "../../../test",
+    "../ui-workshop/src/",
+    "./src/",
+    "./test/",
+    "./typings/",
+    "./workshop.config.ts"
+  ],
   "compilerOptions": {
     "composite": true,
     "rootDir": "../../../",
@@ -14,7 +21,10 @@
 
       // NOTE: This is needed because there's a circular dependency between `@sanity/ui` and
       // `@sanity/ui-workshop`.
-      "@sanity/ui-workshop": ["./packages/@sanity/ui-workshop/src"]
+      "@sanity/ui-workshop": ["./packages/@sanity/ui-workshop/src"],
+
+      // For imports from root `test/` directory
+      "$test": ["./test"]
     }
   },
   "references": [{"path": "../color/tsconfig.lib.json"}, {"path": "../icons/tsconfig.lib.json"}]

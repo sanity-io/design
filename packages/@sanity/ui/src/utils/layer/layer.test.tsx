@@ -1,8 +1,8 @@
 import React from 'react'
-import {render} from '../../../test'
 import {LayerContext} from './layerContext'
 import {LayerContextValue} from './types'
 import {useLayer} from './useLayer'
+import {render} from '$test'
 
 describe('utils/layer', () => {
   describe('useLayer', () => {
