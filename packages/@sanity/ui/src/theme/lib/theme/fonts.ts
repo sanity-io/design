@@ -18,6 +18,13 @@ export interface ThemeFontSize {
   iconSize: number
   letterSpacing: number
   lineHeight: number
+
+  os?: {
+    windows?: {
+      ascenderHeight: number
+      descenderHeight: number
+    }
+  }
 }
 
 /**

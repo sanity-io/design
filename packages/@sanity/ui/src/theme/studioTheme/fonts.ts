@@ -1,8 +1,36 @@
 import {ThemeFonts} from '../lib/theme'
 
+const monospaceFontFamily = [
+  'ui-monospace',
+  '-apple-system-ui-monospace', // Mac
+  'SF Mono', // Mac
+  'Menlo', // Mac
+  'Consolas', // Windows
+  'Liberation Mono', // Linux
+  'monospace',
+  'Apple Color Emoji',
+  '"Segoe UI Emoji"',
+  '"Segoe UI Symbol"',
+]
+
+const sansSerifFontFamily = [
+  'ui-sans-serif',
+  '-apple-system', // Mac
+  'BlinkMacSystemFont', // Mac
+  'Roboto',
+  'Segoe UI', // Windows
+  'Helvetica', // Mac
+  'Arial',
+  'Liberation Sans', // Linux
+  'sans-serif', // Linux
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol',
+]
+
 export const fonts: ThemeFonts = {
   code: {
-    family: '-apple-system-ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace',
+    family: monospaceFontFamily.join(','),
     horizontalOffset: 0.075,
     weights: {
       regular: 400,
@@ -54,8 +82,7 @@ export const fonts: ThemeFonts = {
     ],
   },
   heading: {
-    family:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Liberation Sans", Helvetica, Arial, system-ui, sans-serif',
+    family: sansSerifFontFamily.join(','),
     horizontalOffset: 0.075,
     weights: {
       regular: 700,
@@ -115,8 +142,7 @@ export const fonts: ThemeFonts = {
     ],
   },
   label: {
-    family:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Liberation Sans", system-ui, sans-serif',
+    family: sansSerifFontFamily.join(','),
     horizontalOffset: 0.075,
     weights: {
       regular: 600,
@@ -168,8 +194,7 @@ export const fonts: ThemeFonts = {
     ],
   },
   text: {
-    family:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Liberation Sans", Helvetica, Arial, system-ui, sans-serif',
+    family: sansSerifFontFamily.join(','),
     horizontalOffset: 0.075,
     weights: {
       regular: 400,
@@ -185,6 +210,8 @@ export const fonts: ThemeFonts = {
         iconSize: 17,
         lineHeight: 13,
         letterSpacing: 0,
+
+        os: {windows: {ascenderHeight: 2, descenderHeight: 4}},
       },
       {
         ascenderHeight: 4,
@@ -193,6 +220,8 @@ export const fonts: ThemeFonts = {
         iconSize: 21,
         lineHeight: 17,
         letterSpacing: 0,
+
+        os: {windows: {ascenderHeight: 5, descenderHeight: 3}},
       },
       {
         ascenderHeight: 5,
@@ -201,6 +230,8 @@ export const fonts: ThemeFonts = {
         iconSize: 25,
         lineHeight: 21,
         letterSpacing: 0,
+
+        os: {windows: {ascenderHeight: 6, descenderHeight: 4}},
       },
       {
         ascenderHeight: 6,
@@ -209,6 +240,8 @@ export const fonts: ThemeFonts = {
         iconSize: 29,
         lineHeight: 25,
         letterSpacing: 0,
+
+        os: {windows: {ascenderHeight: 7, descenderHeight: 5}},
       },
       {
         ascenderHeight: 7,
@@ -217,6 +250,8 @@ export const fonts: ThemeFonts = {
         iconSize: 33,
         lineHeight: 29,
         letterSpacing: 0,
+
+        os: {windows: {ascenderHeight: 8, descenderHeight: 6}},
       },
     ],
   },

@@ -48,9 +48,22 @@ export function responsiveFont(
     },
   }
 
-  const resp = responsive(media, getResponsiveProp($size), (sizeIndex) =>
-    fontSize(sizes[sizeIndex] || defaultSize, horizontalOffset)
-  )
+  const resp = responsive(media, getResponsiveProp($size), (sizeIndex) => {
+    const size = sizes[sizeIndex] || defaultSize
+
+    if (size.os?.windows) {
+      const windowsSize = {...size, ...size.os?.windows}
+
+      return {
+        ...fontSize(size, horizontalOffset),
+        'html.windows &': fontSize(windowsSize, horizontalOffset),
+      }
+    }
+
+    return fontSize(size, horizontalOffset)
+  })
+
+  // console.log('resp', resp)
 
   return [base, ...resp]
 }
@@ -68,6 +81,10 @@ export function fontSize(size: ThemeFontSize, horizontalOffset?: number): CSSObj
     lineHeight: `calc(${lineHeight} / ${fontSize})`,
     letterSpacing: rem(letterSpacing),
     transform: `translateY(${rem(descenderHeight)})`,
+
+    // 'html.windows &': {
+    //   transform: `translateY(${rem(descenderHeight - 1)})`,
+    // },
 
     '&:before': {
       marginTop: `calc(${rem(0 - negHeight)} - 1px)`,
