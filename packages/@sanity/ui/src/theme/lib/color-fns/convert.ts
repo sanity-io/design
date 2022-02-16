@@ -1,9 +1,9 @@
-import {HSL, RGB} from './types'
+import {HSL, RGB, RGBA} from './types'
 
 /**
  * @internal
  */
-export function hexToRgb(hex: string): RGB {
+export function hexToRgb(hex: string): RGBA {
   if (hex.length === 4) {
     const hexR = hex.slice(1, 2)
     const hexG = hex.slice(2, 3)
@@ -13,6 +13,7 @@ export function hexToRgb(hex: string): RGB {
       r: parseInt(hexR + hexR, 16),
       g: parseInt(hexG + hexG, 16),
       b: parseInt(hexB + hexB, 16),
+      a: 1,
     }
   }
 
@@ -20,6 +21,7 @@ export function hexToRgb(hex: string): RGB {
     r: parseInt(hex.slice(1, 3), 16),
     g: parseInt(hex.slice(3, 5), 16),
     b: parseInt(hex.slice(5, 7), 16),
+    a: 1,
   }
 }
 
@@ -80,7 +82,7 @@ export function rgbToHsl({r, g, b}: RGB): HSL {
 /**
  * @internal
  */
-export function hslToRgb(hsl: HSL): RGB {
+export function hslToRgb(hsl: HSL): RGBA {
   // Must be fractions of 1
   const s = hsl.s / 100
   const l = hsl.l / 100
@@ -123,5 +125,6 @@ export function hslToRgb(hsl: HSL): RGB {
     r: Math.round((r + m) * 255),
     g: Math.round((g + m) * 255),
     b: Math.round((b + m) * 255),
+    a: 1,
   }
 }

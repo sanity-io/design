@@ -1,5 +1,6 @@
 import {hexToRgb, hslToRgb} from './convert'
-import {HSL, RGB} from './types'
+import {parseRgba} from './helpers'
+import {HSL, RGBA} from './types'
 
 const HEX_CHARS = '0123456789ABCDEFabcdef'
 
@@ -37,8 +38,8 @@ function parseHsl(str: string): HSL {
 /**
  * @internal
  */
-export function parseColor(color: unknown): RGB {
-  if (!color) return {r: 0, g: 0, b: 0}
+export function parseColor(color: unknown): RGBA {
+  if (!color) return {r: 0, g: 0, b: 0, a: 1}
 
   if (typeof color !== 'string') {
     throw new Error('parseColor: expected a string')
@@ -46,6 +47,10 @@ export function parseColor(color: unknown): RGB {
 
   if (isHex(color)) {
     return hexToRgb(color)
+  }
+
+  if (color.startsWith('rgba(')) {
+    return parseRgba(color)
   }
 
   if (color.startsWith('hsl(')) {
