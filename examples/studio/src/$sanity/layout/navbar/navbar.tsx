@@ -24,7 +24,7 @@ import {useLocation} from '$sanity/base'
 
 const Root = styled(Card)`
   position: relative;
-  /* border-bottom: 1px solid var(--card-hairline-soft-color); */
+  /* border-bottom: 1px solid var(--sanity-hairline-soft-color); */
   white-space: nowrap;
 `
 
@@ -139,7 +139,7 @@ export function Navbar({projectName}: {projectName: string}) {
                 href="/"
                 mode="bleed"
                 onClick={handleLinkClick}
-                text={<strong style={{color: 'var(--card-fg-color)'}}>{projectName}</strong>}
+                text={<strong style={{color: 'var(--sanity-fg-color)'}}>{projectName}</strong>}
               />
             </BrandingBox>
 

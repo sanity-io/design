@@ -1,4 +1,4 @@
-import {Autocomplete, Box, Card, SrOnly, ThemeColorProvider} from '@sanity/ui'
+import {Autocomplete, Box, Card, SrOnly, ThemeProvider} from '@sanity/ui'
 import React from 'react'
 import {useLocation} from '$sanity/base'
 import {Preview} from '$sanity/components'
@@ -50,7 +50,7 @@ export function Search() {
         </label>
       </SrOnly>
 
-      <ThemeColorProvider scheme="light">
+      <ThemeProvider scheme="light">
         <Autocomplete
           aria-describedby="navbar-search-label"
           border={false}
@@ -60,7 +60,7 @@ export function Search() {
           placeholder="Search documents…"
           renderOption={renderOption}
         />
-      </ThemeColorProvider>
+      </ThemeProvider>
     </>
   )
 }

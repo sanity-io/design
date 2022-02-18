@@ -94,6 +94,15 @@ export interface ResponsiveMarginProps {
   marginRight?: number | number[]
   marginBottom?: number | number[]
   marginLeft?: number | number[]
+
+  // shorthands
+  m?: number | number[]
+  mx?: number | number[]
+  my?: number | number[]
+  mt?: number | number[]
+  mr?: number | number[]
+  mb?: number | number[]
+  ml?: number | number[]
 }
 
 /**
@@ -107,6 +116,15 @@ export interface ResponsivePaddingProps {
   paddingRight?: number | number[]
   paddingBottom?: number | number[]
   paddingLeft?: number | number[]
+
+  // shorthands
+  p?: number | number[]
+  px?: number | number[]
+  py?: number | number[]
+  pt?: number | number[]
+  pr?: number | number[]
+  pb?: number | number[]
+  pl?: number | number[]
 }
 
 /**

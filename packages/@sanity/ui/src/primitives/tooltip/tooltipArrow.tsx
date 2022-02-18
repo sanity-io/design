@@ -48,11 +48,11 @@ const Root = styled.div`
 `
 
 const Border = styled.path`
-  fill: var(--card-shadow-outline-color);
+  fill: var(--sanity-shadow-outline-color);
 `
 
 const Shape = styled.path`
-  fill: var(--card-bg-color);
+  fill: var(--sanity-bg-color);
 `
 
 interface TooltipArrowProps {}

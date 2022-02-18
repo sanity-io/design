@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {ThemeProps} from '../../styles'
 import {responsiveRadiusStyle, ResponsiveRadiusStyleProps} from '../../styles/internal'
 import {useTheme} from '../../theme'
-import {ButtonMode, ButtonTextAlign, ButtonTone, FlexJustify} from '../../types'
+import {ButtonTextAlign, FlexJustify} from '../../types'
 import {Box} from '../box'
 import {Flex} from '../flex'
 import {Spinner} from '../spinner'
@@ -18,7 +18,7 @@ import {buttonBaseStyles, buttonColorStyles} from './styles'
 export interface ButtonProps extends ResponsivePaddingProps, ResponsiveRadiusProps {
   as?: React.ElementType | keyof JSX.IntrinsicElements
   fontSize?: number | number[]
-  mode?: ButtonMode
+  mode?: string
   icon?: React.ComponentType | React.ReactNode
   iconRight?: React.ComponentType | React.ReactNode
   justify?: FlexJustify | FlexJustify[]
@@ -30,12 +30,16 @@ export interface ButtonProps extends ResponsivePaddingProps, ResponsiveRadiusPro
   space?: number | number[]
   textAlign?: ButtonTextAlign
   text?: React.ReactNode
-  tone?: ButtonTone
+  tone?: string
   type?: 'button' | 'reset' | 'submit'
 }
 
 const Root = styled.button<
-  {$mode: ButtonMode; $tone: ButtonTone} & ResponsiveRadiusStyleProps & ThemeProps
+  {
+    $mode: string
+    $tone: string
+  } & ResponsiveRadiusStyleProps &
+    ThemeProps
 >(responsiveRadiusStyle, buttonBaseStyles, buttonColorStyles)
 
 const LoadingBox = styled.div`
@@ -47,7 +51,7 @@ const LoadingBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--card-bg-color);
+  background-color: var(--sanity-bg-color);
   border-radius: inherit;
   z-index: 1;
   box-shadow: inherit;
@@ -68,7 +72,7 @@ export const Button = forwardRef(function Button(
     iconRight,
     justify = 'center',
     loading,
-    mode = 'default',
+    mode = 'solid',
     padding = 3,
     paddingX,
     paddingY,
@@ -141,7 +145,7 @@ export const Button = forwardRef(function Button(
                   align={textAlign}
                   size={fontSize}
                   textOverflow="ellipsis"
-                  weight={theme.sanity.button.textWeight}
+                  weight={theme.button.textWeight}
                 >
                   {text}
                 </Text>

@@ -3,7 +3,7 @@ import {getResponsiveProp, responsive} from '../helpers'
 import {ThemeProps} from '../types'
 import {ResponsiveBorderStyleProps} from './types'
 
-const BORDER_VALUE = '1px solid var(--card-border-color)'
+const BORDER_VALUE = '1px solid var(--sanity-border-color)'
 
 export function responsiveBorderStyle(): Array<
   (props: ResponsiveBorderStyleProps & ThemeProps) => CSSObject[]

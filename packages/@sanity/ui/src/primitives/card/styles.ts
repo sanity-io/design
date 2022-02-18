@@ -19,7 +19,7 @@ export function cardBaseStyle(props: CardStyleProps & ThemeProps): FlattenSimple
     css`
       background-size: ${space[3]}px ${space[3]}px;
       background-position: 50% 50%;
-      background-image: var(--card-bg-image);
+      background-image: var(--sanity-bg-image);
     `}
 
     &[data-as='button'] {
@@ -46,57 +46,64 @@ export function cardBaseStyle(props: CardStyleProps & ThemeProps): FlattenSimple
 }
 
 export function cardColorStyle(props: CardStyleProps & ThemeProps): FlattenSimpleInterpolation {
-  const {$checkered, $focusRing, theme} = props
-  const {focusRing} = theme.sanity
-  const {base, card} = theme.sanity.color
-  const border = {width: 0, color: 'var(--card-border-color)'}
+  const {
+    $checkered,
+    $focusRing,
+    theme: {sanity: theme},
+  } = props
+  const {focusRing} = theme
+  // const {base, card} = theme.sanity.color
+  const border = {width: 0, color: 'var(--sanity-border-color)'}
+
+  const {mode} = theme.color
+  const color = mode.states
 
   return css`
-    ${_colorVarsStyle(base, card.enabled, $checkered)}
+    ${_colorVarsStyle(mode, color.enabled, $checkered)}
 
-    background-color: var(--card-bg-color);
-    color: var(--card-fg-color);
+    background-color: var(--sanity-bg-color);
+    color: var(--sanity-fg-color);
 
     /* &:is(button) */
     &[data-as='button'] {
-      --card-focus-ring-box-shadow: none;
+      --sanity-focus-ring-box-shadow: none;
 
       cursor: default;
-      box-shadow: var(--card-focus-ring-box-shadow);
+      box-shadow: var(--sanity-focus-ring-box-shadow);
 
       &:disabled {
-        ${_colorVarsStyle(base, card.disabled, $checkered)}
+        ${_colorVarsStyle(mode, color.disabled, $checkered)}
       }
 
       &:not(:disabled) {
         &[data-pressed] {
-          ${_colorVarsStyle(base, card.pressed, $checkered)}
+          ${_colorVarsStyle(mode, color.pressed, $checkered)}
         }
 
         &[data-selected] {
-          ${_colorVarsStyle(base, card.selected, $checkered)}
+          ${_colorVarsStyle(mode, color.selected, $checkered)}
         }
 
         @media (hover: hover) {
           &:not([data-pressed]):not([data-selected]) {
             &:hover {
-              ${_colorVarsStyle(base, card.hovered, $checkered)}
+              ${_colorVarsStyle(mode, color.hovered, $checkered)}
             }
 
             &:active {
-              ${_colorVarsStyle(base, card.pressed, $checkered)}
+              ${_colorVarsStyle(mode, color.pressed, $checkered)}
             }
           }
         }
 
         &:focus {
-          --card-focus-ring-box-shadow: ${$focusRing
-            ? focusRingStyle({base, border, focusRing})
+          --sanity-focus-ring-box-shadow: ${$focusRing
+            ? focusRingStyle({base: mode, border, focusRing})
             : undefined};
         }
 
         &:focus:not(:focus-visible) {
-          --card-focus-ring-box-shadow: ${$focusRing ? focusRingBorderStyle(border) : undefined};
+          --sanity-focus-ring-box-shadow: ${$focusRing ? focusRingBorderStyle(border) : undefined};
         }
       }
     }
@@ -104,45 +111,45 @@ export function cardColorStyle(props: CardStyleProps & ThemeProps): FlattenSimpl
     /* &:is(a) */
     &[data-as='a'] {
       cursor: pointer;
-      box-shadow: var(--card-focus-ring-box-shadow);
+      box-shadow: var(--sanity-focus-ring-box-shadow);
 
       &[data-disabled] {
-        ${_colorVarsStyle(base, card.disabled, $checkered)}
+        ${_colorVarsStyle(mode, color.disabled, $checkered)}
       }
 
       &:not([data-disabled]) {
         &[data-pressed] {
-          ${_colorVarsStyle(base, card.pressed, $checkered)}
+          ${_colorVarsStyle(mode, color.pressed, $checkered)}
         }
 
         &[data-selected] {
-          ${_colorVarsStyle(base, card.selected, $checkered)}
+          ${_colorVarsStyle(mode, color.selected, $checkered)}
         }
 
         @media (hover: hover) {
           &:not([data-pressed]):not([data-selected]) {
             &:hover {
-              ${_colorVarsStyle(base, card.hovered, $checkered)}
+              ${_colorVarsStyle(mode, color.hovered, $checkered)}
             }
 
             &:active {
-              ${_colorVarsStyle(base, card.pressed, $checkered)}
+              ${_colorVarsStyle(mode, color.pressed, $checkered)}
             }
           }
         }
 
         &:focus {
-          --card-focus-ring-box-shadow: ${$focusRing
-            ? focusRingStyle({base, border, focusRing})
+          --sanity-focus-ring-box-shadow: ${$focusRing
+            ? focusRingStyle({base: mode, border, focusRing})
             : undefined};
         }
 
         &:focus:not(:focus-visible) {
-          --card-focus-ring-box-shadow: ${$focusRing ? focusRingBorderStyle(border) : undefined};
+          --sanity-focus-ring-box-shadow: ${$focusRing ? focusRingBorderStyle(border) : undefined};
         }
       }
     }
 
-    ${theme.sanity.styles?.card?.root}
+    ${/* theme.styles?.card?.root */ {}}
   `
 }

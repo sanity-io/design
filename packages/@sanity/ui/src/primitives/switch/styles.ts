@@ -35,13 +35,18 @@ export function switchInputStyles(): FlattenSimpleInterpolation {
 
 /* Representation */
 export function switchRepresentationStyles(props: ThemeProps): FlattenSimpleInterpolation {
-  const {theme} = props
-  const {focusRing, input} = theme.sanity
-  const color = theme.sanity.color.button.default
+  const {
+    theme: {sanity: theme},
+  } = props
+  const {focusRing, input} = theme
+  const color = {
+    off: theme.color.tone.solid?.tones.default?.states,
+    on: theme.color.tone.solid?.tones.positive?.states,
+  }
 
   return css`
-    --switch-bg-color: ${color.default.enabled.bg};
-    --switch-fg-color: ${color.default.enabled.fg};
+    --switch-bg-color: ${color.off?.enabled.bg};
+    --switch-fg-color: ${color.off?.enabled.fg};
     --switch-box-shadow: none;
 
     &:not([hidden]) {
@@ -78,25 +83,25 @@ export function switchRepresentationStyles(props: ThemeProps): FlattenSimpleInte
     }
 
     input:checked + && {
-      --switch-bg-color: ${color.positive.enabled.bg};
-      --switch-fg-color: ${color.positive.enabled.fg};
+      --switch-bg-color: ${color.on?.enabled.bg};
+      --switch-fg-color: ${color.on?.enabled.fg};
     }
 
     @media (hover: hover) {
       input:not(:disabled):hover + && {
-        --switch-bg-color: ${color.default.hovered.bg};
-        --switch-fg-color: ${color.default.hovered.fg};
+        --switch-bg-color: ${color.off?.hovered.bg};
+        --switch-fg-color: ${color.off?.hovered.fg};
       }
 
       input:not(:disabled):checked:hover + && {
-        --switch-bg-color: ${color.positive.hovered.bg};
-        --switch-fg-color: ${color.positive.hovered.fg};
+        --switch-bg-color: ${color.on?.hovered.bg};
+        --switch-fg-color: ${color.on?.hovered.fg};
       }
     }
 
     input:not([data-read-only]):disabled + && {
-      --switch-bg-color: ${color.default.disabled.bg};
-      --switch-fg-color: ${color.default.disabled.fg};
+      --switch-bg-color: ${color.off?.disabled.bg};
+      --switch-fg-color: ${color.off?.disabled.fg};
     }
   `
 }

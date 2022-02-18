@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const Root = styled(Flex)`
   height: 100%;
-  border-left: 1px dashed var(--card-hairline-soft-color);
+  border-left: 1px dashed var(--sanity-hairline-soft-color);
 `
 
 const Content = styled(Card)`
@@ -47,7 +47,7 @@ function ChangeItem() {
           Title
         </Text>
 
-        <Box paddingLeft={2} style={{borderLeft: '1px solid var(--card-hairline-soft-color)'}}>
+        <Box paddingLeft={2} style={{borderLeft: '1px solid var(--sanity-hairline-soft-color)'}}>
           <Card padding={3} radius={2} tone="transparent">
             <Text>Diff</Text>
           </Card>

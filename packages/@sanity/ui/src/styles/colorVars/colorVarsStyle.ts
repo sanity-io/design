@@ -1,41 +1,48 @@
 import {CSSObject} from 'styled-components'
-import {ThemeColorBase, ThemeColorGenericState} from '../../theme'
+// import {ThemeColorBase, ThemeColorGenericState} from '../../theme'
+import {ThemeColorModeOptions, ThemeColorStateOptions} from '../../theme/v1/theme'
 
 /**
  * @internal
  */
 export function _colorVarsStyle(
-  base: ThemeColorBase,
-  color: ThemeColorGenericState,
+  mode: ThemeColorModeOptions | undefined,
+  state: ThemeColorStateOptions,
+  // base: ThemeColorBase,
+  // color: ThemeColorGenericState,
   checkered = false
 ): CSSObject {
+  if (!mode) return {}
+
+  const {focusRing, shadow} = mode.tones.default || {}
+
   return {
     // Base
     // @todo: rename to "--base-"?
-    '--card-shadow-outline-color': base.shadow.outline,
-    '--card-shadow-umbra-color': base.shadow.umbra,
-    '--card-shadow-penumbra-color': base.shadow.penumbra,
-    '--card-shadow-ambient-color': base.shadow.ambient,
-    '--card-focus-ring-color': base.focusRing,
+    '--sanity-shadow-outline-color': shadow?.outline,
+    '--sanity-shadow-umbra-color': shadow?.umbra,
+    '--sanity-shadow-penumbra-color': shadow?.penumbra,
+    '--sanity-shadow-ambient-color': shadow?.ambient,
+    '--sanity-focus-ring-color': focusRing,
 
     // Card
-    '--card-bg-color': color.bg,
-    '--card-bg-image': checkered
-      ? `repeating-conic-gradient(${color.bg} 0% 25%, ${color.bg2 || color.bg} 0% 50%)`
+    '--sanity-bg-color': state.bg,
+    '--sanity-bg-image': checkered
+      ? `repeating-conic-gradient(${state.bg} 0% 25%, ${state.bg2 || state.bg} 0% 50%)`
       : undefined,
-    '--card-fg-color': color.fg,
-    '--card-border-color': color.border,
-    '--card-muted-fg-color': color.muted?.fg,
-    '--card-accent-fg-color': color.accent?.fg,
-    '--card-link-fg-color': color.link?.fg,
-    '--card-code-bg-color': color.code?.bg,
-    '--card-code-fg-color': color.code?.fg,
-    '--card-skeleton-color-from': color.skeleton?.from,
-    '--card-skeleton-color-to': color.skeleton?.to,
+    '--sanity-fg-color': state.fg,
+    '--sanity-border-color': state.border,
+    // '--sanity-muted-fg-color': state.muted?.fg,
+    // '--sanity-accent-fg-color': state.accent?.fg,
+    '--sanity-link-fg-color': state.link?.fg,
+    '--sanity-code-bg-color': state.code?.bg,
+    '--sanity-code-fg-color': state.code?.fg,
+    '--sanity-skeleton-color-from': state.skeleton?.from,
+    '--sanity-skeleton-color-to': state.skeleton?.to,
 
     // @todo: deprecate
-    '--card-link-color': color.link?.fg,
-    '--card-hairline-soft-color': color.border,
-    '--card-hairline-hard-color': color.border,
+    '--sanity-link-color': state.link?.fg,
+    '--sanity-hairline-soft-color': state.border,
+    '--sanity-hairline-hard-color': state.border,
   }
 }

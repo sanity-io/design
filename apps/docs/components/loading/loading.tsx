@@ -14,7 +14,7 @@ const Root = styled.div<{$loading: boolean}>`
   &:before {
     content: '';
     display: block;
-    background-color: var(--card-bg-color);
+    background-color: var(--sanity-bg-color);
     opacity: 0.5;
     position: absolute;
     top: 0;

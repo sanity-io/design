@@ -10,9 +10,12 @@ export function checkboxBaseStyles(): FlattenSimpleInterpolation {
 }
 
 export function inputElementStyles(props: ThemeProps): FlattenSimpleInterpolation {
-  const {theme} = props
-  const color = theme.sanity.color.input
-  const {focusRing, input, radius} = theme.sanity
+  const {
+    theme: {sanity: theme},
+  } = props
+  const mode = theme.color.mode
+  const color = mode.tones.default.input
+  const {focusRing, input, radius} = theme
 
   return css`
     position: absolute;
@@ -33,12 +36,12 @@ export function inputElementStyles(props: ThemeProps): FlattenSimpleInterpolatio
       width: ${rem(input.checkbox.size)};
       box-sizing: border-box;
       box-shadow: ${focusRingBorderStyle({
-        color: color.default.enabled.border,
+        color: color.valid.enabled.border,
         width: input.border.width,
       })};
       border-radius: ${rem(radius[2])};
       line-height: 1;
-      background-color: ${color.default.enabled.bg};
+      background-color: ${color.valid.enabled?.bg};
 
       & > svg {
         display: block;
@@ -56,14 +59,14 @@ export function inputElementStyles(props: ThemeProps): FlattenSimpleInterpolatio
 
     &:not(:disabled):focus + span {
       box-shadow: ${focusRingStyle({
-        border: {width: input.border.width, color: color.default.enabled.border},
+        border: {width: input.border.width, color: color.valid.enabled.border},
         focusRing,
       })};
     }
 
     &:not(:disabled):focus:not(:focus-visible) + span {
       box-shadow: ${focusRingBorderStyle({
-        color: color.default.enabled.border,
+        color: color.valid.enabled.border,
         width: input.border.width,
       })};
     }
@@ -73,21 +76,21 @@ export function inputElementStyles(props: ThemeProps): FlattenSimpleInterpolatio
     }
 
     &[data-read-only] + span {
-      background-color: ${color.default.readOnly.bg};
+      background-color: ${color.valid.readOnly.bg};
       box-shadow: ${focusRingBorderStyle({
         width: input.border.width,
-        color: color.default.readOnly.border,
+        color: color.valid.readOnly.border,
       })};
-      color: ${color.default.readOnly.fg};
+      color: ${color.valid.readOnly.fg};
     }
 
     &:not([data-read-only]):disabled + span {
-      background-color: ${color.default.disabled.bg};
+      background-color: ${color.valid.disabled.bg};
       box-shadow: ${focusRingBorderStyle({
         width: input.border.width,
-        color: color.default.disabled.border,
+        color: color.valid.disabled.border,
       })};
-      color: ${color.default.disabled.fg};
+      color: ${color.valid.disabled.fg};
     }
 
     &:indeterminate + span > svg:last-child {

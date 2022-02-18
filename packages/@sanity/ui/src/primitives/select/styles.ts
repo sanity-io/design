@@ -41,26 +41,28 @@ function inputBaseStyle(props: ThemeProps): FlattenSimpleInterpolation {
 }
 
 function inputColorStyle(props: ThemeProps) {
-  const {theme} = props
-  const {focusRing, input} = theme.sanity
-  const color = theme.sanity.color.input
+  const {
+    theme: {sanity: theme},
+  } = props
+  const {focusRing, input} = theme
+  const color = theme.color.mode.input
 
   return css`
     /* enabled */
-    background-color: ${color.default.enabled.bg};
-    color: ${color.default.enabled.fg};
+    background-color: ${color.valid.enabled.bg};
+    color: ${color.valid.enabled.fg};
     box-shadow: ${focusRingBorderStyle({
-      color: color.default.enabled.border,
+      color: color.valid.enabled.border,
       width: input.border.width,
     })};
 
     /* hovered */
     @media (hover: hover) {
       &:not(:disabled):hover {
-        background-color: ${color.default.hovered.bg};
-        color: ${color.default.hovered.fg};
+        background-color: ${color.valid.hovered.bg};
+        color: ${color.valid.hovered.fg};
         box-shadow: ${focusRingBorderStyle({
-          color: color.default.hovered.border,
+          color: color.valid.hovered.border,
           width: input.border.width,
         })};
       }
@@ -69,27 +71,27 @@ function inputColorStyle(props: ThemeProps) {
     /* focused */
     &:not(:disabled):focus {
       box-shadow: ${focusRingStyle({
-        border: {width: input.border.width, color: color.default.enabled.border},
+        border: {width: input.border.width, color: color.valid.enabled.border},
         focusRing,
       })};
     }
 
     /* read-only */
     &[data-read-only] {
-      background-color: ${color.default.readOnly.bg};
-      color: ${color.default.readOnly.fg};
+      background-color: ${color.valid.readOnly.bg};
+      color: ${color.valid.readOnly.fg};
       box-shadow: ${focusRingBorderStyle({
-        color: color.default.readOnly.border,
+        color: color.valid.readOnly.border,
         width: input.border.width,
       })};
     }
 
     /* disabled */
     &:not([data-read-only]):disabled {
-      background-color: ${color.default.disabled.bg};
-      color: ${color.default.disabled.fg};
+      background-color: ${color.valid.disabled.bg};
+      color: ${color.valid.disabled.fg};
       box-shadow: ${focusRingBorderStyle({
-        color: color.default.disabled.border,
+        color: color.valid.disabled.border,
         width: input.border.width,
       })};
     }
@@ -123,8 +125,11 @@ function inputStyle(): Array<
 }
 
 function iconBoxStyle(props: ThemeProps): FlattenSimpleInterpolation {
-  const {theme} = props
-  const color = theme.sanity.color.input
+  const {
+    theme: {sanity: theme},
+  } = props
+
+  const color = theme.color.mode.input
 
   return css`
     pointer-events: none;
@@ -133,23 +138,23 @@ function iconBoxStyle(props: ThemeProps): FlattenSimpleInterpolation {
     right: 0;
 
     /* enabled */
-    --card-fg-color: ${color.default.enabled.fg};
+    --sanity-fg-color: ${color.valid.enabled.fg};
 
     /* hover */
     @media (hover: hover) {
       select:not(disabled):not(:read-only):hover + && {
-        --card-fg-color: ${color.default.hovered.fg};
+        --sanity-fg-color: ${color.valid.hovered.fg};
       }
     }
 
     /* disabled */
     select:disabled + && {
-      --card-fg-color: ${color.default.disabled.fg};
+      --sanity-fg-color: ${color.valid.disabled.fg};
     }
 
     /* read-only */
     select[data-read-only] + && {
-      --card-fg-color: ${color.default.readOnly.fg};
+      --sanity-fg-color: ${color.valid.readOnly.fg};
     }
   `
 }

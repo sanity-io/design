@@ -32,9 +32,10 @@ function avatarCounterBaseStyle(props: ThemeProps) {
     box-sizing: border-box;
     user-select: none;
     color: inherit;
-    color: var(--card-fg-color);
-    background: var(--card-bg-color);
-    box-shadow: 0 0 0 1px var(--card-bg-color), inset 0 0 0 1.5px var(--card-hairline-hard-color);
+    color: var(--sanity-fg-color);
+    background: var(--sanity-bg-color);
+    box-shadow: 0 0 0 1px var(--sanity-bg-color),
+      inset 0 0 0 1.5px var(--sanity-hairline-hard-color);
     padding: 0 ${rem(theme.sanity.space[2])};
 
     &:not([hidden]) {

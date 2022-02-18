@@ -10,7 +10,7 @@ export function codeEditorStyle(props: {theme: Theme}) {
   return css`
     vertical-align: top;
     height: 100%;
-    color: var(--card-code-fg-color);
+    color: var(--sanity-code-fg-color);
 
     &::selection {
       background: none;

@@ -3,14 +3,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 const TestCard = styled(Card)`
-  --card-fg-color: orange;
+  --sanity-fg-color: orange;
 
   [data-eq-min~='0'] > & {
-    --card-fg-color: green;
+    --sanity-fg-color: green;
   }
 
   [data-eq-min~='1'] > & {
-    --card-fg-color: blue;
+    --sanity-fg-color: blue;
   }
 `
 

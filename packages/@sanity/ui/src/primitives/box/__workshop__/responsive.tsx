@@ -10,7 +10,7 @@ export default function ResponsiveStory() {
         flex={[1, 2, 3, 4, 5, 6, 7]}
         padding={3}
         sizing={['content', 'border', 'content', 'border', 'content', 'border', 'content']}
-        style={{outline: '1px solid var(--card-border-color)'}}
+        style={{outline: '1px solid var(--sanity-border-color)'}}
       >
         <Text align="center" muted>
           This is a box with responsive props

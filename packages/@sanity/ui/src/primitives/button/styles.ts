@@ -2,7 +2,7 @@ import {css, CSSObject, FlattenSimpleInterpolation} from 'styled-components'
 import {ThemeProps} from '../../styles'
 import {_colorVarsStyle} from '../../styles/colorVars'
 import {focusRingBorderStyle, focusRingStyle} from '../../styles/internal'
-import {ButtonMode, ButtonTone} from '../../types'
+// import {ButtonMode, ButtonTone} from '../../types'
 
 /**
  * @internal
@@ -46,36 +46,82 @@ const buttonTheme = {border: {width: 1}}
  * @internal
  */
 export function buttonColorStyles(
-  props: {$mode: ButtonMode; $tone: ButtonTone} & ThemeProps
+  props: {
+    $mode: string
+    $tone: string
+    // $mode: ButtonMode; $tone: ButtonTone
+  } & ThemeProps
 ): CSSObject[] {
-  const {$mode, theme} = props
-  const {focusRing} = theme.sanity
-  const base = theme.sanity.color.base
-  const mode = theme.sanity.color.button[$mode] || theme.sanity.color.button.default
-  const color = mode[props.$tone] || mode.default
-  const border = {width: buttonTheme.border.width, color: 'var(--card-border-color)'}
+  const {
+    $mode,
+    $tone,
+    theme: {sanity: theme},
+  } = props
+  const {focusRing} = theme
+
+  // const base = theme.sanity.color.base
+  // const mode = theme.sanity.color.button[$mode] || theme.sanity.color.button.default
+  // const color = mode[props.$tone] || mode.default
+  const border = {width: buttonTheme.border.width, color: 'var(--sanity-border-color)'}
+
+  const {palette} = theme.color
+
+  if (!palette) throw new Error('buttonColorStyles: missing palette')
+
+  const tone = palette[$tone] || palette.default
+
+  if (!tone) throw new Error('buttonColorStyles: missing tone')
+
+  const mode = tone[$mode] || tone.default
+
+  // const {mode} = theme.color
+  const {states} = mode.tones[$tone] || mode.tones.default
+
+  // const {palette} = theme.color
+
+  // if (!palette) throw new Error('buttonColorStyles: missing palette')
+
+  // const tone = palette[$tone] || palette.default
+
+  // if (!tone) throw new Error('buttonColorStyles: missing tone')
+
+  // const mode = tone[$mode] || tone.default
+
+  if (!mode) {
+    console.log({$mode, palette})
+    throw new Error('buttonColorStyles: missing mode')
+  }
+
+  // mode.tones
+
+  // const {states} = mode || {}
+
+  if (!states) return [{}]
+
+  // const {mode} = theme.color
+  // const color = mode.tones.default.states
 
   return [
-    _colorVarsStyle(base, color.enabled),
+    _colorVarsStyle(mode, states.enabled),
     {
-      backgroundColor: 'var(--card-bg-color)',
-      color: 'var(--card-fg-color)',
+      backgroundColor: 'var(--sanity-bg-color)',
+      color: 'var(--sanity-fg-color)',
       boxShadow: focusRingBorderStyle(border),
-      '&:disabled, &[data-disabled="true"]': _colorVarsStyle(base, color.disabled),
+      '&:disabled, &[data-disabled="true"]': _colorVarsStyle(mode, states.disabled),
       "&:not([data-disabled='true'])": {
         '&:focus': {
-          boxShadow: focusRingStyle({base, border, focusRing}),
+          boxShadow: focusRingStyle({base: mode, border, focusRing}),
         },
         '&:focus:not(:focus-visible)': {
           boxShadow: focusRingBorderStyle(border),
         },
         '@media (hover: hover)': {
-          '&:hover': _colorVarsStyle(base, color.hovered),
-          '&:active': _colorVarsStyle(base, color.pressed),
+          '&:hover': _colorVarsStyle(mode, states.hovered),
+          '&:active': _colorVarsStyle(mode, states.pressed),
         },
-        '&[data-selected]': _colorVarsStyle(base, color.pressed),
+        '&[data-selected]': _colorVarsStyle(mode, states.pressed),
       },
     },
-    theme.sanity.styles?.button?.root,
+    // theme.styles?.button?.root,
   ].filter(Boolean) as CSSObject[]
 }

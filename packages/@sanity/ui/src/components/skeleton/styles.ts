@@ -12,11 +12,11 @@ const keyframe = keyframes`
 const animation = css`
   background-image: linear-gradient(
     to right,
-    var(--card-skeleton-color-from),
-    var(--card-skeleton-color-to),
-    var(--card-skeleton-color-from),
-    var(--card-skeleton-color-from),
-    var(--card-skeleton-color-from)
+    var(--sanity-skeleton-color-from),
+    var(--sanity-skeleton-color-to),
+    var(--sanity-skeleton-color-from),
+    var(--sanity-skeleton-color-from),
+    var(--sanity-skeleton-color-from)
   );
   background-position: 100%;
   background-size: 200% 100%;
@@ -40,11 +40,11 @@ export const skeletonStyle = css<{$animated: boolean; $visible: boolean}>`
       $animated
         ? animation
         : css`
-            background-color: var(--card-skeleton-color-from);
+            background-color: var(--sanity-skeleton-color-from);
           `}
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-    background-color: var(--card-skeleton-color-from);
+    background-color: var(--sanity-skeleton-color-from);
   }
 `

@@ -7,27 +7,29 @@ import {
   Inline,
   Stack,
   Text,
-  Theme,
+  // Theme,
   ThemeColorToneKey,
-  useRootTheme,
+  // useRootTheme,
 } from '@sanity/ui'
 import {useBoolean} from '@sanity/ui-workshop'
 import React from 'react'
 import styled, {css} from 'styled-components'
+import {ThemeProps} from '../../../styles'
+import {useTheme} from '../../../theme'
 
 const TextWithTone = styled(Text)<{$tone: ThemeColorToneKey}>(
-  ({$tone, theme}: {$tone: ThemeColorToneKey; theme: Theme}) => {
+  ({$tone, theme}: {$tone: ThemeColorToneKey} & ThemeProps) => {
     const tone = theme.sanity.color.solid[$tone]
 
     return css`
       &:not([data-selected]) {
-        --card-fg-color: ${tone ? tone.enabled.bg : undefined};
-        --card-muted-fg-color: ${tone ? tone.enabled.bg : undefined};
+        --sanity-fg-color: ${tone ? tone.enabled.bg : undefined};
+        --sanity-muted-fg-color: ${tone ? tone.enabled.bg : undefined};
       }
 
       [data-ui='Card']:disabled & {
-        --card-fg-color: inherit;
-        --card-muted-fg-color: inherit;
+        --sanity-fg-color: inherit;
+        --sanity-muted-fg-color: inherit;
       }
     `
   }
@@ -70,7 +72,7 @@ export default function SelectedStory() {
 }
 
 function Preview({selected}: {selected: boolean}) {
-  const theme = useRootTheme()
+  const theme = useTheme()
 
   return (
     <Flex>
@@ -81,14 +83,14 @@ function Preview({selected}: {selected: boolean}) {
         <TextWithTone
           data-selected={selected ? '' : undefined}
           muted
-          $tone={theme.tone === 'default' ? 'caution' : 'default'}
+          $tone={theme.color.config.tone === 'default' ? 'caution' : 'default'}
         >
           <EditIcon />
         </TextWithTone>
         <TextWithTone
           data-selected={selected ? '' : undefined}
           muted
-          $tone={theme.tone === 'default' ? 'positive' : 'default'}
+          $tone={theme.color.config.tone === 'default' ? 'positive' : 'default'}
         >
           <PublishIcon />
         </TextWithTone>

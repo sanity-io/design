@@ -80,8 +80,8 @@ function ColorTintPreview(props: {tint: ColorValue}) {
       radius={2}
       style={
         {
-          '--card-bg-color': tint.hex,
-          '--card-fg-color': hsl.l < 50 ? white.hex : black.hex,
+          '--sanity-bg-color': tint.hex,
+          '--sanity-fg-color': hsl.l < 50 ? white.hex : black.hex,
           cursor: 'pointer',
         } as any
       }

@@ -16,9 +16,9 @@ export interface KBDProps {
 
 function kbdStyle() {
   return css`
-    background: var(--card-bg-color);
+    background: var(--sanity-bg-color);
     font: inherit;
-    box-shadow: inset 0 0 0 1px var(--card-hairline-hard-color);
+    box-shadow: inset 0 0 0 1px var(--sanity-hairline-hard-color);
 
     &:not([hidden]) {
       display: inline-block;

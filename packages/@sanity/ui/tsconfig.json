@@ -6,7 +6,11 @@
     "rootDir": "./",
     "outDir": "./lib/dts/",
     "module": "ES2020",
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@sanity/ui": ["./src"]
+    }
   },
   "references": [{"path": "../color/tsconfig.lib.json"}, {"path": "../icons/tsconfig.lib.json"}]
 }

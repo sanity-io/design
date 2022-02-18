@@ -6,7 +6,9 @@ import {ResponsiveMarginStyleProps} from './types'
 export function responsiveMarginStyle(
   props: ResponsiveMarginStyleProps & ThemeProps
 ): CSSObject[][] {
-  const {theme} = props
+  const {
+    theme: {sanity: theme},
+  } = props
 
   return [
     getResponsiveSpace(theme, ['margin'], getResponsiveProp(props.$margin)),

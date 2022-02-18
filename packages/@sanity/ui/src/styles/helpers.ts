@@ -1,6 +1,7 @@
 import {CSSObject} from 'styled-components'
 import {EMPTY_ARRAY} from '../constants'
 import {Theme} from '../theme'
+// import {Theme} from '../theme'
 
 /**
  * @internal
@@ -64,7 +65,7 @@ export function getResponsiveSpace(
     return null
   }
 
-  return responsive(theme.sanity.media, spaceIndexes, (spaceIndex) =>
-    fillCSSObject(props, rem(theme.sanity.space[spaceIndex]))
+  return responsive(theme.media, spaceIndexes, (spaceIndex) =>
+    fillCSSObject(props, rem(theme.space[spaceIndex]))
   )
 }

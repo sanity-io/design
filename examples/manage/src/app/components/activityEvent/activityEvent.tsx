@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Root = styled(Card).attrs({forwardedAs: 'a'})`
   & + & {
-    border-top: 1px solid var(--card-hairline-soft-color);
+    border-top: 1px solid var(--sanity-hairline-soft-color);
   }
 `
 

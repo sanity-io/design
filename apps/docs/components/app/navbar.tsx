@@ -1,7 +1,7 @@
 import {gray, white} from '@sanity/color'
 import {MenuIcon, MoonIcon, SunIcon} from '@sanity/icons'
 import {SanityMonogram, SanityMonogramColor} from '@sanity/logos'
-import {Box, Button, Card, Flex, Text} from '@sanity/ui'
+import {Box, Button, Flex, Text} from '@sanity/ui'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import React, {useCallback, useMemo, useState} from 'react'
@@ -46,7 +46,7 @@ export function AppNavbar() {
   const handleMenuClose = useCallback(() => setMenuOpen(false), [])
 
   return (
-    <Card as="header" borderBottom padding={[2, 3, 4]}>
+    <Box as="header" borderBottom padding={[2, 3, 4]}>
       <Flex as="nav" align="center">
         <Flex align="center" flex={1}>
           <Link href="/" passHref>
@@ -59,7 +59,7 @@ export function AppNavbar() {
                 />
 
                 <Box marginLeft={3}>
-                  <Text weight="bold" style={{color: 'var(--card-fg-color)'}}>
+                  <Text weight="bold" style={{color: 'var(--sanity-fg-color)'}}>
                     UI
                   </Text>
                 </Box>
@@ -120,6 +120,6 @@ export function AppNavbar() {
 
         {menu && <NavDrawer menu={menu} onClose={handleMenuClose} open={menuOpen} />}
       </Flex>
-    </Card>
+    </Box>
   )
 }

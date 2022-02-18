@@ -17,7 +17,7 @@ export const Header = styled(Layer)`
     left: 0;
     right: 0;
     bottom: -1px;
-    border-bottom: 1px solid var(--card-hairline-soft-color);
+    border-bottom: 1px solid var(--sanity-hairline-soft-color);
   }
 `
 

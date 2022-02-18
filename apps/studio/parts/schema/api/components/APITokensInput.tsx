@@ -20,7 +20,7 @@ interface APITokensInputProps {
 
 const Code = styled(UICode)`
   & a {
-    color: var(--card-link-color);
+    color: var(--sanity-link-color);
 
     &:hover {
       text-decoration: underline;

@@ -8,29 +8,29 @@ export function textBaseStyle(
   const {weights} = theme.sanity.fonts.text
 
   return css`
-    color: var(--card-fg-color);
+    color: var(--sanity-fg-color);
 
     ${$accent &&
     css`
-      color: var(--card-accent-fg-color);
+      color: var(--sanity-accent-fg-color);
     `}
 
     ${$muted &&
     css`
-      color: var(--card-muted-fg-color);
+      color: var(--sanity-muted-fg-color);
     `}
 
     & code {
       font-family: ${theme.sanity.fonts.code.family};
       border-radius: 1px;
-      background-color: var(--card-code-bg-color);
-      color: var(--card-code-fg-color);
+      background-color: var(--sanity-code-bg-color);
+      color: var(--sanity-code-fg-color);
     }
 
     & a {
       text-decoration: none;
       border-radius: 1px;
-      color: var(--card-link-color);
+      color: var(--sanity-link-color);
       outline: none;
 
       @media (hover: hover) {
@@ -40,7 +40,7 @@ export function textBaseStyle(
       }
 
       &:focus {
-        box-shadow: 0 0 0 1px var(--card-bg-color), 0 0 0 3px var(--card-focus-ring-color);
+        box-shadow: 0 0 0 1px var(--sanity-bg-color), 0 0 0 3px var(--sanity-focus-ring-color);
       }
 
       &:focus:not(:focus-visible) {

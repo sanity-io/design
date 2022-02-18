@@ -1,12 +1,12 @@
 import React, {forwardRef} from 'react'
 import styled from 'styled-components'
 import {useResponsiveProp} from '../../hooks'
-import {responsive} from '../../styles'
-import {Theme, ThemeFontKey} from '../../theme'
+import {responsive, ThemeProps} from '../../styles'
+import {ThemeFontKey} from '../../theme'
 import {Skeleton, SkeletonProps} from './skeleton'
 
 const Root = styled(Skeleton)<{$size: number[]; $style: ThemeFontKey}>(
-  ({$size, $style, theme}: {$size: number[]; $style: ThemeFontKey; theme: Theme}) => {
+  ({$size, $style, theme}: {$size: number[]; $style: ThemeFontKey} & ThemeProps) => {
     const {media} = theme.sanity
     const font = theme.sanity.fonts[$style]
 

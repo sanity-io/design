@@ -14,7 +14,7 @@ const Root = styled(Layer).attrs({forwardedAs: 'aside'})`
   bottom: 0;
   max-width: 16em;
   width: calc(100% - 35px);
-  background-color: var(--card-shadow-penumbra-color);
+  background-color: var(--sanity-shadow-penumbra-color);
 `
 
 const Header = styled(Layer)`
@@ -27,7 +27,7 @@ const Header = styled(Layer)`
     left: 0;
     right: 0;
     bottom: -1px;
-    border-bottom: 1px solid var(--card-shadow-outline-color);
+    border-bottom: 1px solid var(--sanity-shadow-outline-color);
   }
 `
 

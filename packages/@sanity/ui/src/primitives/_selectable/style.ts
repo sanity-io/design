@@ -1,13 +1,13 @@
 import {css, FlattenSimpleInterpolation} from 'styled-components'
 import {ThemeProps} from '../../styles'
 import {_colorVarsStyle} from '../../styles/colorVars'
-import {SelectableTone} from '../../types/selectable'
+// import {SelectableTone} from '../../types/selectable'
 
 /**
  * @internal
  */
 export interface SelectableStyleProps {
-  $tone: SelectableTone
+  // $tone: SelectableTone
 }
 
 export function selectableBaseStyle(): FlattenSimpleInterpolation {
@@ -35,42 +35,49 @@ export function selectableBaseStyle(): FlattenSimpleInterpolation {
 export function selectableColorStyle(
   props: SelectableStyleProps & ThemeProps
 ): FlattenSimpleInterpolation {
-  const {$tone, theme} = props
-  const {base, muted, selectable} = theme.sanity.color
+  const {
+    // $tone,
+    theme: {sanity: theme},
+  } = props
+
+  const {mode} = theme.color
+  // const color = mode.states
+
+  // const {base, muted, selectable} = theme.sanity.color
   // @todo: remove use of `muted` here
-  const tone = selectable ? selectable[$tone] || selectable.default : muted[$tone] || muted.default
+  // const tone = selectable ? selectable[$tone] || selectable.default : muted[$tone] || muted.default
 
   return css`
-    ${_colorVarsStyle(base, tone.enabled)}
+    ${_colorVarsStyle(mode, mode.states.disabled)}
 
-    background-color: var(--card-bg-color);
-    color: var(--card-fg-color);
+    background-color: var(--sanity-bg-color);
+    color: var(--sanity-fg-color);
     outline: none;
 
     /* &:is(button) */
     &[data-as='button'] {
       &:disabled {
-        ${_colorVarsStyle(base, tone.disabled)}
+        ${_colorVarsStyle(mode, mode.states.disabled)}
       }
 
       &:not(:disabled) {
         &[aria-pressed='true'] {
-          ${_colorVarsStyle(base, tone.pressed)}
+          ${_colorVarsStyle(mode, mode.states.pressed)}
         }
 
         &[data-selected],
         &[aria-selected='true'] > & {
-          ${_colorVarsStyle(base, tone.selected)}
+          ${_colorVarsStyle(mode, mode.states.selected)}
         }
 
         @media (hover: hover) {
           &:not([data-selected]) {
             &:hover {
-              ${_colorVarsStyle(base, tone.hovered)}
+              ${_colorVarsStyle(mode, mode.states.hovered)}
             }
 
             &:active {
-              ${_colorVarsStyle(base, tone.pressed)}
+              ${_colorVarsStyle(mode, mode.states.pressed)}
             }
           }
         }
@@ -80,32 +87,32 @@ export function selectableColorStyle(
     /* &:is(a) */
     &[data-as='a'] {
       &[data-disabled] {
-        ${_colorVarsStyle(base, tone.disabled)}
+        ${_colorVarsStyle(mode, mode.states.disabled)}
       }
 
       &:not([data-disabled]) {
         &[data-pressed] {
-          ${_colorVarsStyle(base, tone.pressed)}
+          ${_colorVarsStyle(mode, mode.states.pressed)}
         }
 
         &[data-selected] {
-          ${_colorVarsStyle(base, tone.selected)}
+          ${_colorVarsStyle(mode, mode.states.selected)}
         }
 
         @media (hover: hover) {
           &:not([data-selected]) {
             &:hover {
-              ${_colorVarsStyle(base, tone.hovered)}
+              ${_colorVarsStyle(mode, mode.states.hovered)}
             }
 
             &:active {
-              ${_colorVarsStyle(base, tone.pressed)}
+              ${_colorVarsStyle(mode, mode.states.pressed)}
             }
           }
         }
       }
     }
 
-    ${theme.sanity.styles?.card?.root}
+    ${/* theme.styles?.card?.root */ {}}
   `
 }

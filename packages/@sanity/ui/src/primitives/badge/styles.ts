@@ -3,9 +3,15 @@ import {ThemeProps} from '../../styles'
 import {BadgeStyleProps} from './types'
 
 export function badgeStyle(props: BadgeStyleProps & ThemeProps): CSSObject {
-  const {$mode, $tone, theme} = props
-  const palette = theme.sanity.color[$mode === 'outline' ? 'muted' : 'solid']
-  const color = palette[$tone] || palette.default
+  const {
+    // $mode,
+    // $tone,
+    theme: {sanity: theme},
+  } = props
+  const color = theme.color.mode.states
+
+  // const palette = theme.color[$mode === 'outline' ? 'muted' : 'solid']
+  // const color = palette[$tone] || palette.default
 
   return {
     backgroundColor: color.enabled.bg,

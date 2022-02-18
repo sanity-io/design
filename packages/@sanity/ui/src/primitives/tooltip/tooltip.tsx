@@ -46,7 +46,7 @@ export const Tooltip = forwardRef(function Tooltip(
     placement = 'bottom',
     portal,
     scheme,
-    zOffset = theme.sanity.layer?.tooltip.zOffset,
+    zOffset = theme.layer?.tooltip.zOffset,
     ...restProps
   } = props
   const forwardedRef = useForwardedRef(ref)

@@ -6,7 +6,7 @@ import {ResponsivePaddingStyleProps} from './types'
 export function responsivePaddingStyle(
   props: ResponsivePaddingStyleProps & ThemeProps
 ): CSSObject[][] {
-  const {theme} = props
+  const {sanity: theme} = props.theme
 
   return [
     getResponsiveSpace(theme, ['padding'], getResponsiveProp(props.$padding)),

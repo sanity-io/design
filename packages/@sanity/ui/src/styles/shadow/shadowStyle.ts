@@ -13,10 +13,10 @@ function toBoxShadow(shadow: BoxShadow, color: string) {
 function shadowStyle(shadow: ThemeShadow | null): CSSObject {
   if (!shadow) return EMPTY_RECORD
 
-  const outline = `0 0 0 ${rem(1)} var(--card-shadow-outline-color)`
-  const umbra = toBoxShadow(shadow.umbra, 'var(--card-shadow-umbra-color)')
-  const penumbra = toBoxShadow(shadow.penumbra, 'var(--card-shadow-penumbra-color)')
-  const ambient = toBoxShadow(shadow.ambient, 'var(--card-shadow-ambient-color)')
+  const outline = `0 0 0 ${rem(1)} var(--sanity-shadow-outline-color)`
+  const umbra = toBoxShadow(shadow.umbra, 'var(--sanity-shadow-umbra-color)')
+  const penumbra = toBoxShadow(shadow.penumbra, 'var(--sanity-shadow-penumbra-color)')
+  const ambient = toBoxShadow(shadow.ambient, 'var(--sanity-shadow-ambient-color)')
 
   return {boxShadow: `${outline}, ${umbra}, ${penumbra}, ${ambient}`}
 }

@@ -17,9 +17,11 @@ export function radioBaseStyle(): FlattenSimpleInterpolation {
 }
 
 export function inputElementStyle(props: ThemeProps): FlattenSimpleInterpolation {
-  const {theme} = props
-  const {focusRing, input} = theme.sanity
-  const color = theme.sanity.color.input
+  const {
+    theme: {sanity: theme},
+  } = props
+  const {focusRing, input} = theme
+  const color = theme.color.mode.input
   const dist = (input.radio.size - input.radio.markSize) / 2
 
   return css`
@@ -44,9 +46,9 @@ export function inputElementStyle(props: ThemeProps): FlattenSimpleInterpolation
       height: ${rem(input.radio.size)};
       width: ${rem(input.radio.size)};
       border-radius: ${rem(input.radio.size / 2)};
-      background: ${color.default.enabled.bg};
+      background: ${color.valid.enabled.bg};
       box-shadow: ${focusRingBorderStyle({
-        color: color.default.enabled.border,
+        color: color.valid.enabled.border,
         width: input.border.width,
       })};
 
@@ -58,7 +60,7 @@ export function inputElementStyle(props: ThemeProps): FlattenSimpleInterpolation
         height: ${rem(input.radio.markSize)};
         width: ${rem(input.radio.markSize)};
         border-radius: ${rem(input.radio.markSize / 2)};
-        background: ${color.default.enabled.fg};
+        background: ${color.valid.enabled.fg};
         opacity: 0;
       }
     }
@@ -66,14 +68,14 @@ export function inputElementStyle(props: ThemeProps): FlattenSimpleInterpolation
     /* focused */
     &:not(:disabled):focus + span {
       box-shadow: ${focusRingStyle({
-        border: {width: input.border.width, color: color.default.enabled.border},
+        border: {width: input.border.width, color: color.valid.enabled.border},
         focusRing,
       })};
     }
 
     &:not(:disabled):focus:not(:focus-visible) + span {
       box-shadow: ${focusRingBorderStyle({
-        color: color.default.enabled.border,
+        color: color.valid.enabled.border,
         width: input.border.width,
       })};
     }
@@ -84,21 +86,21 @@ export function inputElementStyle(props: ThemeProps): FlattenSimpleInterpolation
 
     /* read only */
     &[data-read-only] + span {
-      box-shadow: 0 0 0 1px ${color.default.readOnly.border};
-      background: ${color.default.readOnly.bg};
+      box-shadow: 0 0 0 1px ${color.valid.readOnly.border};
+      background: ${color.valid.readOnly.bg};
 
       &::after {
-        background: ${color.default.readOnly.fg};
+        background: ${color.valid.readOnly.fg};
       }
     }
 
     /* disabled */
     &:not([data-read-only]):disabled + span {
-      box-shadow: 0 0 0 1px ${color.default.disabled.border};
-      background: ${color.default.disabled.bg};
+      box-shadow: 0 0 0 1px ${color.valid.disabled.border};
+      background: ${color.valid.disabled.bg};
 
       &::after {
-        background: ${color.default.disabled.fg};
+        background: ${color.valid.disabled.fg};
       }
     }
   `

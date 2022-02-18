@@ -6,18 +6,18 @@ import styled from 'styled-components'
 
 const Root = styled(Text)`
   & > a {
-    color: var(--card-muted-fg-color);
+    color: var(--sanity-muted-fg-color);
 
     @media (hover: hover) {
       &:hover {
-        color: var(--card-fg-color);
+        color: var(--sanity-fg-color);
         text-decoration: none;
       }
     }
   }
 
   &[aria-selected='true'] > a {
-    color: var(--card-link-color);
+    color: var(--sanity-link-color);
   }
 `
 

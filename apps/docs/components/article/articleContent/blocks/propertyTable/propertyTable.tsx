@@ -39,7 +39,7 @@ const PropertyBox = styled(Box)`
   overflow: auto;
 
   & + & {
-    border-top: 1px solid var(--card-hairline-soft-color);
+    border-top: 1px solid var(--sanity-hairline-soft-color);
   }
 `
 

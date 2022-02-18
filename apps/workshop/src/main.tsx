@@ -1,6 +1,6 @@
 import {
   studioTheme,
-  ThemeColorProvider,
+  // ThemeColorProvider,
   ThemeProvider,
   useGlobalKeyDown,
   usePrefersDark,
@@ -43,7 +43,7 @@ const WORKSHOP_COLLECTIONS: {name: string; title: string}[] = [
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${({theme}) => theme.sanity.color.base.bg}
+    background-color: ${({theme}) => theme.sanity.color.mode.tones.default.states.enabled.bg}
   }
 `
 
@@ -77,9 +77,9 @@ function Root() {
 
   return (
     <ThemeProvider scheme={scheme} theme={studioTheme}>
-      <ThemeColorProvider tone="transparent">
+      <ThemeProvider mode="muted">
         <GlobalStyle />
-      </ThemeColorProvider>
+      </ThemeProvider>
       <Workshop
         collections={WORKSHOP_COLLECTIONS}
         frameUrl="/frame/"

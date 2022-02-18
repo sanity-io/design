@@ -12,12 +12,12 @@ export function labelBaseStyle(
 
     ${$accent &&
     css`
-      color: var(--card-accent-fg-color);
+      color: var(--sanity-accent-fg-color);
     `}
 
     ${$muted &&
     css`
-      color: var(--card-muted-fg-color);
+      color: var(--sanity-muted-fg-color);
     `}
 
     & code {

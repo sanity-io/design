@@ -63,7 +63,7 @@ export function avatarRootStyle(props: AvatarRootStyleProps & ThemeProps): CSSOb
     position: 'relative',
     boxSizing: 'border-box',
     userSelect: 'none',
-    boxShadow: '0 0 0 1px var(--card-bg-color)',
+    boxShadow: '0 0 0 1px var(--sanity-bg-color)',
 
     '&[data-status="inactive"]': {
       opacity: 0.5,
@@ -121,13 +121,15 @@ export function responsiveAvatarSizeStyle(
 }
 
 export function avatarInitialsStyle(props: ThemeProps): CSSObject {
-  const {theme} = props
-  const {base} = theme.sanity.color
+  const {
+    theme: {sanity: theme},
+  } = props
+  const {fg} = theme.color.mode.states.enabled
 
   return {
     width: '100%',
     height: '100%',
-    color: base.fg,
+    color: fg,
     alignItems: 'center',
     justifyContent: 'center',
     textTransform: 'uppercase',
@@ -143,7 +145,7 @@ export function avatarInitialsStyle(props: ThemeProps): CSSObject {
 function avatarBgStrokeStyle(): CSSObject {
   return {
     strokeWidth: '4px',
-    stroke: 'var(--card-bg-color)',
+    stroke: 'var(--sanity-bg-color)',
   }
 }
 

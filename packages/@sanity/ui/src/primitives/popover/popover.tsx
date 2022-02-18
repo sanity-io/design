@@ -127,7 +127,7 @@ export const Popover = forwardRef(function Popover(
     tetherOffset,
     tone = 'inherit',
     width = 0,
-    zOffset = theme.sanity.layer?.popover.zOffset,
+    zOffset = theme.layer?.popover.zOffset,
     ...restProps
   } = props
   const forwardedRef = useForwardedRef(ref)

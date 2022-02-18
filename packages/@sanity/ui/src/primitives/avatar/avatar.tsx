@@ -64,10 +64,11 @@ export const Avatar = forwardRef(function Avatar(
   const as = ReactIs.isValidElementType(asProp) ? asProp : 'div'
   const size: AvatarSize[] = useResponsiveProp(sizeProp, [0])
   const theme = useTheme()
-  const color = theme.sanity.color.spot[colorKey] || theme.sanity.color.spot.gray
+  const state = theme.color.mode.tones.default.states.enabled
+  const color = state.spot[colorKey] || state.spot.gray
 
   // @todo: remove this
-  const avatarSize = theme.sanity.avatar.sizes[size[0]] || theme.sanity.avatar.sizes[0]
+  const avatarSize = theme.avatar.sizes[size[0]] || theme.avatar.sizes[0]
   const _sizeRem = avatarSize.size
   const _radius = _sizeRem / 2
 

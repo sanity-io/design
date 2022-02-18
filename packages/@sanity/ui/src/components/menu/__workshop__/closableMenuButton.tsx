@@ -19,7 +19,7 @@ export default function ClosableMenuButtonStory() {
                 <MenuItem text="Item 3" />
                 <MenuItem text="Item 4" />
               </Stack>
-              <Stack padding={1} style={{borderTop: '1px solid var(--card-border-color)'}}>
+              <Stack padding={1} style={{borderTop: '1px solid var(--sanity-border-color)'}}>
                 <Button
                   icon={AddIcon}
                   onClick={() => {

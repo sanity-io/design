@@ -66,7 +66,7 @@ function ReferenceVersionPage({
     <Stack
       padding={[2, 3, 4]}
       space={[1, 2, 3]}
-      // style={{borderBottom: '1px solid var(--card-border-color)'}}
+      // style={{borderBottom: '1px solid var(--sanity-border-color)'}}
     >
       <Select onChange={handleNameChange} value={params.name}>
         {packages.map((pkg) => (

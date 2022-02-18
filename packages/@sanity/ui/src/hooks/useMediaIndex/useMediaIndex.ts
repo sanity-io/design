@@ -7,8 +7,7 @@ import {_getMediaManager} from './lib/media'
  * @beta
  */
 export function useMediaIndex(): number {
-  const theme = useTheme()
-  const {media} = theme.sanity
+  const {media} = useTheme()
   const manager = useMemo(() => _getMediaManager(media), [media])
   const [index, setIndex] = useState(manager.getCurrentIndex)
 

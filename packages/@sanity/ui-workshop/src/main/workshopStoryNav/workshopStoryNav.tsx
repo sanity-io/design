@@ -1,4 +1,4 @@
-import {Box, Card, Tree, TreeItem} from '@sanity/ui'
+import {Box, Tree, TreeItem} from '@sanity/ui'
 import React, {useCallback, useMemo} from 'react'
 import {useWorkshop} from '../../useWorkshop'
 import {buildMenu} from './helpers'
@@ -11,12 +11,13 @@ export function WorkshopStoryNav(props: {collections?: MenuCollection[]}): React
 
   return useMemo(
     () => (
-      <Card
+      <Box
         borderRight
         display={['none', 'none', 'block']}
         flex={1}
         overflow="auto"
         style={{minWidth: 180, maxWidth: 300}}
+        tone="default"
       >
         {menu.type === 'list' && (
           <Box padding={3}>
@@ -25,7 +26,7 @@ export function WorkshopStoryNav(props: {collections?: MenuCollection[]}): React
             </Tree>
           </Box>
         )}
-      </Card>
+      </Box>
     ),
     [menu]
   )

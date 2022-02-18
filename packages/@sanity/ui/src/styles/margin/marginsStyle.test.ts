@@ -1,8 +1,10 @@
-import {studioTheme, Theme} from '../../theme'
+// import {studioTheme, Theme} from '../../theme'
+import {studioTheme} from '../../theme'
 import {responsiveMarginStyle} from './marginStyle'
 
-const {color, ...restTheme} = studioTheme
-const theme: Theme = {sanity: {...restTheme, color: color.light.default}}
+// const {color, ...restTheme} = studioTheme
+// const theme: Theme = {sanity: {...restTheme, color: color.light.default}}
+const theme = {sanity: studioTheme}
 
 describe('styles/margin', () => {
   it('should 1', () => {

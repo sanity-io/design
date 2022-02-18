@@ -22,7 +22,7 @@ export const ElementQuery = forwardRef(function ElementQuery(
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   const theme = useTheme()
-  const {children, media = theme.sanity.media, ...restProps} = props
+  const {children, media = theme.media, ...restProps} = props
   const [width, setWidth] = useState(() => window.innerWidth)
   const forwardedRef = useForwardedRef(ref)
   const [element, setElement] = useState<HTMLDivElement | null>(null)

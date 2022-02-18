@@ -150,7 +150,7 @@ const InnerAutocomplete = forwardRef(function InnerAutocomplete<
 
   const defaultRenderOption = useCallback(
     ({value}: BaseAutocompleteOption) => (
-      <Card data-as="button" padding={paddingProp} radius={2} tone="inherit">
+      <Card data-as="button" padding={paddingProp} radius={2}>
         <Text size={fontSize} textOverflow="ellipsis">
           {value}
         </Text>

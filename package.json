@@ -10,6 +10,7 @@
     "dev:docs": "lerna run --stream --scope 'sanity-design-{docs,studio}' dev",
     "dev:example-manage": "lerna run --stream --scope sanity-design-example-manage dev",
     "dev:example-studio": "lerna run --stream --scope sanity-design-example-studio dev",
+    "dev:example-themes": "lerna run --stream --scope sanity-design-example-themes dev",
     "dev:example-web": "lerna run --stream --scope sanity-design-example-web dev",
     "dev:studio": "lerna run --stream --scope sanity-design-studio dev",
     "dev:ui": "lerna run --stream --scope sanity-ui-workshop dev",

@@ -13,10 +13,8 @@ import {textBaseStyle} from './styles'
  * @public
  */
 export interface TextProps {
-  accent?: boolean
   align?: TextAlign | TextAlign[]
   as?: React.ElementType | keyof JSX.IntrinsicElements
-  muted?: boolean
   size?: number | number[]
   /**
    * Controls how overflowing text is treated.
@@ -47,16 +45,7 @@ export const Text = forwardRef(function Text(
   props: TextProps & Omit<React.HTMLProps<HTMLDivElement>, 'as' | 'size'>,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
-  const {
-    accent = false,
-    align,
-    children: childrenProp,
-    muted = false,
-    size = 2,
-    textOverflow,
-    weight,
-    ...restProps
-  } = props
+  const {align, children: childrenProp, size = 2, textOverflow, weight, ...restProps} = props
 
   let children = childrenProp
 
@@ -65,16 +54,7 @@ export const Text = forwardRef(function Text(
   }
 
   return (
-    <Root
-      data-ui="Text"
-      {...restProps}
-      $accent={accent}
-      $align={align}
-      $muted={muted}
-      ref={ref}
-      $size={size}
-      $weight={weight}
-    >
+    <Root data-ui="Text" {...restProps} $align={align} ref={ref} $size={size} $weight={weight}>
       <span>{children}</span>
     </Root>
   )

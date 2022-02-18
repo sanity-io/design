@@ -28,6 +28,6 @@ export interface ResponsiveTextAlignStyleProps {
 export interface ResponsiveFontStyleProps
   extends FontWeightStyleProps,
     ResponsiveFontSizeStyleProps {
-  $accent?: boolean
-  $muted?: boolean
+  // $accent?: boolean
+  // $muted?: boolean
 }

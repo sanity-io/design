@@ -10,12 +10,12 @@ export function headingBaseStyle(
   return css`
     ${$accent &&
     css`
-      color: var(--card-accent-fg-color);
+      color: var(--sanity-accent-fg-color);
     `}
 
     ${$muted &&
     css`
-      color: var(--card-muted-fg-color);
+      color: var(--sanity-muted-fg-color);
     `}
 
     & code {
@@ -26,7 +26,7 @@ export function headingBaseStyle(
     & a {
       text-decoration: none;
       border-radius: 1px;
-      color: var(--card-link-color);
+      color: var(--sanity-link-color);
       outline: none;
 
       @media (hover: hover) {
@@ -36,7 +36,7 @@ export function headingBaseStyle(
       }
 
       &:focus {
-        box-shadow: 0 0 0 1px var(--card-bg-color), 0 0 0 3px var(--card-focus-ring-color);
+        box-shadow: 0 0 0 1px var(--sanity-bg-color), 0 0 0 3px var(--sanity-focus-ring-color);
       }
 
       &:focus:not(:focus-visible) {

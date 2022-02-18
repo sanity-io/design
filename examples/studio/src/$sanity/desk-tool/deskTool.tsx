@@ -14,7 +14,7 @@ const Root = styled(Flex)`
 
   @media (min-width: 640px) {
     & > * + * {
-      border-left: 1px solid var(--card-hairline-soft-color);
+      border-left: 1px solid var(--sanity-hairline-soft-color);
     }
   }
 `

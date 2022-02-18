@@ -9,8 +9,11 @@ export interface ResponsiveDialogPositionStyleProps {
   $position: DialogPosition | DialogPosition[]
 }
 
-export function dialogStyle({theme}: ThemeProps): CSSObject {
-  const color = theme.sanity.color.base
+export function dialogStyle({theme: {sanity: theme}}: ThemeProps): CSSObject {
+  const base = theme.color.mode
+
+  // const base = state.base
+  // const color = theme.sanity.color.base
 
   return {
     '&:not([hidden])': {
@@ -24,7 +27,7 @@ export function dialogStyle({theme}: ThemeProps): CSSObject {
     alignItems: 'center',
     justifyContent: 'center',
     outline: 'none',
-    background: color.shadow.penumbra,
+    background: base.shadow.penumbra,
   }
 }
 

@@ -6,7 +6,7 @@ import {CommentSummary} from './comment'
 import {useApp} from '$components/app'
 
 const CommentBox = styled(Box)`
-  border-top: 1px solid var(--card-border-color);
+  border-top: 1px solid var(--sanity-border-color);
 
   & > *:first-child {
     margin-top: 0 !important;

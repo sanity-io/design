@@ -47,11 +47,11 @@ const Root = styled.div`
 `
 
 const BorderPath = styled.path`
-  fill: var(--card-shadow-outline-color);
+  fill: var(--sanity-shadow-outline-color);
 `
 
 const ShapePath = styled.path`
-  fill: var(--card-bg-color);
+  fill: var(--sanity-bg-color);
 `
 
 export const PopoverArrow = forwardRef(function PopoverArrow(

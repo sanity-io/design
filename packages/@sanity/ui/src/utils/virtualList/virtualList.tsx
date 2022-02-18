@@ -49,7 +49,7 @@ export const VirtualList = forwardRef(function VirtualList(
   ref: React.ForwardedRef<HTMLDivElement>
 ): React.ReactElement {
   const {as = 'div', gap = 0, getItemKey, items = [], onChange, renderItem, ...restProps} = props
-  const {space} = useTheme().sanity
+  const {space} = useTheme()
   const forwardedRef = useForwardedRef(ref)
   const wrapperRef = useRef<HTMLDivElement | null>(null)
   const [scrollTop, setScrollTop] = useState(0)

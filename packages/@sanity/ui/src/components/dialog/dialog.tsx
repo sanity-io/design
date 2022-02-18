@@ -107,7 +107,7 @@ const DialogHeader = styled(Card)`
     left: 0;
     right: 0;
     bottom: -1px;
-    border-bottom: 1px solid var(--card-hairline-soft-color);
+    border-bottom: 1px solid var(--sanity-hairline-soft-color);
   }
 `
 
@@ -121,7 +121,7 @@ const DialogContent = styled(Box)`
 const DialogFooter = styled(Box)`
   position: relative;
   z-index: 3;
-  border-top: 1px solid var(--card-hairline-soft-color);
+  border-top: 1px solid var(--sanity-hairline-soft-color);
 `
 
 const DialogCard = forwardRef(function DialogCard(
@@ -269,7 +269,7 @@ export const Dialog = forwardRef(function Dialog(
     position = dialog.position || 'fixed',
     scheme,
     width = 0,
-    zOffset = dialog.zOffset || theme.sanity.layer?.dialog.zOffset,
+    zOffset = dialog.zOffset || theme.layer?.dialog.zOffset,
     ...restProps
   } = props
   const preDivRef = useRef<HTMLDivElement | null>(null)

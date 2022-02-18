@@ -63,7 +63,7 @@ function AxeResultPreview(props: {icon: React.ComponentType; result: axe.Result}
   const {icon, result: node} = props
 
   return (
-    <Card padding={3} radius={1} shadow={1} tone="inherit">
+    <Card padding={3} radius={1} shadow={1}>
       <Flex>
         <Box marginRight={4}>
           <Text size={1}>{createElement(icon)}</Text>
@@ -91,7 +91,7 @@ function AxeResultPreview(props: {icon: React.ComponentType; result: axe.Result}
         ))}
       </Stack>
 
-      <Card marginTop={4} overflow="auto" padding={2} scheme="dark" tone="inherit">
+      <Card marginTop={4} overflow="auto" padding={2} scheme="dark">
         <Code language="json" size={0}>
           {JSON.stringify(node, null, 2)}
         </Code>

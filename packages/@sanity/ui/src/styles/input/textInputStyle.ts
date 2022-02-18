@@ -34,13 +34,23 @@ export function textInputRootStyle(): FlattenSimpleInterpolation {
 export function textInputBaseStyle(
   props: TextInputInputStyleProps & ThemeProps
 ): FlattenSimpleInterpolation {
-  const {theme, $weight} = props
-  const font = theme.sanity.fonts.text
-  const color = theme.sanity.color.input
+  const {
+    $weight,
+    theme: {sanity: theme},
+  } = props
+  // const {sanity: theme} = props.theme
+
+  // const {color, fonts} = props.theme.sanity
+  const font = theme.fonts.text
+  const color = theme.color.mode.input
+  // const {
+  //   color: {value: color},
+  // } = theme
+  // const color = theme.sanity.color.input
 
   return css`
-    --input-fg-color: ${color.default.enabled.fg};
-    --input-placeholder-color: ${color.default.enabled.placeholder};
+    --input-fg-color: ${color.valid.enabled.fg};
+    --input-placeholder-color: ${color.valid.enabled.placeholder};
 
     appearance: none;
     background: none;
@@ -78,14 +88,14 @@ export function textInputBaseStyle(
 
     /* enabled */
     &:not(:invalid):not(:disabled):not(:read-only) {
-      --input-fg-color: ${color.default.enabled.fg};
-      --input-placeholder-color: ${color.default.enabled.placeholder};
+      --input-fg-color: ${color.valid.enabled.fg};
+      --input-placeholder-color: ${color.valid.enabled.placeholder};
     }
 
     /* disabled */
     &:not(:invalid):disabled {
-      --input-fg-color: ${color.default.disabled.fg};
-      --input-placeholder-color: ${color.default.disabled.placeholder};
+      --input-fg-color: ${color.valid.disabled.fg};
+      --input-placeholder-color: ${color.valid.disabled.placeholder};
     }
 
     /* invalid */
@@ -96,8 +106,8 @@ export function textInputBaseStyle(
 
     /* readOnly */
     &:read-only {
-      --input-fg-color: ${color.default.readOnly.fg};
-      --input-placeholder-color: ${color.default.readOnly.placeholder};
+      --input-fg-color: ${color.valid.readOnly.fg};
+      --input-placeholder-color: ${color.valid.readOnly.placeholder};
     }
   `
 }
@@ -119,13 +129,18 @@ export function textInputFontSizeStyle(props: TextInputInputStyleProps & ThemePr
 export function textInputRepresentationStyle(
   props: TextInputRepresentationStyleProps & ThemeProps
 ): FlattenSimpleInterpolation {
-  const {$border, $hasPrefix, $hasSuffix, theme} = props
-  const {focusRing, input} = theme.sanity
-  const color = theme.sanity.color.input
+  const {
+    $border,
+    $hasPrefix,
+    $hasSuffix,
+    theme: {sanity: theme},
+  } = props
+  const {focusRing, input} = theme
+  const color = theme.color.mode.input
 
   return css`
-    --card-bg-color: ${color.default.enabled.bg};
-    --card-fg-color: ${color.default.enabled.fg};
+    --sanity-bg-color: ${color.valid.enabled.bg};
+    --sanity-fg-color: ${color.valid.enabled.fg};
     --input-box-shadow: none;
 
     position: absolute;
@@ -136,7 +151,7 @@ export function textInputRepresentationStyle(
     display: block;
     pointer-events: none;
     z-index: 0;
-    background-color: var(--card-bg-color);
+    background-color: var(--sanity-bg-color);
     box-shadow: var(--input-box-shadow);
 
     border-top-left-radius: ${$hasPrefix ? 0 : undefined};
@@ -147,14 +162,14 @@ export function textInputRepresentationStyle(
     /* enabled */
     *:not(:disabled) + && {
       --input-box-shadow: ${$border
-        ? focusRingBorderStyle({color: color.default.enabled.border, width: input.border.width})
+        ? focusRingBorderStyle({color: color.valid.enabled.border, width: input.border.width})
         : undefined};
     }
 
     /* invalid */
     *:not(:disabled):invalid + && {
-      --card-bg-color: ${color.invalid.enabled.bg};
-      --card-fg-color: ${color.invalid.enabled.fg};
+      --sanity-bg-color: ${color.invalid.enabled.bg};
+      --sanity-fg-color: ${color.invalid.enabled.fg};
       --input-box-shadow: ${$border
         ? focusRingBorderStyle({color: color.invalid.enabled.border, width: input.border.width})
         : 'none'};
@@ -164,7 +179,7 @@ export function textInputRepresentationStyle(
     *:not(:disabled):focus + && {
       --input-box-shadow: ${focusRingStyle({
         border: $border
-          ? {color: color.default.enabled.border, width: input.border.width}
+          ? {color: color.valid.enabled.border, width: input.border.width}
           : undefined,
         focusRing,
       })};
@@ -172,11 +187,11 @@ export function textInputRepresentationStyle(
 
     /* disabled */
     *:disabled + && {
-      --card-bg-color: ${color.default.disabled.bg};
-      --card-fg-color: ${color.default.disabled.fg};
+      --sanity-bg-color: ${color.valid.disabled.bg};
+      --sanity-fg-color: ${color.valid.disabled.fg};
       --input-box-shadow: ${$border
         ? focusRingBorderStyle({
-            color: color.default.disabled.border,
+            color: color.valid.disabled.border,
             width: input.border.width,
           })
         : 'none'};
@@ -185,14 +200,14 @@ export function textInputRepresentationStyle(
     /* hovered */
     @media (hover: hover) {
       *:not(:disabled):not(:read-only):not(:invalid):hover + && {
-        --card-bg-color: ${color.default.hovered.bg};
-        --card-fg-color: ${color.default.hovered.fg};
+        --sanity-bg-color: ${color.valid.hovered.bg};
+        --sanity-fg-color: ${color.valid.hovered.fg};
       }
 
       *:not(:disabled):not(:read-only):not(:invalid):not(:focus):hover + && {
         --input-box-shadow: ${$border
           ? focusRingBorderStyle({
-              color: color.default.hovered.border,
+              color: color.valid.hovered.border,
               width: input.border.width,
             })
           : 'none'};
@@ -201,8 +216,8 @@ export function textInputRepresentationStyle(
 
     /* readOnly */
     *:read-only + && {
-      --card-bg-color: ${color.default.readOnly.bg};
-      --card-fg-color: ${color.default.readOnly.fg};
+      --sanity-bg-color: ${color.valid.readOnly.bg};
+      --sanity-fg-color: ${color.valid.readOnly.fg};
     }
   `
 }

@@ -15,7 +15,7 @@ const Root = styled(Layer).attrs({forwardedAs: 'nav'})`
   top: 0;
   position: sticky;
   overflow: auto;
-  border-right: 1px solid var(--card-border-color);
+  border-right: 1px solid var(--sanity-border-color);
 `
 
 export function PageHeader({header, menu}: PageHeaderProps) {
