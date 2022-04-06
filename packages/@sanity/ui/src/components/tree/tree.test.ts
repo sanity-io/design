@@ -4,18 +4,20 @@ describe('Tree', () => {
   describe('Browser tests', () => {
     it('should …', async () => {
       const page = await browser.getPage('/components/tree/basic')
-      const $item_0_1 = page.locator('#item-0-1')
-      const $item_0_2 = page.locator('#item-0-2')
+      const $vegetables = page.locator('#vegetables')
+      const $grains = page.locator('#grains')
 
-      await $item_0_1.focus()
+      await $vegetables.focus()
+
+      await expect($vegetables).toHaveFocus()
 
       await page.keyboard.press('ArrowDown')
 
-      await expect($item_0_2).toHaveFocus()
+      await expect($grains).toHaveFocus()
 
       await page.keyboard.press('ArrowRight')
 
-      expect(await $item_0_2.getAttribute('aria-expanded')).toBe('true')
+      expect(await $grains.getAttribute('aria-expanded')).toBe('true')
 
       await page.keyboard.press('ArrowDown')
       await page.keyboard.press('ArrowDown')
@@ -23,7 +25,7 @@ describe('Tree', () => {
       await page.keyboard.press('ArrowLeft')
       await page.keyboard.press('ArrowLeft')
 
-      expect(await $item_0_2.getAttribute('aria-expanded')).toBe('false')
+      expect(await $grains.getAttribute('aria-expanded')).toBe('false')
     })
   })
 })
