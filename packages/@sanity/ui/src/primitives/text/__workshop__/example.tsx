@@ -1,4 +1,3 @@
-import {Card, Container, Flex, Text} from '@sanity/ui'
 import {useBoolean, useSelect, useText} from '@sanity/ui-workshop'
 import React from 'react'
 import styled from 'styled-components'
@@ -8,6 +7,10 @@ import {
   WORKSHOP_TEXT_SIZE_OPTIONS,
   WORKSHOP_TEXT_WEIGHT_OPTIONS,
 } from '../../../__workshop__/constants'
+import {Card} from '../../card'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Text} from '../text'
 
 const Debuggable = styled.div<{$debug?: boolean}>`
   box-shadow: ${(props) =>

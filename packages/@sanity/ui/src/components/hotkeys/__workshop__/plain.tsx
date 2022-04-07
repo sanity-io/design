@@ -1,5 +1,6 @@
-import {Flex, Hotkeys} from '@sanity/ui'
 import React from 'react'
+import {Flex} from '../../../primitives'
+import {Hotkeys} from '../hotkeys'
 
 export default function PlainStory() {
   return (

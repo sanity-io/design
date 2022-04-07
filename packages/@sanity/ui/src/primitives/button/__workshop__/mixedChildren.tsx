@@ -1,6 +1,7 @@
 import {AddIcon} from '@sanity/icons'
-import {Button, Flex} from '@sanity/ui'
 import React from 'react'
+import {Flex} from '../../flex'
+import {Button} from '../button'
 
 export default function MixedChildrenStory() {
   return (

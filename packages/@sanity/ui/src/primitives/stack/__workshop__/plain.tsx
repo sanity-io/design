@@ -1,7 +1,11 @@
-import {Card, Container, Flex, Stack, Text} from '@sanity/ui'
 import {useSelect} from '@sanity/ui-workshop'
 import React from 'react'
 import {WORKSHOP_SPACE_OPTIONS} from '../../../__workshop__/constants'
+import {Card} from '../../card'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Text} from '../../text'
+import {Stack} from '../stack'
 
 export default function PlainStory() {
   return (

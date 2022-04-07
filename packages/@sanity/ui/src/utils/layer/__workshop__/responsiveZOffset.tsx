@@ -1,5 +1,6 @@
-import {Card, Layer} from '@sanity/ui'
 import React from 'react'
+import {Card} from '../../../primitives'
+import {Layer} from '../layer'
 import {LayerDebugInfo} from './_debug'
 
 export default function ResponsiveZOffsetStory() {

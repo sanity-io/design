@@ -1,29 +1,24 @@
+import {useBoolean} from '@sanity/ui-workshop'
+import React, {createContext, useContext} from 'react'
+import {Box, Card, Flex, Grid, Stack, Text} from '../../primitives'
+import {CardTone} from '../../types'
 import {
-  Box,
-  Card,
-  CardTone,
-  Flex,
-  Grid,
-  Stack,
-  Text,
   ThemeColor,
   ThemeColorButton,
   ThemeColorButtonState,
   ThemeColorButtonStates,
   ThemeColorButtonTones,
+  ThemeColorCard,
   ThemeColorMuted,
   ThemeColorMutedTone,
-  ThemeColorProvider,
   ThemeColorScheme,
   ThemeColorSelectable,
   ThemeColorSelectableStates,
   ThemeColorSolid,
   ThemeColorSolidTone,
-  useRootTheme,
-} from '@sanity/ui'
-import {useBoolean} from '@sanity/ui-workshop'
-import React, {createContext, useContext} from 'react'
-import {ThemeColorCard} from '../lib/theme'
+} from '../lib/theme'
+import {ThemeColorProvider} from '../themeColorProvider'
+import {useRootTheme} from '../useRootTheme'
 
 interface Features {
   light: boolean

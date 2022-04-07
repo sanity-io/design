@@ -1,5 +1,7 @@
-import {Card, Layer, LayerProvider, Stack} from '@sanity/ui'
 import React from 'react'
+import {Card, Stack} from '../../../primitives'
+import {Layer} from '../layer'
+import {LayerProvider} from '../layerProvider'
 import {LayerDebugInfo} from './_debug'
 
 export default function MultipleRootsStory() {

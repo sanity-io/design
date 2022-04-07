@@ -1,25 +1,13 @@
 import {CloseIcon, SearchIcon} from '@sanity/icons'
-import {
-  Autocomplete,
-  BaseAutocompleteOption,
-  Box,
-  Button,
-  Card,
-  Flex,
-  Heading,
-  Label,
-  Layer,
-  Portal,
-  PortalProvider,
-  Skeleton,
-  Stack,
-  Text,
-  TextSkeleton,
-  useToast,
-} from '@sanity/ui'
 import {useBoolean} from '@sanity/ui-workshop'
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import {Box, Button, Card, Flex, Heading, Label, Stack, Text} from '../../../primitives'
+import {Layer, Portal, PortalProvider} from '../../../utils'
+import {Skeleton, TextSkeleton} from '../../skeleton'
+import {useToast} from '../../toast'
 import {countriesStore} from '../__mocks__/apiStore'
+import {Autocomplete} from '../autocomplete'
+import {BaseAutocompleteOption} from '../types'
 
 export default function Fullscreen() {
   const error = useBoolean('Error', false, 'Props')

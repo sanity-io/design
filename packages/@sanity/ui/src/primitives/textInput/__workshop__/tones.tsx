@@ -1,5 +1,10 @@
-import {Box, Card, Container, Stack, Text, TextInput} from '@sanity/ui'
 import React from 'react'
+import {Box} from '../../box'
+import {Card} from '../../card'
+import {Container} from '../../container'
+import {Stack} from '../../stack'
+import {Text} from '../../text'
+import {TextInput} from '../textInput'
 
 export default function TonesStory() {
   return (

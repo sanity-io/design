@@ -1,5 +1,4 @@
 import {icons} from '@sanity/icons'
-import {Button, Flex} from '@sanity/ui'
 import {useAction, useBoolean, useSelect, useText} from '@sanity/ui-workshop'
 import React from 'react'
 import {
@@ -11,6 +10,8 @@ import {
   WORKSHOP_TEXT_SIZE_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
 } from '../../../__workshop__/constants'
+import {Flex} from '../../flex'
+import {Button} from '../button'
 
 export default function ButtonStory() {
   const disabled = useBoolean('Disabled', false, 'Props')

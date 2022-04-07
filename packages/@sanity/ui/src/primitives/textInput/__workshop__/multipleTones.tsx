@@ -1,5 +1,7 @@
-import {Card, Stack, TextInput} from '@sanity/ui'
 import React from 'react'
+import {Card} from '../../card'
+import {Stack} from '../../stack'
+import {TextInput} from '../textInput'
 
 export default function MultipleTonesStory() {
   return (

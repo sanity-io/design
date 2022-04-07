@@ -1,5 +1,8 @@
-import {Card, Checkbox, Flex, Stack} from '@sanity/ui'
 import React from 'react'
+import {Card} from '../../card'
+import {Flex} from '../../flex'
+import {Stack} from '../../stack'
+import {Checkbox} from '../checkbox'
 
 export default function MultipleTonesStory() {
   return (

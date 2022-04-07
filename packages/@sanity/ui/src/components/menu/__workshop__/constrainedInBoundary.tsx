@@ -1,18 +1,11 @@
 import {ErrorOutlineIcon} from '@sanity/icons'
-import {
-  BoundaryElementProvider,
-  Box,
-  Button,
-  Card,
-  Flex,
-  Menu,
-  MenuButton,
-  MenuItem,
-  PopoverProps,
-  SelectableTone,
-  Text,
-} from '@sanity/ui'
 import React, {useMemo, useState} from 'react'
+import {Box, Button, Card, Flex, PopoverProps, Text} from '../../../primitives'
+import {SelectableTone} from '../../../types'
+import {BoundaryElementProvider} from '../../../utils'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuItem} from '../menuItem'
 
 const items: {tone: SelectableTone; message: string}[] = [
   {

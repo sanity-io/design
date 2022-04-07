@@ -1,6 +1,12 @@
-import {Box, Card, Container, Flex, Grid, Stack, Text} from '@sanity/ui'
 import React from 'react'
 import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../__workshop__/constants'
+import {Box} from '../../box'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Grid} from '../../grid'
+import {Stack} from '../../stack'
+import {Text} from '../../text'
+import {Card} from '../card'
 
 export default function AsButtonStory() {
   const tones = Object.entries(WORKSHOP_CARD_TONE_OPTIONS)

@@ -1,6 +1,10 @@
 import {CheckmarkIcon, ClockIcon, ExpandIcon, SearchIcon} from '@sanity/icons'
-import {Box, Button, Code, Menu, MenuButton, MenuDivider, MenuItem, Stack} from '@sanity/ui'
 import React, {useState} from 'react'
+import {Box, Button, Code, Stack} from '../../../primitives'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuDivider} from '../menuDivider'
+import {MenuItem} from '../menuItem'
 
 export default function SelectedItemStory() {
   const [selectedIndex, setSelectedIndex] = useState(0)

@@ -1,5 +1,8 @@
-import {Box, Flex, Switch, Text} from '@sanity/ui'
 import React, {useCallback, useState} from 'react'
+import {Box} from '../../box'
+import {Flex} from '../../flex'
+import {Text} from '../../text'
+import {Switch} from '../switch'
 
 export default function ExampleStory() {
   const [checked, setChecked] = useState<boolean | undefined>(undefined)

@@ -1,7 +1,9 @@
-import {Flex, Switch, useTheme} from '@sanity/ui'
 import {useBoolean, useNumber} from '@sanity/ui-workshop'
 import React, {useCallback, useMemo} from 'react'
 import {ThemeProvider} from 'styled-components'
+import {useTheme} from '../../../theme'
+import {Flex} from '../../flex'
+import {Switch} from '../switch'
 
 export default function PropsStory() {
   const checked = useBoolean('Checked', false)

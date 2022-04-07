@@ -1,6 +1,9 @@
 import {OkHandIcon, RocketIcon, SunIcon} from '@sanity/icons'
-import {Box, Card, Tab, TabList, TabPanel, Text} from '@sanity/ui'
 import React, {useState} from 'react'
+import {Box, Card, Text} from '../../../primitives'
+import {Tab} from '../tab'
+import {TabList} from '../tabList'
+import {TabPanel} from '../tabPanel'
 
 export default function ExampleStory() {
   const [tab, setTab] = useState('foo')

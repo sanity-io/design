@@ -1,5 +1,7 @@
-import {Box, Button, Inline, ToastProvider, useToast} from '@sanity/ui'
 import React from 'react'
+import {Box, Button, Inline} from '../../../primitives'
+import {ToastProvider} from '../toastProvider'
+import {useToast} from '../useToast'
 
 export default function HookStory() {
   const toast = useToast()

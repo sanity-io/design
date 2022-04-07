@@ -1,4 +1,3 @@
-import {Autocomplete, Box, Card, Container, Stack, Text} from '@sanity/ui'
 import {useBoolean, useSelect, useText} from '@sanity/ui-workshop'
 import {PerfTestProps, usePerfTest} from '@sanity/ui-workshop'
 import {fireEvent} from '@testing-library/dom'
@@ -9,7 +8,9 @@ import {
   WORKSHOP_SPACE_OPTIONS,
   WORKSHOP_TEXT_SIZE_OPTIONS,
 } from '../../../__workshop__/constants'
+import {Box, Card, Container, Stack, Text} from '../../../primitives'
 import countries from '../__fixtures__/countries'
+import {Autocomplete} from '../autocomplete'
 
 const typingPerfTest: PerfTestProps<HTMLInputElement> = {
   name: 'typing',

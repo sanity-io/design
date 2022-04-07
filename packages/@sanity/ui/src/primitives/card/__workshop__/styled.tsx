@@ -1,6 +1,8 @@
-import {Card, Flex, Text} from '@sanity/ui'
 import React from 'react'
 import styled from 'styled-components'
+import {Flex} from '../../flex'
+import {Text} from '../../text'
+import {Card} from '../card'
 
 const StyledCard = styled(Card).attrs({forwardedAs: 'ol'})``
 

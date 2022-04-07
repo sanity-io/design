@@ -1,5 +1,8 @@
-import {Box, Button, Dialog, LayerProvider, Menu, MenuButton, MenuItem} from '@sanity/ui'
 import React, {useState} from 'react'
+import {Box, Button} from '../../../primitives'
+import {LayerProvider} from '../../../utils'
+import {Menu, MenuButton, MenuItem} from '../../menu'
+import {Dialog} from '../dialog'
 
 export default function NestedStory() {
   const [open1] = useState(true)

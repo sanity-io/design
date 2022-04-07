@@ -1,5 +1,7 @@
-import {Card, Flex, Text} from '@sanity/ui'
 import React, {forwardRef} from 'react'
+import {Flex} from '../../flex'
+import {Text} from '../../text'
+import {Card} from '../card'
 
 const CustomLink = forwardRef(function CustomLink(
   props: {req: string} & Omit<React.HTMLProps<HTMLAnchorElement>, 'as' | 'href'>,

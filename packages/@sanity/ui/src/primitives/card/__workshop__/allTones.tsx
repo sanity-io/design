@@ -1,6 +1,10 @@
-import {Card, Container, Flex, Stack, Text} from '@sanity/ui'
 import React from 'react'
 import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../__workshop__/constants'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Stack} from '../../stack'
+import {Text} from '../../text'
+import {Card} from '../card'
 
 export default function AllTonesStory() {
   const tones = Object.entries(WORKSHOP_CARD_TONE_OPTIONS)

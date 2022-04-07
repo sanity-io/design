@@ -6,19 +6,13 @@ import {
   ImageIcon,
   TrashIcon,
 } from '@sanity/icons'
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Flex,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuGroup,
-  MenuItem,
-} from '@sanity/ui'
 import React from 'react'
+import {Box, Button, Card, Container, Flex} from '../../../primitives'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuDivider} from '../menuDivider'
+import {MenuGroup} from '../menuGroup'
+import {MenuItem} from '../menuItem'
 
 export default function MenuGroupRightStory() {
   return (
