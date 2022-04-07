@@ -1,5 +1,10 @@
-import {Box, Button, Card, Flex, Text, Tooltip} from '@sanity/ui'
 import React from 'react'
+import {Box} from '../../box'
+import {Button} from '../../button'
+import {Card} from '../../card'
+import {Flex} from '../../flex'
+import {Text} from '../../text'
+import {Tooltip} from '../tooltip'
 
 export default function PropsStory() {
   return (

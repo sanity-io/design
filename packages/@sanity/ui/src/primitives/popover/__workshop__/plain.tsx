@@ -1,4 +1,3 @@
-import {Button, Card, Popover, PortalProvider, Text} from '@sanity/ui'
 import {useBoolean, useSelect, useText} from '@sanity/ui-workshop'
 import React, {useState} from 'react'
 import {
@@ -7,6 +6,11 @@ import {
   WORKSHOP_RADIUS_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
 } from '../../../__workshop__/constants'
+import {PortalProvider} from '../../../utils'
+import {Button} from '../../button'
+import {Card} from '../../card'
+import {Text} from '../../text'
+import {Popover} from '../popover'
 
 export default function PlainStory() {
   const arrow = useBoolean('Arrow', true, 'Props')

@@ -1,5 +1,7 @@
-import {Card, Flex, Text} from '@sanity/ui'
 import React from 'react'
+import {Card} from '../../card'
+import {Text} from '../../text'
+import {Flex} from '../flex'
 
 export default function GapStory() {
   return (

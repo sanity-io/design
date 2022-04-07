@@ -1,5 +1,7 @@
-import {Box, Card, Tree, TreeItem, useRootTheme} from '@sanity/ui'
 import React from 'react'
+import {Tree, TreeItem} from '../../components'
+import {Box, Card} from '../../primitives'
+import {useRootTheme} from '../useRootTheme'
 
 export default function ColorStory() {
   const {theme} = useRootTheme()

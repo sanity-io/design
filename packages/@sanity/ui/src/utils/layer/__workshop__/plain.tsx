@@ -1,6 +1,8 @@
 import {CloseIcon} from '@sanity/icons'
-import {Box, Button, Card, Flex, Layer, LayerProvider, Stack, Text} from '@sanity/ui'
 import React, {useCallback, useState} from 'react'
+import {Box, Button, Card, Flex, Stack, Text} from '../../../primitives'
+import {Layer} from '../layer'
+import {LayerProvider} from '../layerProvider'
 import {LayerDebugInfo} from './_debug'
 
 export default function PlainStory() {

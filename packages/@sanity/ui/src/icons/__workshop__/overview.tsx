@@ -1,6 +1,6 @@
 import {Icon, icons, IconSymbol, SearchIcon} from '@sanity/icons'
-import {Box, Card, Code, Container, Flex, Heading, Stack, Text, TextInput} from '@sanity/ui'
 import React, {useCallback, useMemo, useState} from 'react'
+import {Box, Card, Code, Container, Flex, Heading, Stack, Text, TextInput} from '../../primitives'
 
 const packages = {
   icons: {

@@ -1,17 +1,10 @@
 import {LinkIcon} from '@sanity/icons'
-import {
-  Autocomplete,
-  BaseAutocompleteOption,
-  Box,
-  Button,
-  Card,
-  Code,
-  LayerProvider,
-  Stack,
-  Text,
-} from '@sanity/ui'
 import React, {useCallback, useEffect, useRef, useState} from 'react'
+import {Box, Button, Card, Code, Stack, Text} from '../../../primitives'
+import {LayerProvider} from '../../../utils'
 import {countriesStore} from '../__mocks__/apiStore'
+import {Autocomplete} from '../autocomplete'
+import {BaseAutocompleteOption} from '../types'
 
 export default function AsyncStory() {
   const [options, setOptions] = useState<BaseAutocompleteOption[]>([])

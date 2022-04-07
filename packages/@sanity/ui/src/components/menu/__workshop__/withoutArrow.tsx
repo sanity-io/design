@@ -1,5 +1,8 @@
-import {Box, Button, Menu, MenuButton, MenuItem, Stack} from '@sanity/ui'
 import React from 'react'
+import {Box, Button, Stack} from '../../../primitives'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuItem} from '../menuItem'
 
 export default function WithoutArrowStory() {
   return (

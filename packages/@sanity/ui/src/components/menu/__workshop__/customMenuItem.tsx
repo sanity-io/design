@@ -1,5 +1,9 @@
-import {Box, Card, LayerProvider, Menu, MenuDivider, MenuItem, Stack, Text} from '@sanity/ui'
 import React from 'react'
+import {Box, Card, Stack, Text} from '../../../primitives'
+import {LayerProvider} from '../../../utils'
+import {Menu} from '../menu'
+import {MenuDivider} from '../menuDivider'
+import {MenuItem} from '../menuItem'
 
 export default function CustomMenuItemStory() {
   return (

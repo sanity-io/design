@@ -1,6 +1,8 @@
-import {Box, Dialog, LayerProvider, Text} from '@sanity/ui'
 import {useAction} from '@sanity/ui-workshop'
 import React, {useEffect, useRef} from 'react'
+import {Box, Text} from '../../../primitives'
+import {LayerProvider} from '../../../utils'
+import {Dialog} from '../dialog'
 
 export default function OnScrollStory() {
   const ref = useRef<HTMLDivElement | null>(null)

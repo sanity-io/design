@@ -1,5 +1,9 @@
-import {Box, Button, Menu, MenuButton, MenuItem, Stack, useToast} from '@sanity/ui'
 import React, {useCallback} from 'react'
+import {Box, Button, Stack} from '../../../primitives'
+import {useToast} from '../../toast'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuItem} from '../menuItem'
 
 export default function OnCloseMenuButton() {
   const {push} = useToast()

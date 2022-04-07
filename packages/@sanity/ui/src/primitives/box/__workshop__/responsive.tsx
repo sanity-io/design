@@ -1,5 +1,6 @@
-import {Box, Text} from '@sanity/ui'
 import React from 'react'
+import {Text} from '../../text'
+import {Box} from '../box'
 
 export default function ResponsiveStory() {
   return (

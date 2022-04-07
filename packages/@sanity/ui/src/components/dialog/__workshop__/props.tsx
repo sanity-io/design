@@ -1,7 +1,9 @@
-import {Box, Button, Dialog, LayerProvider, Stack, Text} from '@sanity/ui'
 import {useBoolean, useSelect, useText} from '@sanity/ui-workshop'
 import React, {useCallback, useRef, useState} from 'react'
 import {WORKSHOP_WIDTH_OPTIONS} from '../../../__workshop__/constants'
+import {Box, Button, Stack, Text} from '../../../primitives'
+import {LayerProvider} from '../../../utils'
+import {Dialog} from '../dialog'
 
 export default function PropsStory() {
   const header = useText('Header', 'Props example', 'Props')

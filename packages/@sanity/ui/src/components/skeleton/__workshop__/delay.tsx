@@ -1,19 +1,9 @@
-import {
-  Box,
-  Card,
-  CodeSkeleton,
-  Container,
-  Flex,
-  HeadingSkeleton,
-  LabelSkeleton,
-  Skeleton,
-  Stack,
-  Text,
-  TextSkeleton,
-} from '@sanity/ui'
 import {useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
 import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../__workshop__/constants'
+import {Box, Card, Container, Flex, Stack, Text} from '../../../primitives'
+import {Skeleton} from '../skeleton'
+import {CodeSkeleton, HeadingSkeleton, LabelSkeleton, TextSkeleton} from '../textSkeleton'
 
 export default function SkeletonDelayStory() {
   const tone = useSelect('Tone', WORKSHOP_CARD_TONE_OPTIONS, '', 'Props') || 'default'

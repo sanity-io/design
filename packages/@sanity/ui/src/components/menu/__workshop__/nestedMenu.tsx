@@ -1,5 +1,9 @@
-import {Box, Button, Menu, MenuButton, MenuDivider, MenuItem, Stack} from '@sanity/ui'
 import React from 'react'
+import {Box, Button, Stack} from '../../../primitives'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuDivider} from '../menuDivider'
+import {MenuItem} from '../menuItem'
 
 export default function NestedMenuItems() {
   return (

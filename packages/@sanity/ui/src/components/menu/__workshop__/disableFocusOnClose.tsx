@@ -1,7 +1,10 @@
 import {SelectIcon} from '@sanity/icons'
-import {Button, Flex, Menu, MenuButton, MenuItem} from '@sanity/ui'
 import {useBoolean} from '@sanity/ui-workshop'
 import React from 'react'
+import {Button, Flex} from '../../../primitives'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuItem} from '../menuItem'
 
 export default function DisableFocusOnCloseStory() {
   const disableRestoreFocusOnClose = useBoolean('Disable restore focus on close', false)

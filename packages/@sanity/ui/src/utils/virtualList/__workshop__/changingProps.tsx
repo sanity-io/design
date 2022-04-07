@@ -1,5 +1,6 @@
-import {Box, Card, Text, VirtualList} from '@sanity/ui'
 import React, {useCallback, useState} from 'react'
+import {Box, Card, Text} from '../../../primitives'
+import {VirtualList} from '../virtualList'
 
 const data = Array.from(new Array(1000)).map((_, key) => ({key}))
 

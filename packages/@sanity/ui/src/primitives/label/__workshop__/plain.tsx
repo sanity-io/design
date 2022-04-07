@@ -1,4 +1,3 @@
-import {Flex, Label} from '@sanity/ui'
 import {useSelect, useText} from '@sanity/ui-workshop'
 import React from 'react'
 import {
@@ -6,6 +5,8 @@ import {
   WORKSHOP_FONT_WEIGHT_OPTIONS,
   WORKSHOP_TEXT_OVERFLOW_OPTIONS,
 } from '../../../__workshop__/constants'
+import {Flex} from '../../flex'
+import {Label} from '../label'
 
 export default function PlainStory() {
   const size = useSelect('Size', WORKSHOP_LABEL_FONT_SIZE_OPTIONS, undefined, 'Props')

@@ -1,4 +1,6 @@
 import {icons, IconSymbol} from '@sanity/icons'
+import {TextInputType} from '../primitives'
+import {ThemeColorSpotKey, ThemeColorToneKey, ThemeFontWeightKey} from '../theme'
 import {
   AvatarSize,
   BadgeMode,
@@ -11,11 +13,7 @@ import {
   FlexJustify,
   Placement,
   TextAlign,
-  TextInputType,
-  ThemeColorSpotKey,
-  ThemeColorToneKey,
-  ThemeFontWeightKey,
-} from '@sanity/ui'
+} from '../types'
 
 export const WORKSHOP_AVATAR_SIZE_OPTIONS: {[key: string]: AvatarSize} = {
   '0 (default)': 0,

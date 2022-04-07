@@ -1,8 +1,11 @@
 import {SearchIcon} from '@sanity/icons'
-import {Box, Card, LayerProvider, Menu, MenuItem} from '@sanity/ui'
 import {useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
 import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../__workshop__/constants'
+import {Box, Card} from '../../../primitives'
+import {LayerProvider} from '../../../utils'
+import {Menu} from '../menu'
+import {MenuItem} from '../menuItem'
 
 export default function TonesStory() {
   const disabled = useBoolean('Disabled', false, 'Props')

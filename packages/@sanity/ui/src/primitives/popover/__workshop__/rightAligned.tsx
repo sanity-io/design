@@ -1,6 +1,12 @@
 import {EllipsisVerticalIcon} from '@sanity/icons'
-import {Box, Button, Card, Flex, Popover, Text, useClickOutside} from '@sanity/ui'
 import React, {useCallback, useState} from 'react'
+import {useClickOutside} from '../../../hooks'
+import {Box} from '../../box'
+import {Button} from '../../button'
+import {Card} from '../../card'
+import {Flex} from '../../flex'
+import {Text} from '../../text'
+import {Popover} from '../popover'
 
 export default function RightAlignedStory() {
   const [open, setOpen] = useState(false)

@@ -1,19 +1,15 @@
 import {EditIcon, PublishIcon} from '@sanity/icons'
-import {
-  Box,
-  Card,
-  Container,
-  Flex,
-  Inline,
-  Stack,
-  Text,
-  Theme,
-  ThemeColorToneKey,
-  useRootTheme,
-} from '@sanity/ui'
 import {useBoolean} from '@sanity/ui-workshop'
 import React from 'react'
 import styled, {css} from 'styled-components'
+import {Theme, ThemeColorToneKey, useRootTheme} from '../../../theme'
+import {Box} from '../../box'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Inline} from '../../inline'
+import {Stack} from '../../stack'
+import {Text} from '../../text'
+import {Card} from '../card'
 
 const TextWithTone = styled(Text)<{$tone: ThemeColorToneKey}>(
   ({$tone, theme}: {$tone: ThemeColorToneKey; theme: Theme}) => {

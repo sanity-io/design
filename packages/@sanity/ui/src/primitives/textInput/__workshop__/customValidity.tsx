@@ -1,6 +1,10 @@
-import {Button, Card, Container, Stack, TextInput} from '@sanity/ui'
 import {useText} from '@sanity/ui-workshop'
 import React from 'react'
+import {Button} from '../../button'
+import {Card} from '../../card'
+import {Container} from '../../container'
+import {Stack} from '../../stack'
+import {TextInput} from '../textInput'
 
 export default function CustomValidityStory() {
   const customValidity = useText('Custom validity', 'Invalid value', 'Props') || undefined

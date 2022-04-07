@@ -1,6 +1,7 @@
-import {Box, Card, ElementQuery, Text} from '@sanity/ui'
 import React from 'react'
 import styled from 'styled-components'
+import {Box, Card, Text} from '../../../primitives'
+import {ElementQuery} from '../elementQuery'
 
 const TestCard = styled(Card)`
   --card-fg-color: orange;

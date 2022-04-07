@@ -1,13 +1,10 @@
-import {
-  Button,
-  Flex,
-  LayerProvider,
-  Placement,
-  Popover,
-  ThemeColorToneKey,
-  useLayer,
-} from '@sanity/ui'
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import {ThemeColorToneKey} from '../../../theme'
+import {Placement} from '../../../types'
+import {LayerProvider, useLayer} from '../../../utils'
+import {Button} from '../../button'
+import {Flex} from '../../flex'
+import {Popover} from '../popover'
 
 export default function RecursiveStory() {
   return (

@@ -1,6 +1,8 @@
-import {Box, Stack, Text} from '@sanity/ui'
 import React from 'react'
 import styled from 'styled-components'
+import {Box} from '../../box'
+import {Stack} from '../../stack'
+import {Text} from '../text'
 
 const Wrapper = styled.div<{$fontFamily: string}>`
   display: inline-block;

@@ -1,6 +1,7 @@
-import {Box, Button, Dialog, Text} from '@sanity/ui'
 import {useAction, useBoolean} from '@sanity/ui-workshop'
 import React from 'react'
+import {Box, Button, Text} from '../../../primitives'
+import {Dialog} from '../dialog'
 
 export default function AutoFocusStory() {
   const autoFocus = useBoolean('Auto-focus', true, 'Props')

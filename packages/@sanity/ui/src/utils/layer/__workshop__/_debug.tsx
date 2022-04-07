@@ -1,5 +1,6 @@
-import {Code, useLayer} from '@sanity/ui'
 import React from 'react'
+import {Code} from '../../../primitives'
+import {useLayer} from '../useLayer'
 
 export function LayerDebugInfo() {
   const layer = useLayer()

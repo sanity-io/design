@@ -1,5 +1,9 @@
-import {Card, Code, Container, Flex, Grid} from '@sanity/ui'
 import React from 'react'
+import {Card} from '../../card'
+import {Code} from '../../code'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Grid} from '../grid'
 
 export default function ResponsiveStory() {
   return (

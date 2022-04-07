@@ -1,6 +1,10 @@
 import {AddCircleIcon} from '@sanity/icons'
-import {Box, Card, Flex, Stack, Text} from '@sanity/ui'
 import React from 'react'
+import {Box} from '../../box'
+import {Card} from '../../card'
+import {Flex} from '../../flex'
+import {Stack} from '../../stack'
+import {Text} from '../text'
 
 export default function OpticalAlignment() {
   return (

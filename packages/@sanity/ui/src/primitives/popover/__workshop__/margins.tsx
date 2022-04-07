@@ -1,5 +1,10 @@
-import {Box, Card, Container, Flex, Popover, Text} from '@sanity/ui'
 import React from 'react'
+import {Box} from '../../box'
+import {Card} from '../../card'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Text} from '../../text'
+import {Popover} from '../popover'
 
 export default function MarginsStory() {
   return (

@@ -1,5 +1,6 @@
-import {Flex, KBD} from '@sanity/ui'
 import React from 'react'
+import {Flex} from '../../flex'
+import {KBD} from '../kbd'
 
 export default function PlainStory() {
   return (

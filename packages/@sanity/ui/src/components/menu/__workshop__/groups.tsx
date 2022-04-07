@@ -1,17 +1,12 @@
-import {
-  Box,
-  Button,
-  Card,
-  Inline,
-  LayerProvider,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuGroup,
-  MenuItem,
-} from '@sanity/ui'
 import {useAction} from '@sanity/ui-workshop'
 import React from 'react'
+import {Box, Button, Card, Inline} from '../../../primitives'
+import {LayerProvider} from '../../../utils'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuDivider} from '../menuDivider'
+import {MenuGroup} from '../menuGroup'
+import {MenuItem} from '../menuItem'
 
 export default function GroupsStory() {
   return (

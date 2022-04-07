@@ -1,5 +1,8 @@
-import {Button, Flex, Menu, MenuButton, MenuItem, Text} from '@sanity/ui'
 import React, {forwardRef} from 'react'
+import {Button, Flex, Text} from '../../../primitives'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuItem} from '../menuItem'
 
 const CustomLink = forwardRef(function CustomLink(
   props: {req: string} & Omit<React.HTMLProps<HTMLAnchorElement>, 'as' | 'href'>,

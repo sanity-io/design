@@ -1,5 +1,6 @@
-import {Card, Stack, Text, useMediaIndex} from '@sanity/ui'
 import React from 'react'
+import {Card, Stack, Text} from '../../../primitives'
+import {useMediaIndex} from '../useMediaIndex'
 
 export default function TestStory() {
   const mediaIndex = useMediaIndex()
