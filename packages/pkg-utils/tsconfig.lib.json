@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.settings",
+  "include": ["./src/", "./typings/"],
+  "exclude": ["./src/**/__fixtures__/", "./src/**/*.test.ts", "./src/**/*.test.tsx"],
+  "compilerOptions": {
+    "composite": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./lib/dts/",
+    "declarationDir": "./lib/dts/",
+    "rootDir": "./"
+  }
+}

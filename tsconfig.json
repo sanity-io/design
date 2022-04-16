@@ -21,6 +21,8 @@
     {"path": "./packages/@sanity/tsdoc-to-portable-text/"},
     {"path": "./packages/@sanity/tsdoc-to-portable-text/tsconfig.lib.json"},
     {"path": "./packages/@sanity/ui/"},
-    {"path": "./packages/@sanity/ui-workshop/"}
+    {"path": "./packages/@sanity/ui-workshop/"},
+
+    {"path": "./packages/pkg-utils"}
   ]
 }

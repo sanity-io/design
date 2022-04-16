@@ -1,5 +1,5 @@
 {
-  "packages": ["apps/*", "examples/*", "packages/@sanity/*"],
+  "packages": ["apps/*", "examples/*", "packages/@sanity/*", "packages/pkg-utils"],
   "version": "independent",
   "useWorkspaces": true,
   "npmClient": "yarn"
