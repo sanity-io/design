@@ -8,11 +8,16 @@
   ],
   "compilerOptions": {
     "composite": true,
+    "emitDeclarationOnly": true,
     "rootDir": "./",
     "outDir": "./lib/workshop",
     "declarationDir": "./lib/workshop",
     "module": "ES2020",
     "jsx": "react"
   },
-  "references": [{"path": "../ui/tsconfig.lib.json"}, {"path": "../ui-workshop/tsconfig.lib.json"}]
+  "references": [
+    {"path": "../color/tsconfig.lib.json"},
+    {"path": "../icons/tsconfig.lib.json"},
+    {"path": "../ui-workshop/tsconfig.lib.json"}
+  ]
 }

@@ -1,9 +1,17 @@
 {
   "extends": "../../../tsconfig.settings",
-  "include": ["./src/", "./test/", "./typings/"],
-  "exclude": ["./src/**/__workshop__/"],
+  "include": ["./src/", "./typings/"],
+  "exclude": [
+    "./src/**/__fixtures__/",
+    "./src/**/__mocks__/",
+    "./src/**/__workshop__/",
+    "./src/**/*.test.ts",
+    "./src/**/*.test.tsx"
+  ],
   "compilerOptions": {
     "composite": true,
+    "emitDeclarationOnly": true,
+    "sourceMap": false,
     "rootDir": "./",
     "outDir": "./lib/dts/",
     "declarationDir": "./lib/dts/",
@@ -11,12 +19,13 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "$test": ["../../../test"]
+      "$test": ["../../../test/"]
     }
   },
   "references": [
     {"path": "../color/tsconfig.lib.json"},
     {"path": "../icons/tsconfig.lib.json"},
+    {"path": "./tsconfig.test.json"},
     {"path": "./tsconfig.workshop.json"}
   ]
 }
