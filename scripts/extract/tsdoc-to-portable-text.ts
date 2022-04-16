@@ -1,6 +1,12 @@
 import path from 'path'
+import {ExtractorMessage} from '@microsoft/api-extractor'
 import createSanityClient from '@sanity/client'
-import {extract, SanityDocumentValue, transform} from '@sanity/tsdoc-to-portable-text'
+import {
+  extract,
+  ExtractorMessage,
+  SanityDocumentValue,
+  transform,
+} from '@sanity/tsdoc-to-portable-text'
 import chalk from 'chalk'
 import {readJSONFile} from './helpers'
 
@@ -29,12 +35,13 @@ async function extractPackage(name: string, currPackageDoc?: SanityDocumentValue
   const packageJsonPath = path.resolve(packagePath, 'package.json')
   const pkg = await readJSONFile(packageJsonPath)
 
-  const result = await extract('lib/dts/src/index.d.ts', {
-    packagePath,
+  const results = await extract(packagePath, {
     tsconfigPath: 'tsconfig.extract.json',
   })
 
-  for (const msg of result.messages) {
+  const messages = results.reduce<ExtractorMessage[]>((acc, x) => acc.concat(x.messages), [])
+
+  for (const msg of messages) {
     const sourceFilePath = msg.sourceFilePath && path.relative(ROOT_PATH, msg.sourceFilePath)
 
     if (msg.logLevel === 'error') {
@@ -62,13 +69,13 @@ async function extractPackage(name: string, currPackageDoc?: SanityDocumentValue
     }
   }
 
-  const hasErrors = result.messages.filter((msg) => msg.logLevel === 'error').length
+  const hasErrors = messages.filter((msg) => msg.logLevel === 'error').length
 
   if (hasErrors > 0) {
     process.exit(1)
   }
 
-  const docs = transform(result, {package: {version: pkg.version}, currPackageDoc})
+  const docs = transform(results, {package: {version: pkg.version}, currPackageDoc})
 
   return docs
 }
