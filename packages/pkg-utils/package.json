@@ -1,0 +1,71 @@
+{
+  "private": true,
+  "name": "pkg-utils",
+  "version": "0.0.0-development",
+  "source": "./src/index.ts",
+  "main": "./lib/pkg-utils.js",
+  "module": "./lib/pkg-utils.module.js",
+  "types": "./lib/dts/src/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "require": "./lib/pkg-utils.js",
+      "default": "./lib/pkg-utils.modern.js"
+    },
+    "./pkg-utils-cli": {
+      "source": "./src/cli/main.ts",
+      "require": "./lib/pkg-utils-cli.js"
+    }
+  },
+  "scripts": {
+    "build": "node -r esbuild-register src/cli/main bundle --target node --tsconfig tsconfig.lib.json --validate",
+    "clean": "rimraf build lib",
+    "prebuild": "yarn clean",
+    "test": "jest",
+    "watch": "node -r esbuild-register src/cli/main bundle --target node --tsconfig tsconfig.lib.json --watch"
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "brotli-size": "^4.0.0",
+    "cac": "^6.7.12",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.5.3",
+    "cpx": "^1.5.0",
+    "globby": "^13.1.1",
+    "pretty-bytes": "^6.0.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.74.1",
+    "rollup-plugin-esbuild": "^4.9.1",
+    "semver": "^7.3.7"
+  },
+  "devDependencies": {
+    "@types/semver": "^7.3.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanity-io/design.git"
+  },
+  "keywords": [
+    "npm-package",
+    "utils",
+    "bundle",
+    "transpile",
+    "validate"
+  ],
+  "author": "Sanity.io <hello@sanity.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sanity-io/design/issues"
+  },
+  "homepage": "https://www.sanity.io/",
+  "publishConfig": {
+    "access": "public"
+  }
+}

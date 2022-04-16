@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+require('esbuild-register/register')
+require('../packages/pkg-utils/src/cli/main')
