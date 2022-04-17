@@ -3,6 +3,7 @@
   "include": ["./src/", "./scripts/"],
   "compilerOptions": {
     "composite": true,
+    "emitDeclarationOnly": true,
     "rootDir": "./",
     "outDir": "./build/ts/"
   }
