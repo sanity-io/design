@@ -257,11 +257,6 @@ Array [
             },
             "text": "ResponsiveMarginProps",
           },
-          Object {
-            "_key": "token1",
-            "_type": "api.text",
-            "text": " ",
-          },
         ],
       },
     ],
