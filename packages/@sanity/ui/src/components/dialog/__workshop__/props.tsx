@@ -1,5 +1,5 @@
 import {useBoolean, useSelect, useText} from '@sanity/ui-workshop'
-import React, {useCallback, useRef, useState} from 'react'
+import {useCallback, useRef, useState} from 'react'
 import {WORKSHOP_WIDTH_OPTIONS} from '../../../__workshop__/constants'
 import {Box, Button, Stack, Text} from '../../../primitives'
 import {LayerProvider} from '../../../utils'

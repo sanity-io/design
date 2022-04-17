@@ -1,5 +1,4 @@
 import {axe} from 'jest-axe'
-import React from 'react'
 import {Badge} from './badge'
 import {render} from '$test'
 

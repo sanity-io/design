@@ -1,4 +1,3 @@
-import React from 'react'
 import {Code} from '../../../primitives'
 import {useLayer} from '../useLayer'
 

@@ -1,5 +1,4 @@
 import {useAction} from '@sanity/ui-workshop'
-import React from 'react'
 import {Box, Button, Card, Inline} from '../../../primitives'
 import {LayerProvider} from '../../../utils'
 import {Menu} from '../menu'

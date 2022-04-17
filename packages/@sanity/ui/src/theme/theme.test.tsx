@@ -1,4 +1,3 @@
-import React from 'react'
 import {studioTheme} from './studioTheme'
 import {ThemeContext} from './themeContext'
 import {ThemeContextValue} from './types'

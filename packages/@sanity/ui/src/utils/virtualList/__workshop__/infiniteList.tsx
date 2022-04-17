@@ -1,4 +1,4 @@
-import React, {useCallback, useRef, useState} from 'react'
+import {useCallback, useRef, useState} from 'react'
 import {Box, Card, Text} from '../../../primitives'
 import {VirtualList, VirtualListChangeOpts} from '../virtualList'
 

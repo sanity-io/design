@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Box, Button} from '../../../primitives'
 import {LayerProvider} from '../../../utils'
 import {Menu, MenuButton, MenuItem} from '../../menu'

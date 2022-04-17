@@ -1,5 +1,5 @@
 import {useBoolean, useSelect, useText} from '@sanity/ui-workshop'
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {
   WORKSHOP_CONTAINER_WIDTH_OPTIONS,
   WORKSHOP_PLACEMENT_OPTIONS,

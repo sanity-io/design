@@ -6,7 +6,6 @@ import {
   ImageIcon,
   TrashIcon,
 } from '@sanity/icons'
-import React from 'react'
 import {Box, Button, Card, Container, Flex} from '../../../primitives'
 import {Menu} from '../menu'
 import {MenuButton} from '../menuButton'

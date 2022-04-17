@@ -12,7 +12,7 @@
     "allowJs": true,
     "checkJs": true,
     "resolveJsonModule": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
       "@sanity/*": ["./packages/@sanity/*/src"]

@@ -1,4 +1,4 @@
-import React, {forwardRef, useCallback, useEffect, useMemo, useState} from 'react'
+import {forwardRef, useCallback, useEffect, useMemo, useState} from 'react'
 import {useForwardedRef} from '../../hooks'
 import {useTheme} from '../../theme'
 import {ResizeObserver} from '../resizeObserver'

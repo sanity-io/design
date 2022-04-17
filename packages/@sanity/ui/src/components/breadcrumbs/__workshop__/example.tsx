@@ -1,5 +1,4 @@
 import {useSelect} from '@sanity/ui-workshop'
-import React from 'react'
 import {Flex, Text} from '../../../primitives'
 import {Breadcrumbs} from '../breadcrumbs'
 

@@ -1,5 +1,5 @@
 import {LinkIcon} from '@sanity/icons'
-import React, {useCallback, useEffect, useRef, useState} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 import {Box, Button, Card, Code, Stack, Text} from '../../../primitives'
 import {LayerProvider} from '../../../utils'
 import {countriesStore} from '../__mocks__/apiStore'

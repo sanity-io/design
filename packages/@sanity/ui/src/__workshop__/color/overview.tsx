@@ -1,5 +1,5 @@
 import {black, ColorTints, ColorValue, COLOR_HUES, hues, white} from '@sanity/color'
-import React, {useCallback} from 'react'
+import {useCallback} from 'react'
 import {useToast} from '../../components'
 import {Box, Card, Code, Flex, Grid, Heading, Stack} from '../../primitives'
 import {hexToRgb, rgbToHsl} from '../../theme'

@@ -1,4 +1,3 @@
-import React from 'react'
 import {Card} from '../../card'
 import {Text} from '../../text'
 import {Flex} from '../flex'

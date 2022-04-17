@@ -1,4 +1,4 @@
-import React, {cloneElement, forwardRef, useCallback, useEffect, useState} from 'react'
+import {cloneElement, forwardRef, useCallback, useEffect, useState} from 'react'
 import {usePopper} from 'react-popper'
 import styled from 'styled-components'
 import {useForwardedRef} from '../../hooks'

@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react'
+import {forwardRef} from 'react'
 import styled from 'styled-components'
 import {useResponsiveProp} from '../../hooks'
 import {responsive} from '../../styles'

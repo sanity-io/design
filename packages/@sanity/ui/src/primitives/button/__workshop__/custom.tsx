@@ -1,4 +1,3 @@
-import React from 'react'
 import {WORKSHOP_BUTTON_TONE_OPTIONS} from '../../../__workshop__/constants'
 import {Flex} from '../../flex'
 import {Grid} from '../../grid'

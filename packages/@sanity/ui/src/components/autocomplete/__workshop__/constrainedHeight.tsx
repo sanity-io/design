@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import {useCallback, useState} from 'react'
 import {Box, Card, Stack, Text} from '../../../primitives'
 import {BoundaryElementProvider, LayerProvider} from '../../../utils'
 import countries from '../__fixtures__/countries'

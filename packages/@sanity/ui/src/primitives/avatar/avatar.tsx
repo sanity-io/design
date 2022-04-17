@@ -1,5 +1,5 @@
 import {useId} from '@reach/auto-id'
-import React, {forwardRef, useCallback, useEffect, useState} from 'react'
+import {forwardRef, useCallback, useEffect, useState} from 'react'
 import ReactIs from 'react-is'
 import styled from 'styled-components'
 import {useResponsiveProp} from '../../hooks'

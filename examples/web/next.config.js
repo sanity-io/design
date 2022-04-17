@@ -20,6 +20,8 @@ module.exports = withTranspileModules(
   withBundleAnalyzer({
     enabled: process.env.ANALYZE === 'true',
   })({
+    reactStrictMode: true,
+
     typescript: {
       tsconfigPath: './tsconfig.next.json',
     },

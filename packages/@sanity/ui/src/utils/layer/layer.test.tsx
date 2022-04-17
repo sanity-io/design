@@ -1,4 +1,3 @@
-import React from 'react'
 import {LayerContext} from './layerContext'
 import {LayerContextValue} from './types'
 import {useLayer} from './useLayer'

@@ -1,4 +1,3 @@
-import React from 'react'
 import {Card, Flex, Text} from '../../primitives'
 import {ThemeProvider} from '../themeProvider'
 

@@ -4,14 +4,16 @@ import {
   RenderOptions as TLRenderOptions,
   RenderResult,
 } from '@testing-library/react'
-import React from 'react'
+import {Fragment, StrictMode} from 'react'
 
 interface RenderOptions extends TLRenderOptions {
   scheme?: ThemeColorSchemeKey
   strict?: boolean
 }
 
-const DefaultWrapper: React.FC = ({children}: any) => <main>{children}</main>
+const DefaultWrapper: React.FC = ({children}: {children?: React.ReactNode}) => (
+  <main>{children}</main>
+)
 
 export function render(
   element: React.ReactElement<any>,
@@ -23,11 +25,11 @@ export function render(
     strict = false,
     wrapper: InnerWrapper = DefaultWrapper,
   } = options
-  const Mode = strict ? React.StrictMode : React.Fragment
+  const ReactWrapper = strict ? StrictMode : Fragment
 
   const Wrapper: React.FC = ({children}: any) => {
     return (
-      <Mode>
+      <ReactWrapper>
         <InnerWrapper>
           <ThemeProvider theme={studioTheme}>
             <Card padding={4} scheme={scheme}>
@@ -35,7 +37,7 @@ export function render(
             </Card>
           </ThemeProvider>
         </InnerWrapper>
-      </Mode>
+      </ReactWrapper>
     )
   }
 

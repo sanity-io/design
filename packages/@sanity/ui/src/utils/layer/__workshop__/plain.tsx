@@ -1,5 +1,5 @@
 import {CloseIcon} from '@sanity/icons'
-import React, {useCallback, useState} from 'react'
+import {useCallback, useState} from 'react'
 import {Box, Button, Card, Flex, Stack, Text} from '../../../primitives'
 import {Layer} from '../layer'
 import {LayerProvider} from '../layerProvider'

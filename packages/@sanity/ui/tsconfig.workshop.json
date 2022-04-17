@@ -13,7 +13,7 @@
     "outDir": "./lib/workshop",
     "declarationDir": "./lib/workshop",
     "module": "ES2020",
-    "jsx": "react"
+    "jsx": "react-jsx"
   },
   "references": [
     {"path": "../color/tsconfig.lib.json"},

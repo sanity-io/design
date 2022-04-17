@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react'
+import {forwardRef} from 'react'
 import {Flex} from '../../flex'
 import {Text} from '../../text'
 import {Card} from '../card'

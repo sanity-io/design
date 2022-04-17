@@ -1,6 +1,6 @@
 import {LinkIcon} from '@sanity/icons'
 import {usePerfTest} from '@sanity/ui-workshop'
-import React, {memo, useCallback, useMemo, useState} from 'react'
+import {memo, useCallback, useMemo, useState} from 'react'
 import {Box, Text} from '../../../primitives'
 import {Tree} from '../tree'
 import {TreeItem} from '../treeItem'

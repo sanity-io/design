@@ -1,6 +1,5 @@
 import {SelectIcon} from '@sanity/icons'
 import {useBoolean} from '@sanity/ui-workshop'
-import React from 'react'
 import {Button, Flex} from '../../../primitives'
 import {Menu} from '../menu'
 import {MenuButton} from '../menuButton'

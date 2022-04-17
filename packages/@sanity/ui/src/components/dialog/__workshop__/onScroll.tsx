@@ -1,5 +1,5 @@
 import {useAction} from '@sanity/ui-workshop'
-import React, {useEffect, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import {Box, Text} from '../../../primitives'
 import {LayerProvider} from '../../../utils'
 import {Dialog} from '../dialog'

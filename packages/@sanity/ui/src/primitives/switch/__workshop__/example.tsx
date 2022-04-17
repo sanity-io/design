@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import {useCallback, useState} from 'react'
 import {Box} from '../../box'
 import {Flex} from '../../flex'
 import {Text} from '../../text'

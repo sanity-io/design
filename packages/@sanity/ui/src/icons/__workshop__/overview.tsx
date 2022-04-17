@@ -1,5 +1,5 @@
 import {Icon, icons, IconSymbol, SearchIcon} from '@sanity/icons'
-import React, {useCallback, useMemo, useState} from 'react'
+import {useCallback, useMemo, useState} from 'react'
 import {Box, Card, Code, Container, Flex, Heading, Stack, Text, TextInput} from '../../primitives'
 import {packages} from '$packages'
 

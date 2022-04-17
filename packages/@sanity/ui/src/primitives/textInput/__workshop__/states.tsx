@@ -1,5 +1,4 @@
 import {useAction} from '@sanity/ui-workshop'
-import React from 'react'
 import {Container} from '../../container'
 import {Flex} from '../../flex'
 import {Stack} from '../../stack'

@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react'
+import {forwardRef} from 'react'
 import {Button, Flex, Text} from '../../../primitives'
 import {Menu} from '../menu'
 import {MenuButton} from '../menuButton'

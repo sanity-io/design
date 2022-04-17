@@ -1,5 +1,4 @@
 import {useBoolean, useSelect, useText} from '@sanity/ui-workshop'
-import React from 'react'
 import styled from 'styled-components'
 import {
   WORKSHOP_TEXT_ALIGN_OPTIONS,

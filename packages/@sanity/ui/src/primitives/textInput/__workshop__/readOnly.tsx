@@ -1,4 +1,3 @@
-import React from 'react'
 import {TextInput} from '../textInput'
 
 export default function ReadOnlyStory() {

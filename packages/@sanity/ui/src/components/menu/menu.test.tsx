@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import React, {useCallback, useMemo} from 'react'
+import {useCallback, useMemo} from 'react'
 import {MenuContext, MenuContextValue} from './menuContext'
 import {useMenu} from './useMenu'
 import {render} from '$test'

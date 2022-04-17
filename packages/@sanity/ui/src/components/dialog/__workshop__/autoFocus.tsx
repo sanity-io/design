@@ -1,5 +1,4 @@
 import {useAction, useBoolean} from '@sanity/ui-workshop'
-import React from 'react'
 import {Box, Button, Text} from '../../../primitives'
 import {Dialog} from '../dialog'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import {Card, Stack} from '../../../primitives'
 import {Layer} from '../layer'
 import {LayerProvider} from '../layerProvider'

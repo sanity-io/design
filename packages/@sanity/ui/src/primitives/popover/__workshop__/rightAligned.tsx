@@ -1,5 +1,5 @@
 import {EllipsisVerticalIcon} from '@sanity/icons'
-import React, {useCallback, useState} from 'react'
+import {useCallback, useState} from 'react'
 import {useClickOutside} from '../../../hooks'
 import {Box} from '../../box'
 import {Button} from '../../button'

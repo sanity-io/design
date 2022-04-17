@@ -1,5 +1,4 @@
 import {UploadIcon} from '@sanity/icons'
-import React from 'react'
 import styled from 'styled-components'
 import {Flex} from '../../flex'
 import {Button} from '../button'

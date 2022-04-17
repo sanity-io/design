@@ -1,5 +1,4 @@
 import {useBoolean, useSelect} from '@sanity/ui-workshop'
-import React from 'react'
 import {WORKSHOP_TEXT_SIZE_OPTIONS} from '../../../__workshop__/constants'
 import {Flex} from '../../flex'
 import {Spinner} from '../spinner'

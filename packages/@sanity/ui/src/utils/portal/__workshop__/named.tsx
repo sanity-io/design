@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Card, Container, Stack, Text} from '../../../primitives'
 import {Portal} from '../portal'
 import {PortalProvider} from '../portalProvider'

@@ -1,4 +1,4 @@
-import React, {cloneElement, forwardRef, useCallback, useEffect, useMemo, useState} from 'react'
+import {cloneElement, forwardRef, useCallback, useEffect, useMemo, useState} from 'react'
 import {usePopper} from 'react-popper'
 import styled, {css} from 'styled-components'
 import {EMPTY_RECORD} from '../../constants'

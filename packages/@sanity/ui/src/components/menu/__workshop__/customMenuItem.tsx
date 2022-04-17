@@ -1,4 +1,3 @@
-import React from 'react'
 import {Box, Card, Stack, Text} from '../../../primitives'
 import {LayerProvider} from '../../../utils'
 import {Menu} from '../menu'

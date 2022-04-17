@@ -1,4 +1,3 @@
-import React from 'react'
 import {Card, Stack, Text} from '../../../primitives'
 import {useMediaIndex} from '../useMediaIndex'
 

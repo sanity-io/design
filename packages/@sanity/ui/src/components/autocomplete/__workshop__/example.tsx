@@ -1,7 +1,7 @@
 import {useBoolean, useSelect, useText} from '@sanity/ui-workshop'
 import {PerfTestProps, usePerfTest} from '@sanity/ui-workshop'
 import {fireEvent} from '@testing-library/dom'
-import React, {useCallback, useMemo, useState} from 'react'
+import {useCallback, useMemo, useState} from 'react'
 import {
   WORKSHOP_CARD_TONE_OPTIONS,
   WORKSHOP_RADIUS_OPTIONS,

@@ -1,5 +1,4 @@
 import {useBoolean, useSelect} from '@sanity/ui-workshop'
-import React from 'react'
 import {WORKSHOP_PLACEMENT_OPTIONS} from '../../../__workshop__/constants'
 import {Box} from '../../box'
 import {Button} from '../../button'

@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import {useCallback, useState} from 'react'
 import {TextInput} from '../textInput'
 
 export default function ClearButtonStory() {

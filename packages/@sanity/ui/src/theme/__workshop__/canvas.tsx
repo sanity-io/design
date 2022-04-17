@@ -1,5 +1,5 @@
 import {useBoolean} from '@sanity/ui-workshop'
-import React, {createContext, useContext} from 'react'
+import {createContext, useContext} from 'react'
 import {Box, Card, Flex, Grid, Stack, Text} from '../../primitives'
 import {CardTone} from '../../types'
 import {

@@ -1,4 +1,3 @@
-import React from 'react'
 import {Tree, TreeItem} from '../../components'
 import {Box, Card} from '../../primitives'
 import {useRootTheme} from '../useRootTheme'

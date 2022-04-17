@@ -1,6 +1,5 @@
 import {EditIcon, PublishIcon} from '@sanity/icons'
 import {useBoolean} from '@sanity/ui-workshop'
-import React from 'react'
 import styled, {css} from 'styled-components'
 import {Theme, ThemeColorToneKey, useRootTheme} from '../../../theme'
 import {Box} from '../../box'

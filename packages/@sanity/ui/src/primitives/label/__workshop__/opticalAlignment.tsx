@@ -1,5 +1,4 @@
 import {AddCircleIcon} from '@sanity/icons'
-import React from 'react'
 import {Box} from '../../box'
 import {Card} from '../../card'
 import {Flex} from '../../flex'

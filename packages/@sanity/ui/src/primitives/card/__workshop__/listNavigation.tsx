@@ -1,4 +1,3 @@
-import React from 'react'
 import {Skeleton} from '../../../components'
 import {Box} from '../../box'
 import {Flex} from '../../flex'

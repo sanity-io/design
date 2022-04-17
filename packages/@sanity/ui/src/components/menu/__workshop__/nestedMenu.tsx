@@ -1,4 +1,3 @@
-import React from 'react'
 import {Box, Button, Stack} from '../../../primitives'
 import {Menu} from '../menu'
 import {MenuButton} from '../menuButton'

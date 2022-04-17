@@ -1,5 +1,4 @@
 import {useMemo, useState} from 'react'
-import React from 'react'
 import {Box, Card, Code, Container, Grid, Stack, Text} from '../../../primitives'
 import {useElementRect} from '../useElementRect'
 

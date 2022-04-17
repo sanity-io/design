@@ -1,6 +1,5 @@
 import {SearchIcon} from '@sanity/icons'
 import {useBoolean, useSelect} from '@sanity/ui-workshop'
-import React from 'react'
 import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../__workshop__/constants'
 import {Box, Card} from '../../../primitives'
 import {LayerProvider} from '../../../utils'

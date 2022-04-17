@@ -1,5 +1,5 @@
 import {AddIcon} from '@sanity/icons'
-import React, {useRef} from 'react'
+import {useRef} from 'react'
 import {Box, Button, Stack} from '../../../primitives'
 import {Menu} from '../menu'
 import {MenuButton} from '../menuButton'

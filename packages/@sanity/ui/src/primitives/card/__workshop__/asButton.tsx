@@ -1,4 +1,3 @@
-import React from 'react'
 import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../__workshop__/constants'
 import {Box} from '../../box'
 import {Container} from '../../container'

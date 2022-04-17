@@ -1,5 +1,4 @@
 import {AddIcon} from '@sanity/icons'
-import React from 'react'
 import {Flex} from '../../flex'
 import {Button} from '../button'
 

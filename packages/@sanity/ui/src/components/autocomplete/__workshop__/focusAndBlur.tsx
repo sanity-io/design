@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import {useCallback, useState} from 'react'
 import {Box, Button, Card, Code, Stack} from '../../../primitives'
 import {Autocomplete} from '../autocomplete'
 

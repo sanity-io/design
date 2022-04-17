@@ -1,5 +1,4 @@
 import {useSelect} from '@sanity/ui-workshop'
-import React from 'react'
 import styled, {css} from 'styled-components'
 import {WORKSHOP_SPOT_COLOR_OPTIONS} from '../../../__workshop__/constants'
 import {Theme, ThemeColorSpotKey, useTheme} from '../../../theme'

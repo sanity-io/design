@@ -12,8 +12,6 @@
     "prebuild": "rimraf lib/"
   },
   "devDependencies": {
-    "@types/react": "^18.0.5",
-    "@types/styled-components": "^5.1.25",
     "react": "^18.0.0",
     "styled-components": "^5.3.5",
     "typescript": "^4.6.3"

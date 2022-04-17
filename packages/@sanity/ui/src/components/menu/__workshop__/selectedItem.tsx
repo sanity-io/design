@@ -1,5 +1,5 @@
 import {CheckmarkIcon, ClockIcon, ExpandIcon, SearchIcon} from '@sanity/icons'
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Box, Button, Code, Stack} from '../../../primitives'
 import {Menu} from '../menu'
 import {MenuButton} from '../menuButton'

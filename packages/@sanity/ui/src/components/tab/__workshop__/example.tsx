@@ -1,5 +1,5 @@
 import {OkHandIcon, RocketIcon, SunIcon} from '@sanity/icons'
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Box, Card, Text} from '../../../primitives'
 import {Tab} from '../tab'
 import {TabList} from '../tabList'

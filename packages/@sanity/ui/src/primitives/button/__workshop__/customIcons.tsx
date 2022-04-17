@@ -1,5 +1,4 @@
 import {RocketIcon} from '@sanity/icons'
-import React from 'react'
 import {Flex} from '../../flex'
 import {Inline} from '../../inline'
 import {Button} from '../button'

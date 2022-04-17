@@ -1,5 +1,4 @@
 import {useText} from '@sanity/ui-workshop'
-import React from 'react'
 import {Button} from '../../button'
 import {Card} from '../../card'
 import {Container} from '../../container'

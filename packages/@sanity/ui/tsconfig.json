@@ -16,7 +16,7 @@
     "outDir": "./lib/dts/",
     "declarationDir": "./lib/dts/",
     "module": "ES2020",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
       "$test": ["../../../test/"]

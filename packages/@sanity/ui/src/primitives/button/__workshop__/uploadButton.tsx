@@ -1,4 +1,4 @@
-import React, {useCallback, useRef} from 'react'
+import {useCallback, useRef} from 'react'
 import {Flex} from '../../flex'
 import {Button} from '../button'
 

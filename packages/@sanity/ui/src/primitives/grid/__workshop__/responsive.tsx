@@ -1,4 +1,3 @@
-import React from 'react'
 import {Card} from '../../card'
 import {Code} from '../../code'
 import {Container} from '../../container'

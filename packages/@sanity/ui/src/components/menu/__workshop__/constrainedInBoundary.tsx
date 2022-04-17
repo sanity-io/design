@@ -1,5 +1,5 @@
 import {ErrorOutlineIcon} from '@sanity/icons'
-import React, {useMemo, useState} from 'react'
+import {useMemo, useState} from 'react'
 import {Box, Button, Card, Flex, PopoverProps, Text} from '../../../primitives'
 import {SelectableTone} from '../../../types'
 import {BoundaryElementProvider} from '../../../utils'

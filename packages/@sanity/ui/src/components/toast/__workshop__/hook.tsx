@@ -1,4 +1,3 @@
-import React from 'react'
 import {Box, Button, Inline} from '../../../primitives'
 import {ToastProvider} from '../toastProvider'
 import {useToast} from '../useToast'

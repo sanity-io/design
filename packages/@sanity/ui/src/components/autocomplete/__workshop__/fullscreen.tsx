@@ -1,6 +1,6 @@
 import {CloseIcon, SearchIcon} from '@sanity/icons'
 import {useBoolean} from '@sanity/ui-workshop'
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import {useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import {Box, Button, Card, Flex, Heading, Label, Stack, Text} from '../../../primitives'
 import {Layer, Portal, PortalProvider} from '../../../utils'
 import {Skeleton, TextSkeleton} from '../../skeleton'
