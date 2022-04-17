@@ -1,5 +1,4 @@
 import path from 'path'
-import {ExtractorMessage} from '@microsoft/api-extractor'
 import createSanityClient from '@sanity/client'
 import {
   extract,
