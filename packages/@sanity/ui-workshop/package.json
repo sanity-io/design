@@ -4,8 +4,11 @@
   "sideEffects": false,
   "source": "./src/index.ts",
   "exports": {
-    "require": "./lib/sanity-ui-workshop.js",
-    "default": "./lib/sanity-ui-workshop.modern.js"
+    ".": {
+      "source": "./src/index.ts",
+      "require": "./lib/sanity-ui-workshop.js",
+      "default": "./lib/sanity-ui-workshop.modern.js"
+    }
   },
   "main": "./lib/sanity-ui-workshop.js",
   "module": "./lib/sanity-ui-workshop.module.js",
@@ -16,13 +19,13 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "run-s build:microbundle",
-    "build:microbundle": "microbundle --format modern,esm,cjs --jsx React.createElement --jsxImportSource react --no-compress --tsconfig tsconfig.lib.json",
+    "build": "../../../bin/pkg-utils bundle --tsconfig tsconfig.lib.json --validate",
     "clean": "rimraf lib",
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --quiet",
     "prebuild": "yarn clean",
     "test": "jest",
-    "type-check": "tsc --build"
+    "type-check": "tsc --build",
+    "watch": "../../../bin/pkg-utils bundle --tsconfig tsconfig.lib.json --watch"
   },
   "dependencies": {
     "axe-core": "^4.4.1",
