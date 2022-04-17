@@ -1,4 +1,3 @@
-import {white} from '@sanity/color'
 import NextDocument, {
   DocumentContext,
   DocumentProps,
@@ -9,6 +8,7 @@ import NextDocument, {
 } from 'next/document'
 import React from 'react'
 import {ServerStyleSheet} from 'styled-components'
+import {FIXME} from '../types'
 import {app, basePath, ga} from '$config'
 
 const GA_TRACKING_CODE =
@@ -41,7 +41,7 @@ class Document extends NextDocument<DocumentProps & {styleTags: React.ReactNode}
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        ),
+        ) as FIXME,
       }
     } finally {
       sheet.seal()
