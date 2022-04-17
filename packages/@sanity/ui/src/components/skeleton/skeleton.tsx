@@ -14,7 +14,7 @@ const Root = styled(Box)<{$animated: boolean; $visible: boolean} & ResponsiveRad
  * This API might change. DO NOT USE IN PRODUCTION.
  * @beta
  */
-export interface SkeletonProps extends ResponsiveRadiusProps, Omit<BoxProps, 'children'> {
+export interface SkeletonProps extends ResponsiveRadiusProps, Omit<BoxProps, 'as'> {
   animated?: boolean
   delay?: number
 }
@@ -24,7 +24,7 @@ export interface SkeletonProps extends ResponsiveRadiusProps, Omit<BoxProps, 'ch
  * @beta
  */
 export const Skeleton = forwardRef(function Skeleton(
-  props: SkeletonProps & React.HTMLProps<HTMLDivElement>,
+  props: SkeletonProps & Omit<React.HTMLProps<HTMLDivElement>, 'as' | 'height'>,
   ref: React.Ref<HTMLDivElement>
 ) {
   const {animated = false, delay, radius, ...restProps} = props

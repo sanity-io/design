@@ -6,6 +6,7 @@ import {Code} from '../primitives/code'
  * @beta
  */
 export interface ErrorBoundaryProps {
+  children?: React.ReactNode
   onCatch: (params: {error: Error; info: React.ErrorInfo}) => void
 }
 
