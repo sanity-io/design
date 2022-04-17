@@ -8,6 +8,7 @@ import NextDocument, {
 } from 'next/document'
 import React from 'react'
 import {ServerStyleSheet} from 'styled-components'
+import {FIXME} from '../types'
 
 class Document extends NextDocument<DocumentProps & {styleTags: React.ReactNode}> {
   static async getInitialProps(ctx: DocumentContext) {
@@ -32,7 +33,7 @@ class Document extends NextDocument<DocumentProps & {styleTags: React.ReactNode}
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        ),
+        ) as FIXME,
       }
     } finally {
       sheet.seal()
