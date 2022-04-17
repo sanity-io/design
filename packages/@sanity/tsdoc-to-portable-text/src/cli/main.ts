@@ -1,8 +1,6 @@
-#!/usr/bin/env node
-
 import chalk from 'chalk'
-import {getCLIContext} from './cli/helpers'
-import {run} from './cli/run'
+import {getCLIContext} from './helpers'
+import {run} from './run'
 
 async function cli() {
   await run(await getCLIContext())

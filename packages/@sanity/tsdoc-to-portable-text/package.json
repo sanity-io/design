@@ -3,18 +3,23 @@
   "version": "0.3.0",
   "sideEffects": false,
   "source": "./src/index.ts",
-  "exports": {
-    ".": {
-      "cli": "./lib/tsdoc-to-portable-text.cli.js",
-      "require": "./lib/tsdoc-to-portable-text.js",
-      "default": "./lib/tsdoc-to-portable-text.modern.js"
-    }
-  },
   "main": "./lib/tsdoc-to-portable-text.js",
   "module": "./lib/tsdoc-to-portable-text.module.js",
   "types": "./lib/dts/src/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "require": "./lib/tsdoc-to-portable-text.js",
+      "module": "./lib/tsdoc-to-portable-text.module.js",
+      "default": "./lib/tsdoc-to-portable-text.modern.js"
+    },
+    "./cli": {
+      "source": "./src/cli/main.ts",
+      "require": "./lib/tsdoc-to-portable-text-cli.js"
+    }
+  },
   "bin": {
-    "tsdoc-to-portable-text": "./lib/cli.js"
+    "tsdoc-to-portable-text": "./bin/tsdoc-to-portable-text"
   },
   "files": [
     "lib",
@@ -23,13 +28,13 @@
   "author": "Sanity.io <hello@sanity.io>",
   "license": "MIT",
   "scripts": {
-    "build": "run-s build:microbundle && chmod +x lib/cli.js",
-    "build:microbundle": "microbundle --format modern,esm,cjs --target node --tsconfig tsconfig.lib.json src/{cli,index}.ts",
+    "build": "../../../bin/pkg-utils bundle --target node --tsconfig tsconfig.lib.json --validate",
     "clean": "rimraf build lib",
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --quiet",
     "prebuild": "yarn clean",
     "test": "jest",
-    "type-check": "tsc --build"
+    "type-check": "tsc --build",
+    "watch": "../../../bin/pkg-utils bundle --target node --tsconfig tsconfig.lib.json --watch"
   },
   "dependencies": {
     "@microsoft/api-extractor": "^7.24.2",
