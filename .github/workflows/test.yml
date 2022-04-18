@@ -27,6 +27,8 @@ jobs:
             ${{ runner.os }}-modules-
             ${{ runner.os }}-
 
+      - uses: microsoft/playwright-github-action@v1
+
       - name: Install project dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         env:
