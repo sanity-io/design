@@ -53,6 +53,7 @@ export function buildOptions(opts: {
       }),
       json(),
       esbuild({
+        banner: "import {jsx as _jsx} from 'react/jsx-runtime'",
         // All options are optional
         // include: /\.[jt]sx?$/, // default, inferred from `loaders` option
         // exclude: /node_modules/, // default
@@ -60,8 +61,8 @@ export function buildOptions(opts: {
         // minify: process.env.NODE_ENV === 'production',
         target: modern ? 'es2020' : 'es2017', // default, or 'es20XX', 'esnext'
         jsx: 'transform', // default, or 'preserve'
-        jsxFactory: 'React.createElement',
-        jsxFragment: 'React.Fragment',
+        jsxFactory: '_jsx',
+        jsxFragment: 'Fragment',
         // Like @rollup/plugin-replace
         // define: {
         //   __VERSION__: '"x.y.z"',
