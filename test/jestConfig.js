@@ -28,7 +28,6 @@ exports.createJestConfig = (
       path.resolve(__dirname, 'setup/afterEnv.ts'),
       ...(restConfig.setupFilesAfterEnv || []),
     ],
-
     setupFiles: [...setupFiles],
     testEnvironment: 'jsdom',
     // - match all files in `__tests__` directories
