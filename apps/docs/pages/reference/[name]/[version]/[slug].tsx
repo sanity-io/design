@@ -5,7 +5,7 @@ import React, {useCallback} from 'react'
 import {AppLayout, useApp} from '$components/app'
 import {PageLayout} from '$components/page'
 import {ReferenceArticle} from '$components/reference'
-import {features} from '$config'
+import {app, features} from '$config'
 import {loadReferencePageData} from '$lib/page'
 import {isArray, isRecord, isString} from '$lib/types'
 
@@ -86,9 +86,7 @@ function ReferenceArticlePage({
     <AppLayout>
       <Head>
         {currentMember && (
-          <title>
-            {currentMember.name} – v{params.version} – Sanity UI
-          </title>
+          <title>{`${currentMember.name} – v${params.version} – ${app.siteName}`}</title>
         )}
       </Head>
 

@@ -46,7 +46,7 @@ function getStateFromWindow(): LocationState {
   }
 }
 
-function getNewState(state: LocationState, params: LocationState) {
+function getNewState(state: LocationState, params: PartialLocationState) {
   return {
     path: params.path || '/',
     title: params.title || state.title,
@@ -84,7 +84,7 @@ export function LocationProvider(props: LocationProviderProps) {
     stateRef.current = state
   }, [state])
 
-  const pushState = useCallback((params) => {
+  const pushState = useCallback((params: PartialLocationState) => {
     const newState = getNewState(stateRef.current, params)
     const url = getUrlFromState(newState)
 
@@ -93,7 +93,7 @@ export function LocationProvider(props: LocationProviderProps) {
     setState(newState)
   }, [])
 
-  const replaceState = useCallback((params) => {
+  const replaceState = useCallback((params: PartialLocationState) => {
     const newState = getNewState(stateRef.current, params)
     const url = getUrlFromState(newState)
 

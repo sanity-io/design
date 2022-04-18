@@ -1,6 +1,11 @@
 import path from 'path'
 import createSanityClient from '@sanity/client'
-import {extract, SanityDocumentValue, transform} from '@sanity/tsdoc-to-portable-text'
+import {
+  extract,
+  ExtractorMessage,
+  SanityDocumentValue,
+  transform,
+} from '@sanity/tsdoc-to-portable-text'
 import chalk from 'chalk'
 import {readJSONFile} from './helpers'
 
