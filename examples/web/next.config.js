@@ -32,6 +32,7 @@ module.exports = withTranspileModules(
         'react/jsx-dev-runtime': require.resolve('react/jsx-dev-runtime'),
         'react/jsx-runtime': require.resolve('react/jsx-runtime'),
         react: require.resolve('react'),
+        'react-dom/client': require.resolve('react-dom/client'),
         'react-dom': require.resolve('react-dom'),
         'styled-components': require.resolve('styled-components'),
       }
