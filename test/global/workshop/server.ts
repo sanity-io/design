@@ -1,13 +1,64 @@
 /* eslint-disable no-console */
 
-import {ChildProcess, exec, spawn} from 'child_process'
+import {ChildProcess, spawn, SpawnOptions} from 'child_process'
 import path from 'path'
+import {Observable} from 'rxjs'
+import {filter, switchMap} from 'rxjs/operators'
 
 const WORKSHOP_PATH = path.resolve(__dirname, '../../../apps/workshop')
 
 export interface WorkshopServer {
   close: () => Promise<void>
   port: number
+}
+
+function _spawn(
+  command: string,
+  options: SpawnOptions
+): Observable<{child: ChildProcess; chunk?: Buffer}> {
+  return new Observable((observer) => {
+    const child = spawn(command, options)
+
+    console.log(`$ ${command}`)
+
+    child.stdout?.on('data', (chunk) => {
+      observer.next({child, chunk})
+    })
+
+    child.on('error', (error) => {
+      console.log('error', {error})
+      observer.error(error)
+    })
+
+    child.on('close', (code, signal) => {
+      console.log('close', {code, signal})
+      observer.complete()
+    })
+
+    child.on('disconnect', () => {
+      console.log('disconnect')
+      observer.complete()
+    })
+
+    child.on('exit', (code) => {
+      console.log('exit', {code})
+      observer.complete()
+      process.exit(code || 0)
+    })
+
+    child.on('message', (msg, _send) => {
+      console.log('message', {msg})
+    })
+
+    child.on('spawn', () => {
+      console.log('spawn')
+      observer.next({child})
+    })
+
+    return () => {
+      child.kill()
+    }
+  })
 }
 
 export async function startWorkshopServer(opts: {
@@ -19,73 +70,60 @@ export async function startWorkshopServer(opts: {
   const {build, debug, onExit, port} = opts
 
   function dev() {
-    return spawn('yarn dev', {
+    const dev$ = _spawn('yarn dev', {
       cwd: WORKSHOP_PATH,
       env: {
+        ...process.env,
         DEBUG: debug ? '1' : undefined,
         PORT: port ? String(port) : undefined,
-        PATH: process.env.PATH,
       },
       shell: true,
-      stdio: debug ? 'inherit' : undefined,
     })
+
+    const devIsRunning$ = dev$.pipe(
+      filter(({chunk}) => {
+        const d = String(chunk)
+
+        return d.includes('dev server running')
+      })
+    )
+
+    return devIsRunning$.toPromise()
   }
 
-  function start(): Promise<ChildProcess> {
-    return new Promise((resolve, reject) => {
-      exec(
-        'yarn build',
-        {
-          cwd: WORKSHOP_PATH,
-          env: {
-            DEBUG: debug ? '1' : undefined,
-            PATH: process.env.PATH,
-          },
-        },
-        () => {
-          const child = spawn('yarn start', {
-            cwd: WORKSHOP_PATH,
-            env: {
-              DEBUG: debug ? '1' : undefined,
-              PATH: process.env.PATH,
-            },
-            shell: true,
-          })
-
-          if (!child.stdout) {
-            return reject(new Error('no stdout'))
-          }
-
-          child.stdout.on('data', (chunk) => {
-            const d = String(chunk)
-
-            process.stdout.write(chunk)
-
-            if (d.includes('$ http-server')) {
-              resolve(child)
-            }
-          })
-
-          child.stderr.on('data', (chunk) => {
-            process.stderr.write(chunk)
-          })
-
-          child.on('error', (err) => {
-            reject(err)
-          })
-        }
-      )
+  function start() {
+    const build$ = _spawn('yarn build', {
+      cwd: WORKSHOP_PATH,
+      env: {
+        ...process.env,
+        DEBUG: debug ? '1' : undefined,
+      },
     })
+
+    const start$ = _spawn('yarn start', {
+      cwd: WORKSHOP_PATH,
+      env: {
+        ...process.env,
+        DEBUG: debug ? '1' : undefined,
+      },
+    })
+
+    const serverIsRunning$ = build$.pipe(
+      switchMap(() => start$),
+      filter(({chunk}) => {
+        const d = String(chunk)
+
+        return d.includes('$ http-server')
+      })
+    )
+
+    return serverIsRunning$.toPromise()
   }
 
-  const child = build ? await start() : dev()
+  const {child} = build ? await start() : await dev()
 
   child.on('close', (code) => {
     onExit?.(code)
-  })
-
-  child.on('error', () => {
-    console.log(`[server] error`)
   })
 
   async function close() {
