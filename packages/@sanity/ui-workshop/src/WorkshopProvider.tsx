@@ -41,8 +41,8 @@ export const WorkshopProvider = memo(function WorkshopProvider(
   const {
     plugins: pluginsProp = EMPTY_ARRAY,
     collections = EMPTY_ARRAY,
-    frameUrl = '/frame/',
-    scopes,
+    frameUrl = '/.workshop/frame/',
+    scopes = EMPTY_ARRAY,
     title = 'Workshop',
   } = config
 

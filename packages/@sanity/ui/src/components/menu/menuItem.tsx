@@ -12,6 +12,7 @@ import {useForwardedRef} from '../../hooks'
 import {Box, Flex, Text} from '../../primitives'
 import {Selectable} from '../../primitives/_selectable'
 import {ResponsivePaddingProps, ResponsiveRadiusProps} from '../../primitives/types'
+import {AsProperty} from '../../types'
 import {SelectableTone} from '../../types/selectable'
 import {Hotkeys} from '../hotkeys'
 import {useMenu} from './useMenu'
@@ -20,7 +21,7 @@ import {useMenu} from './useMenu'
  * @public
  */
 export interface MenuItemProps extends ResponsivePaddingProps, ResponsiveRadiusProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   fontSize?: number | number[]
   hotkeys?: string[]
   icon?: React.ComponentType | React.ReactNode

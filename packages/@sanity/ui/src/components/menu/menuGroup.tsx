@@ -3,6 +3,7 @@ import React, {createElement, isValidElement, useCallback, useEffect, useRef, us
 import {isValidElementType} from 'react-is'
 import {Box, Flex, Popover, PopoverProps, Text} from '../../primitives'
 import {Selectable} from '../../primitives/_selectable'
+import {AsProperty} from '../../types'
 import {SelectableTone} from '../../types/selectable'
 import {Menu} from './menu'
 import {useMenu} from './useMenu'
@@ -11,7 +12,7 @@ import {useMenu} from './useMenu'
  * @public
  */
 export interface MenuGroupProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   fontSize?: number | number[]
   icon?: React.ComponentType | React.ReactNode
   padding?: number | number[]

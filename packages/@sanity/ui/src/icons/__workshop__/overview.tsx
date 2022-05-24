@@ -1,7 +1,14 @@
 import {Icon, icons, IconSymbol, SearchIcon} from '@sanity/icons'
 import {Box, Card, Code, Container, Flex, Heading, Stack, Text, TextInput} from '@sanity/ui'
 import React, {useCallback, useMemo, useState} from 'react'
-import {packages} from '$packages'
+// import {packages} from '$packages'
+
+const packages = {
+  icons: {
+    version: '0.0.0',
+    description: '',
+  },
+}
 
 function ucfirst(str: string) {
   return str.slice(0, 1).toUpperCase() + str.slice(1)
@@ -31,9 +38,11 @@ export default function OverviewStory() {
       <Container width={1}>
         <Stack space={4}>
           <Heading as="h1">@sanity/icons v{packages.icons?.version}</Heading>
-          <Text as="p" muted>
-            {packages.icons?.description}
-          </Text>
+          {packages.icons?.description && (
+            <Text as="p" muted>
+              {packages.icons?.description}
+            </Text>
+          )}
           <Card border padding={3} radius={2}>
             <Code language="bash">{`npm install @sanity/icons\n\n# Install peer dependencies\nnpm install react`}</Code>
           </Card>

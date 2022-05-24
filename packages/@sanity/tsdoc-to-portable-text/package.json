@@ -24,7 +24,7 @@
   "license": "MIT",
   "scripts": {
     "build": "run-s build:microbundle && chmod +x lib/cli.js",
-    "build:microbundle": "microbundle --format modern,esm,cjs --target node --tsconfig tsconfig.lib.json src/{cli,index}.ts",
+    "build:microbundle": "microbundle --format modern,esm,cjs --tsconfig tsconfig.lib.json src/{cli,index}.ts",
     "clean": "rimraf lib",
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --quiet",
     "prebuild": "yarn clean",

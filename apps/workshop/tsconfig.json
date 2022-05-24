@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.settings",
-  "include": ["./scripts/", "./src/", "./test/", "./typings/"],
+  "include": ["./scripts/", "./src/", "./test/", "./typings/", "./workshop.config.ts"],
   "compilerOptions": {
     "composite": true,
     "rootDir": "./",
@@ -9,8 +9,5 @@
     "jsx": "react",
     "baseUrl": "./"
   },
-  "references": [
-    {"path": "../../packages/@sanity/ui/tsconfig.lib.json"},
-    {"path": "../../packages/@sanity/ui-workshop/tsconfig.lib.json"}
-  ]
+  "references": [{"path": "../../packages/@sanity/ui-workshop/tsconfig.lib.json"}]
 }

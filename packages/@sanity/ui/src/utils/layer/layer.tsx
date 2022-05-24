@@ -1,6 +1,7 @@
 import React, {forwardRef} from 'react'
 import styled from 'styled-components'
 import {EMPTY_RECORD} from '../../constants'
+import {AsProperty} from '../../types'
 import {LayerProvider} from './layerProvider'
 import {useLayer} from './useLayer'
 
@@ -8,12 +9,12 @@ import {useLayer} from './useLayer'
  * @public
  */
 export interface LayerProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   zOffset?: number | number[]
 }
 
 interface LayerChildrenProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
 }
 
 const Root = styled.div`

@@ -35,7 +35,7 @@ export function buildFrameUrl(params: {
   viewport: string
   zoom: number
 }): string {
-  const {baseUrl = '/frame/', path, payload, scheme, viewport, zoom} = params
+  const {baseUrl = '/.workshop/frame/', path, payload, scheme, viewport, zoom} = params
 
   return [
     baseUrl,

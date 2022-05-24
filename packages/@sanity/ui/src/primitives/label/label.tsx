@@ -2,7 +2,7 @@ import React, {forwardRef} from 'react'
 import styled from 'styled-components'
 import {responsiveLabelFont, responsiveTextAlignStyle} from '../../styles/internal'
 import {ThemeFontWeightKey} from '../../theme'
-import {TextAlign} from '../../types'
+import {AsProperty, TextAlign} from '../../types'
 import {labelBaseStyle} from './styles'
 
 /**
@@ -11,7 +11,7 @@ import {labelBaseStyle} from './styles'
 export interface LabelProps {
   accent?: boolean
   align?: TextAlign | TextAlign[]
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   muted?: boolean
   size?: number | number[]
   /**

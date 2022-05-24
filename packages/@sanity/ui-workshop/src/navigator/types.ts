@@ -1,4 +1,4 @@
-import {WorkshopScope} from '../types'
+import {WorkshopScope, WorkshopStory} from '../types'
 
 export interface MenuList {
   type: 'list'
@@ -18,4 +18,9 @@ export interface MenuCollection {
   name?: string
   title?: string
   children?: MenuCollection[]
+}
+
+export interface SearchResultMatch {
+  scope: WorkshopScope
+  story: WorkshopStory
 }

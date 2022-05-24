@@ -1,9 +1,9 @@
 import {Card, Stack, Text} from '@sanity/ui'
 import React, {memo} from 'react'
-import {WorkshopScope, WorkshopStory} from '../types'
+import {SearchResultMatch} from './types'
 
 export const SearchResults = memo(function SearchResults(props: {
-  matches: {scope: WorkshopScope; story: WorkshopStory}[]
+  matches: SearchResultMatch[]
   onStoryClick: (event: React.MouseEvent<HTMLDivElement>) => void
 }) {
   const {matches, onStoryClick} = props

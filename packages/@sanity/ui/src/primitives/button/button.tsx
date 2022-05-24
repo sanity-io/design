@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {ThemeProps} from '../../styles'
 import {responsiveRadiusStyle, ResponsiveRadiusStyleProps} from '../../styles/internal'
 import {useTheme} from '../../theme'
-import {ButtonMode, ButtonTextAlign, ButtonTone, FlexJustify} from '../../types'
+import {AsProperty, ButtonMode, ButtonTextAlign, ButtonTone, FlexJustify} from '../../types'
 import {Box} from '../box'
 import {Flex} from '../flex'
 import {Spinner} from '../spinner'
@@ -16,7 +16,7 @@ import {buttonBaseStyles, buttonColorStyles} from './styles'
  * @public
  */
 export interface ButtonProps extends ResponsivePaddingProps, ResponsiveRadiusProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   fontSize?: number | number[]
   mode?: ButtonMode
   icon?: React.ComponentType | React.ReactNode

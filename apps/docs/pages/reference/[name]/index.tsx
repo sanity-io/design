@@ -98,9 +98,7 @@ function ReferencePackagePage({
   return (
     <AppLayout>
       <Head>
-        <title>
-          @sanity/{params.name} – {app.siteName}
-        </title>
+        <title>{`@sanity/${params.name} – ${app.siteName}`}</title>
       </Head>
 
       <PageLayout menu={menu} menuHeader={menuHeader}>
