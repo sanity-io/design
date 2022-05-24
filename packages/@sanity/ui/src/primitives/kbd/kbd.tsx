@@ -1,6 +1,7 @@
 import React, {forwardRef} from 'react'
 import styled, {css} from 'styled-components'
 import {responsiveRadiusStyle, ResponsiveRadiusStyleProps} from '../../styles/internal'
+import {AsProperty} from '../../types'
 import {Box} from '../box'
 import {Code} from '../code'
 
@@ -8,7 +9,7 @@ import {Code} from '../code'
  * @public
  */
 export interface KBDProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   fontSize?: number | number[]
   padding?: number | number[]
   radius?: number | number[]

@@ -40,19 +40,23 @@ const NavbarBreadcrumbsView = memo(function NavbarBreadcrumbsView(props: {
       }
       space={2}
     >
-      <Text size={1} weight="bold">
+      <Text key="home" size={1} weight="bold">
         <a href="/" onClick={onHomeClick} style={{color: 'inherit'}}>
           {title}
         </a>
       </Text>
 
       {scopeTitle && (
-        <Text align="center" size={1}>
+        <Text align="center" key="scope" size={1}>
           {scopeTitle}
         </Text>
       )}
 
-      {storyTitle && <Text size={1}>{storyTitle}</Text>}
+      {storyTitle && (
+        <Text key="story" size={1}>
+          {storyTitle}
+        </Text>
+      )}
     </Breadcrumbs>
   )
 })

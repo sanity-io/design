@@ -14,7 +14,7 @@
     "rootDir": "./",
     "outDir": "./lib/dts/",
     "declarationDir": "./lib/dts/",
-    "jsx": "react"
+    "jsx": "preserve"
   },
   "references": [{"path": "../color/tsconfig.lib.json"}, {"path": "../icons/tsconfig.lib.json"}]
 }

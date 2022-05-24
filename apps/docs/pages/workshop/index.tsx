@@ -32,7 +32,7 @@ function WorkshopPage() {
   return (
     <>
       <Head>
-        <title>Workshop – {app.siteName}</title>
+        <title>{`Workshop – ${app.siteName}`}</title>
       </Head>
 
       <SEO seo={seo} title={isRecord(target) && target.title} />

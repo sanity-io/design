@@ -1,5 +1,6 @@
 import React, {forwardRef} from 'react'
 import styled from 'styled-components'
+import {AsProperty} from '../../types'
 import {Box, BoxProps} from '../box'
 import {stackBaseStyle, responsiveStackSpaceStyle, ResponsiveStackSpaceStyleProps} from './styles'
 
@@ -7,7 +8,7 @@ import {stackBaseStyle, responsiveStackSpaceStyle, ResponsiveStackSpaceStyleProp
  * @public
  */
 export interface StackProps extends BoxProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   space?: number | number[]
 }
 

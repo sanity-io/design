@@ -2,13 +2,14 @@ import React, {forwardRef} from 'react'
 import Refractor from 'react-refractor'
 import styled from 'styled-components'
 import {responsiveCodeFontStyle, ResponsiveFontStyleProps} from '../../styles/internal'
+import {AsProperty} from '../../types'
 import {codeBaseStyle} from './styles'
 
 /**
  * @public
  */
 export interface CodeProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   language?: string
   size?: number | number[]
   weight?: string

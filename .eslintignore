@@ -1,14 +1,15 @@
 /build
+/.workshop
 
 # Apps
+/apps/*/.workshop
 /apps/docs/.next
 /apps/docs/build
 /apps/studio/build
 /apps/studio/public
-/apps/workshop/build
-/apps/workshop/dist
 
 # Examples
+/examples/*/.workshop
 /examples/manage/build
 /examples/manage/public
 /examples/studio/build
@@ -17,6 +18,8 @@
 /examples/web/build
 
 # Packages
+/packages/*/.workshop
 /packages/*/lib
+/packages/@sanity/*/.workshop
 /packages/@sanity/*/lib
 /packages/@sanity/**/__fixtures__

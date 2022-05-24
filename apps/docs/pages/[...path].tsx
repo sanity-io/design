@@ -24,31 +24,27 @@ export async function getStaticPaths() {
 
 export default function PathPage() {
   const {data, menu} = useApp()
-  const target = isRecord(data) && isRecord(data.target) && data.target
+  const target = isRecord(data) && isRecord(data.target) ? data.target : undefined
   const seo: Record<string, any> | null = target ? (target.seo as any) : null
+  const layout = (isRecord(target?.layout) && target?.layout) || {}
 
   return (
     <>
       <Head>
-        {target && (
-          <title>
-            {target.title} – {app.siteName}
-          </title>
-        )}
-
-        {!target && <title>Page not found – {app.siteName}</title>}
+        {target && <title>{`${target.title} – ${app.siteName}`}</title>}
+        {!target && <title>{`Page not found – ${app.siteName}`}</title>}
       </Head>
 
       <SEO seo={seo} title={isRecord(target) && target.title} />
 
       <AppLayout>
-        {target && target._type === 'article' && (
-          <PageLayout menu={menu} {...(target.layout || {})}>
+        {target?._type === 'article' && (
+          <PageLayout menu={menu} {...layout}>
             <Article article={target} />
           </PageLayout>
         )}
 
-        {target && target._type === 'screen' && <Screen target={target} />}
+        {target?._type === 'screen' && <Screen target={target} />}
 
         {(!target || (target._type !== 'article' && target._type === 'screen')) && (
           <NotFoundScreen />

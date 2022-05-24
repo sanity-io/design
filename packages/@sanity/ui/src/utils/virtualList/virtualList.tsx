@@ -4,6 +4,7 @@ import {_isScrollable} from '../../helpers'
 import {useForwardedRef} from '../../hooks'
 import {StackProps} from '../../primitives'
 import {useTheme} from '../../theme'
+import {AsProperty} from '../../types'
 
 /**
  * @beta
@@ -21,7 +22,7 @@ export interface VirtualListChangeOpts {
  * @beta
  */
 export interface VirtualListProps<Item = any> {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   gap?: number
   getItemKey?: (item: Item, itemIndex: number) => string
   items?: Item[]

@@ -191,10 +191,6 @@ export const Workshop = memo(function Workshop(props: WorkshopProps): React.Reac
     }
   }, [broadcast, schemeProp])
 
-  if (!config.scopes) {
-    return <>No scopes</>
-  }
-
   return (
     <WorkshopProvider
       config={config}

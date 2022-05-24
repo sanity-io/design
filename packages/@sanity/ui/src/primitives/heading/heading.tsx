@@ -7,7 +7,7 @@ import {
   ResponsiveTextAlignStyleProps,
 } from '../../styles/internal'
 import {ThemeFontWeightKey} from '../../theme'
-import {TextAlign} from '../../types'
+import {AsProperty, TextAlign} from '../../types'
 import {headingBaseStyle} from './styles'
 import {HeadingStyleProps} from './types'
 
@@ -17,7 +17,7 @@ import {HeadingStyleProps} from './types'
 export interface HeadingProps {
   accent?: boolean
   align?: TextAlign | TextAlign[]
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   muted?: boolean
   size?: number | number[]
   /**

@@ -21,7 +21,7 @@ function IndexPage() {
   return (
     <>
       <Head>
-        <title>{app.siteName}</title>
+        <title>{`${app.siteName}`}</title>
       </Head>
 
       <SEO seo={seo} title={isRecord(target) && target.title} />

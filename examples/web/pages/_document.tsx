@@ -32,7 +32,7 @@ class Document extends NextDocument<DocumentProps & {styleTags: React.ReactNode}
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        ),
+        ) as any,
       }
     } finally {
       sheet.seal()

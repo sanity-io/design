@@ -6,7 +6,7 @@ import {
   responsiveTextFont,
 } from '../../styles/internal'
 import {ThemeFontWeightKey} from '../../theme'
-import {TextAlign} from '../../types'
+import {AsProperty, TextAlign} from '../../types'
 import {textBaseStyle} from './styles'
 
 /**
@@ -15,7 +15,7 @@ import {textBaseStyle} from './styles'
 export interface TextProps {
   accent?: boolean
   align?: TextAlign | TextAlign[]
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   muted?: boolean
   size?: number | number[]
   /**

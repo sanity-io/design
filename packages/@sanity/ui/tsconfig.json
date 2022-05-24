@@ -1,7 +1,6 @@
 {
   "extends": "../../../tsconfig.settings",
-  "include": ["./src/", "./test/", "./typings/"],
-  "exclude": ["./src/**/__workshop__/"],
+  "include": ["./src/", "./test/", "./typings/", "./workshop.config.ts"],
   "compilerOptions": {
     "composite": true,
     "rootDir": "./",
@@ -13,6 +12,6 @@
   "references": [
     {"path": "../color/tsconfig.lib.json"},
     {"path": "../icons/tsconfig.lib.json"},
-    {"path": "./tsconfig.workshop.json"}
+    {"path": "../ui-workshop/tsconfig.lib.json"}
   ]
 }

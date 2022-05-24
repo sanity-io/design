@@ -1,7 +1,7 @@
 import React, {forwardRef} from 'react'
 import styled from 'styled-components'
 import {responsiveRadiusStyle, ResponsiveRadiusStyleProps} from '../../styles/internal'
-import {BadgeMode, BadgeTone} from '../../types'
+import {AsProperty, BadgeMode, BadgeTone} from '../../types'
 import {Box, BoxProps} from '../box'
 import {Label} from '../label'
 import {ResponsiveRadiusProps} from '../types'
@@ -12,7 +12,7 @@ import {BadgeStyleProps} from './types'
  * @public
  */
 export interface BadgeProps extends BoxProps, ResponsiveRadiusProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   fontSize?: number | number[]
   mode?: BadgeMode
   tone?: BadgeTone
