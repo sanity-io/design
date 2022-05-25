@@ -1,6 +1,6 @@
 context('Primitives/Grid', () => {
   it('should have responsive styles', () => {
-    cy.visit('http://localhost:9009/frame/?path=/primitives/grid/responsive')
+    cy.visit('/ui/primitives/grid/responsive')
 
     const sizes = [
       {
