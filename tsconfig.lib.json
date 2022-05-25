@@ -2,6 +2,7 @@
   "extends": "./tsconfig.settings",
   "include": [],
   "compilerOptions": {
+    "rootDir": "./",
     "outDir": "./build/dts/"
   },
   "references": [

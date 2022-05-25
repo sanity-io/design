@@ -1,13 +1,15 @@
 {
   "extends": "./tsconfig.settings",
   "include": [
-    "./*.js",
-    "./apps/workshop/vite.config.ts",
+    "./.eslintrc.js",
+    "./jest.config.js",
     "./package.json",
     "./scripts/",
-    "./test/"
+    "./test/",
+    "./workshop.config.ts"
   ],
   "compilerOptions": {
+    "rootDir": "./",
     "outDir": "./build/ts/",
     "allowJs": true,
     "checkJs": true,
