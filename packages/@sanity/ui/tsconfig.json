@@ -1,17 +1,21 @@
 {
   "extends": "../../../tsconfig.settings",
-  "include": ["./src/", "./test/", "./typings/", "./workshop.config.ts"],
+  "include": ["../ui-workshop/src/", "./src/", "./test/", "./typings/", "./workshop.config.ts"],
   "compilerOptions": {
     "composite": true,
-    "rootDir": "./",
-    "outDir": "./lib/dts/",
-    "declarationDir": "./lib/dts/",
+    "rootDir": "../../../",
+    "outDir": "./build/ts/",
+    "jsx": "react",
     "module": "ES2020",
-    "jsx": "react"
+    "baseUrl": "../../../",
+    "paths": {
+      // TODO: Remove this when local workshop stories no longer use the `@sanity/ui` import.
+      "@sanity/ui": ["./packages/@sanity/ui/src"],
+
+      // NOTE: This is needed because there's a circular dependency between `@sanity/ui` and
+      // `@sanity/ui-workshop`.
+      "@sanity/ui-workshop": ["./packages/@sanity/ui-workshop/src"]
+    }
   },
-  "references": [
-    {"path": "../color/tsconfig.lib.json"},
-    {"path": "../icons/tsconfig.lib.json"},
-    {"path": "../ui-workshop/tsconfig.lib.json"}
-  ]
+  "references": [{"path": "../color/tsconfig.lib.json"}, {"path": "../icons/tsconfig.lib.json"}]
 }
