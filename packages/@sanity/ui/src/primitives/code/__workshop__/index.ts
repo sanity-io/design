@@ -1,7 +1,7 @@
 import {defineScope} from '@sanity/ui-workshop'
 import {lazy} from 'react'
 
-export default defineScope('primitives/code', 'Code', [
+export default defineScope('ui/primitives/code', 'Code', [
   {
     name: 'props',
     title: 'Props',

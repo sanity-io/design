@@ -1,7 +1,7 @@
 import {defineScope} from '@sanity/ui-workshop'
 import {lazy} from 'react'
 
-export default defineScope('components/autocomplete', 'Autocomplete', [
+export default defineScope('ui/components/autocomplete', 'Autocomplete', [
   {
     name: 'example',
     title: 'Example',

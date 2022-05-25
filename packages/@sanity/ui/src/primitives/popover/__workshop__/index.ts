@@ -1,7 +1,7 @@
 import {defineScope} from '@sanity/ui-workshop'
 import {lazy} from 'react'
 
-export default defineScope('primitives/popover', 'Popover', [
+export default defineScope('ui/primitives/popover', 'Popover', [
   {
     name: 'plain',
     title: 'Plain',
