@@ -29,7 +29,7 @@
     "build": "run-s build:microbundle",
     "build:microbundle": "microbundle --format modern,esm,cjs --jsx React.createElement --jsxImportSource react --no-compress --tsconfig tsconfig.lib.json src/{cli,index}.ts",
     "build:smoketest": "node -r esbuild-register src/cli build",
-    "clean": "rimraf .workshop lib",
+    "clean": "rimraf .workshop build lib",
     "dev": "DEBUG='workshop:*' node -r esbuild-register src/cli dev",
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --quiet",
     "prebuild": "yarn clean",

@@ -20,7 +20,7 @@
   "scripts": {
     "build": "run-s build:microbundle",
     "build:microbundle": "microbundle --format modern,esm,cjs --no-compress --tsconfig tsconfig.lib.json",
-    "clean": "rimraf .workshop lib",
+    "clean": "rimraf .workshop build lib",
     "generate": "node -r esbuild-register scripts/generate.ts",
     "lint": "eslint . --ext .js,.ts --quiet",
     "prebuild": "yarn clean && yarn generate",
