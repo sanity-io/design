@@ -1,7 +1,7 @@
 import {defineScope} from '@sanity/ui-workshop'
 import {lazy} from 'react'
 
-export default defineScope('utils/boundaryElement', 'BoundaryElement', [
+export default defineScope('ui/utils/boundaryElement', 'BoundaryElement', [
   {
     name: 'plain',
     title: 'Plain',

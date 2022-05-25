@@ -1,7 +1,7 @@
 import {defineScope} from '@sanity/ui-workshop'
 import {lazy} from 'react'
 
-export default defineScope('utils/virtual-list', 'VirtualList', [
+export default defineScope('ui/utils/virtual-list', 'VirtualList', [
   {
     name: 'window-scroll',
     title: 'Window scroll',

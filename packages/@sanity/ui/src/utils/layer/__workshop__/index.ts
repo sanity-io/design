@@ -1,7 +1,7 @@
 import {defineScope} from '@sanity/ui-workshop'
 import {lazy} from 'react'
 
-export default defineScope('utils/layer', 'Layer', [
+export default defineScope('ui/utils/layer', 'Layer', [
   {
     name: 'plain',
     title: 'Plain',

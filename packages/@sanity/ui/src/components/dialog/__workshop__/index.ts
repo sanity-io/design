@@ -1,7 +1,7 @@
 import {defineScope} from '@sanity/ui-workshop'
 import {lazy} from 'react'
 
-export default defineScope('components/dialog', 'Dialog', [
+export default defineScope('ui/components/dialog', 'Dialog', [
   {name: 'props', title: 'Props', component: lazy(() => import('./props'))},
   {name: 'nested', title: 'Nested', component: lazy(() => import('./nested'))},
   {name: 'on-scroll', title: 'On scroll', component: lazy(() => import('./onScroll'))},

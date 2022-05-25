@@ -1,7 +1,7 @@
 import {defineScope} from '@sanity/ui-workshop'
 import {lazy} from 'react'
 
-export default defineScope('components/menu', 'Menu', [
+export default defineScope('ui/components/menu', 'Menu', [
   {
     name: 'menu-button',
     title: 'MenuButton',

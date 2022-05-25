@@ -1,7 +1,7 @@
 import {defineScope} from '@sanity/ui-workshop'
 import {lazy} from 'react'
 
-export default defineScope('theme', 'Theme', [
+export default defineScope('ui/theme', 'Theme', [
   {
     name: 'canvas',
     title: 'Canvas',
