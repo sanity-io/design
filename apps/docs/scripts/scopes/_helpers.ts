@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import chokidar from 'chokidar'
-import globby from 'globby'
+import {globbySync} from 'globby'
 
 declare global {
   // eslint-disable-next-line no-var
@@ -23,7 +23,7 @@ function _sanitizeModulePath(opts: ScopeResolverOptions, modulePath: string) {
 }
 
 export function _writeScopes(opts: ScopeResolverOptions) {
-  const paths = globby.sync(opts.pattern)
+  const paths = globbySync(opts.pattern)
 
   _writeModule(opts, paths)
 
