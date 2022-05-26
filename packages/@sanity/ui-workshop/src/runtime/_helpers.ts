@@ -1,12 +1,8 @@
 import {access, constants} from 'fs'
 import {readFile} from 'fs/promises'
 import path from 'path'
-import util from 'util'
-import glob from 'glob'
-import pkgUp from 'pkg-up'
+import {pkgUp} from 'pkg-up'
 import {Observable} from 'rxjs'
-
-export const _glob = util.promisify(glob)
 
 export function getExists(filename: string): Promise<boolean> {
   return new Promise((resolve) => {
