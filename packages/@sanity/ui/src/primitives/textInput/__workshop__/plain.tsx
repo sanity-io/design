@@ -1,5 +1,4 @@
 import {icons, IconSymbol} from '@sanity/icons'
-import {Container, Flex, Stack, Text, TextInput} from '@sanity/ui'
 import {PerfTestProps, useBoolean, usePerfTest, useSelect, useText} from '@sanity/ui-workshop'
 import {fireEvent} from '@testing-library/dom'
 import React, {useCallback, useState} from 'react'
@@ -9,7 +8,12 @@ import {
   WORKSHOP_ICON_SYMBOL_OPTIONS,
   WORKSHOP_RADIUS_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Stack} from '../../stack'
+import {Text} from '../../text'
+import {TextInput} from '../textInput'
 
 const typingPerfTest: PerfTestProps<HTMLInputElement> = {
   name: 'typing',

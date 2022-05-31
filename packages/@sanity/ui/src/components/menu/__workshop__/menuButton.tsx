@@ -1,18 +1,13 @@
 import {ClockIcon, CommentIcon, ExpandIcon, SearchIcon} from '@sanity/icons'
-import {
-  Box,
-  Button,
-  Card,
-  Grid,
-  LayerProvider,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-} from '@sanity/ui'
 import {useAction, useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
-import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../../test/workshop'
+import {Box, Button, Card, Grid} from '../../../primitives'
+import {LayerProvider} from '../../../utils'
+import {Menu} from '../menu'
+import {MenuButton} from '../menuButton'
+import {MenuDivider} from '../menuDivider'
+import {MenuItem} from '../menuItem'
 
 export default function MenuButtonStory() {
   const layoutTone = useSelect('Layout tone', WORKSHOP_CARD_TONE_OPTIONS, 'default', 'Props')

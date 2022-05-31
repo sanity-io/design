@@ -1,4 +1,3 @@
-import {Card, Flex, Stack, Text} from '@sanity/ui'
 import {useAction, useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
 import {
@@ -7,7 +6,11 @@ import {
   WORKSHOP_RADIUS_OPTIONS,
   WORKSHOP_SHADOW_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
+import {Flex} from '../../flex'
+import {Stack} from '../../stack'
+import {Text} from '../../text'
+import {Card} from '../card'
 
 export default function PropsStory() {
   const as = useSelect('As', WORKSHOP_CARD_AS_OPTIONS, 'div', 'Props')

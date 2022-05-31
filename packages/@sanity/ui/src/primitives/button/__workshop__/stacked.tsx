@@ -1,5 +1,4 @@
 import {icons} from '@sanity/icons'
-import {Box, Button, Card, Container, Flex, Stack} from '@sanity/ui'
 import {useAction, useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
 import {
@@ -9,7 +8,13 @@ import {
   WORKSHOP_ICON_SYMBOL_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
   WORKSHOP_TEXT_SIZE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
+import {Box} from '../../box'
+import {Card} from '../../card'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Stack} from '../../stack'
+import {Button} from '../button'
 
 export default function StackedStory() {
   const tones = Object.entries(WORKSHOP_BUTTON_TONE_OPTIONS)

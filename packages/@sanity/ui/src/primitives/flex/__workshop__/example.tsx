@@ -1,8 +1,10 @@
-import {Card, Code, Flex} from '@sanity/ui'
 import {useSelect} from '@sanity/ui-workshop'
 import React from 'react'
 import styled from 'styled-components'
-import {WORKSHOP_FLEX_DIRECTION_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_FLEX_DIRECTION_OPTIONS} from '../../../../test/workshop'
+import {Card} from '../../card'
+import {Code} from '../../code'
+import {Flex} from '../flex'
 
 const DebugCard = styled(Card)`
   outline: 1px solid red;

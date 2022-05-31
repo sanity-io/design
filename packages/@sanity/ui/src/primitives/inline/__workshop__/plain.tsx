@@ -1,7 +1,10 @@
-import {Card, Flex, Inline, Text} from '@sanity/ui'
 import {useAction, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
-import {WORKSHOP_SPACE_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_SPACE_OPTIONS} from '../../../../test/workshop'
+import {Card} from '../../card'
+import {Flex} from '../../flex'
+import {Text} from '../../text'
+import {Inline} from '../inline'
 
 export default function PlainStory() {
   return (

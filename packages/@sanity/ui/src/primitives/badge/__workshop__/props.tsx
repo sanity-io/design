@@ -1,11 +1,12 @@
-import {Badge, Flex} from '@sanity/ui'
 import {useAction, useSelect, useText} from '@sanity/ui-workshop'
 import React from 'react'
 import {
   WORKSHOP_BADGE_MODE_OPTIONS,
   WORKSHOP_BADGE_TONE_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
+import {Flex} from '../../flex'
+import {Badge} from '../badge'
 
 export default function PropsStory() {
   const mode = useSelect('Mode', WORKSHOP_BADGE_MODE_OPTIONS, 'default', 'Props')

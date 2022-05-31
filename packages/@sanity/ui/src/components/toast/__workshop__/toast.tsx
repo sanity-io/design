@@ -1,7 +1,8 @@
-import {Box, Container, Toast} from '@sanity/ui'
 import {useAction, useBoolean, useSelect, useString, useText} from '@sanity/ui-workshop'
 import React from 'react'
-import {WORKSHOP_TOAST_STATUS_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_TOAST_STATUS_OPTIONS} from '../../../../test/workshop'
+import {Box, Container} from '../../../primitives'
+import {Toast} from '../toast'
 
 export default function ToastStory() {
   const closable = useBoolean('Closable', false, 'Props')

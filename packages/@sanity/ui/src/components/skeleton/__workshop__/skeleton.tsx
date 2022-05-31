@@ -1,19 +1,9 @@
-import {
-  Box,
-  Card,
-  CodeSkeleton,
-  Container,
-  Flex,
-  Grid,
-  HeadingSkeleton,
-  LabelSkeleton,
-  Skeleton,
-  Stack,
-  TextSkeleton,
-} from '@sanity/ui'
 import {useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
-import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../../test/workshop'
+import {Box, Card, Container, Flex, Grid, Stack} from '../../../primitives'
+import {Skeleton} from '../skeleton'
+import {CodeSkeleton, HeadingSkeleton, LabelSkeleton, TextSkeleton} from '../textSkeleton'
 
 export default function SkeletonStory() {
   const tone = useSelect('Tone', WORKSHOP_CARD_TONE_OPTIONS, '', 'Props') || 'default'

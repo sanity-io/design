@@ -1,7 +1,13 @@
-import {Box, Button, Container, Flex, Popover, Stack, Text} from '@sanity/ui'
 import {useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
-import {WORKSHOP_PLACEMENT_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_PLACEMENT_OPTIONS} from '../../../../test/workshop'
+import {Box} from '../../box'
+import {Button} from '../../button'
+import {Container} from '../../container'
+import {Flex} from '../../flex'
+import {Stack} from '../../stack'
+import {Text} from '../../text'
+import {Popover} from '../popover'
 
 export default function MatchReferenceWidthStory() {
   const arrow = useBoolean('Arrow', true, 'Props')
