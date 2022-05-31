@@ -42,10 +42,10 @@
     "@microsoft/tsdoc": "^0.14.1",
     "@microsoft/tsdoc-config": "^0.16.1",
     "@types/cpx": "^1.5.2",
-    "chalk": "^5.0.1",
+    "chalk": "^4.1.2",
     "jsonc-parser": "^3.0.0",
     "mkdirp": "^1.0.4",
-    "pkg-up": "^4.0.0",
+    "pkg-up": "^3.1.0",
     "slugify": "^1.6.5",
     "tmp": "^0.2.1",
     "yargs": "^17.5.1"

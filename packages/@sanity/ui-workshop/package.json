@@ -46,7 +46,7 @@
     "globby": "^13.1.1",
     "pako": "^2.0.4",
     "mkdirp": "^1.0.4",
-    "pkg-up": "^4.0.0",
+    "pkg-up": "^3.1.0",
     "react-refractor": "^2.1.7",
     "refractor": "^4.7.0",
     "segmented-property": "^3.0.3",
