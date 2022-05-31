@@ -43,7 +43,7 @@ describe('Grid', () => {
         viewport: [1200, 1600],
         css: {
           gridGap: '20px 20px',
-          gridTemplateColumns: '203.188px 203.203px 203.203px 203.203px 203.203px',
+          gridTemplateColumns: '203.195px 203.203px 203.195px 203.203px 203.203px',
           gridTemplateRows: '11px 11px 11px 11px 11px',
         },
       },
@@ -61,8 +61,7 @@ describe('Grid', () => {
         viewport: [2400, 3840],
         css: {
           gridGap: '52px 52px',
-          gridTemplateColumns:
-            '283.422px 283.422px 283.438px 283.422px 283.438px 283.422px 283.438px',
+          gridTemplateColumns: '283.422px 283.43px 283.43px 283.43px 283.43px 283.43px 283.43px',
           gridTemplateRows: '11px 11px 11px 11px 11px 11px 11px',
         },
       },
@@ -71,7 +70,7 @@ describe('Grid', () => {
     for (const size of sizes) {
       const {css, viewport} = size
 
-      const page = await browser.getPage('/primitives/grid/responsive', {
+      const page = await browser.getPage('/ui/primitives/grid/responsive', {
         viewport: {width: viewport[0], height: viewport[1]},
       })
 

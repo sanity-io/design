@@ -14,7 +14,7 @@ describe('Box', () => {
 
     for (const size of sizes) {
       const {css, viewport} = size
-      const page = await browser.getPage('/primitives/box/responsive', {
+      const page = await browser.getPage('/ui/primitives/box/responsive', {
         viewport: {width: viewport[0], height: viewport[1]},
       })
       const $box = page.locator('#responsive-box')

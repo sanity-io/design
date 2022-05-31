@@ -15,7 +15,7 @@ describe('Layer', () => {
     for (const size of sizes) {
       const {css, viewport} = size
 
-      const page = await browser.getPage('/utils/layer/responsive-z-offset', {
+      const page = await browser.getPage('/ui/utils/layer/responsive-z-offset', {
         viewport: {width: viewport[0], height: viewport[1]},
       })
 

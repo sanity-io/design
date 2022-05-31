@@ -2,7 +2,7 @@ import {browser} from '$test'
 
 describe('Dialog', () => {
   it('should open dialog', async () => {
-    const page = await browser.getPage('/components/dialog/props')
+    const page = await browser.getPage('/ui/components/dialog/props')
     const $openButton = page.locator('#open-dialog-button')
     const $dialog = page.locator('#dialog')
 
@@ -11,7 +11,7 @@ describe('Dialog', () => {
   })
 
   it('should trap focus', async () => {
-    const page = await browser.getPage('/components/dialog/props')
+    const page = await browser.getPage('/ui/components/dialog/props')
     const $openButton = page.locator('#open-dialog-button')
     const $dialog = page.locator('#dialog')
     const $closeButton = $dialog.locator('button[aria-label="Close dialog"]')

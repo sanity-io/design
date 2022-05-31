@@ -3,7 +3,7 @@ import {browser} from '$test'
 describe('Tree', () => {
   describe('Browser tests', () => {
     it('should …', async () => {
-      const page = await browser.getPage('/components/tree/basic')
+      const page = await browser.getPage('/ui/components/tree/basic')
       const $vegetables = page.locator('#vegetables')
       const $grains = page.locator('#grains')
 

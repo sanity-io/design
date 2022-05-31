@@ -2,7 +2,8 @@ import {browser} from '$test'
 
 describe('Autocomplete', () => {
   it('should use key arrows', async () => {
-    const page = await browser.getPage('/components/autocomplete/custom')
+    const page = await browser.getPage('/ui/components/autocomplete/custom')
+
     const $input = page.locator('#custom')
     const $listbox = page.locator('#custom-listbox')
 
@@ -33,7 +34,7 @@ describe('Autocomplete', () => {
   })
 
   it('should press clear button to clear', async () => {
-    const page = await browser.getPage('/components/autocomplete/custom')
+    const page = await browser.getPage('/ui/components/autocomplete/custom')
     const $input = page.locator('#custom')
     const $listbox = page.locator('#custom-listbox')
     const $clearButton = page.locator('[data-qa="clear-button"]')
@@ -69,7 +70,7 @@ describe('Autocomplete', () => {
   })
 
   it('should collapse when tabbing out', async () => {
-    const page = await browser.getPage('/components/autocomplete/custom')
+    const page = await browser.getPage('/ui/components/autocomplete/custom')
     const $input = page.locator('#custom')
 
     // Search for "nor"
@@ -86,7 +87,7 @@ describe('Autocomplete', () => {
   })
 
   it('should clear query on blur', async () => {
-    const page = await browser.getPage('/components/autocomplete/custom')
+    const page = await browser.getPage('/ui/components/autocomplete/custom')
     const $input = page.locator('#custom')
     const $listbox = page.locator('#custom-listbox')
 
@@ -129,7 +130,7 @@ describe('Autocomplete', () => {
   })
 
   it('should search anew after selecting a value', async () => {
-    const page = await browser.getPage('/components/autocomplete/custom')
+    const page = await browser.getPage('/ui/components/autocomplete/custom')
     const $input = page.locator('#custom')
     const $listbox = page.locator('#custom-listbox')
 
@@ -176,7 +177,7 @@ describe('Autocomplete', () => {
   })
 
   it('should trigger focus and blur', async () => {
-    const page = await browser.getPage('/components/autocomplete/focus-and-blur')
+    const page = await browser.getPage('/ui/components/autocomplete/focus-and-blur')
     const $body = page.locator('body')
     const $input = page.locator('#focus-and-blur')
     const $log = page.locator('#focus-and-blur-log')

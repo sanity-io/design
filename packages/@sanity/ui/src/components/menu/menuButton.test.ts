@@ -2,7 +2,7 @@ import {browser} from '$test'
 
 describe('MenuButton', () => {
   it('clicking should open/close menu', async () => {
-    const page = await browser.getPage('/components/menu/menu-button')
+    const page = await browser.getPage('/ui/components/menu/menu-button')
     const $menuButton = page.locator('#menu-button')
     const $nextButton = page.locator('#next-button')
 
@@ -16,7 +16,7 @@ describe('MenuButton', () => {
   })
 
   it('should use arrow keys to navigate the menu', async () => {
-    const page = await browser.getPage('/components/menu/menu-button')
+    const page = await browser.getPage('/ui/components/menu/menu-button')
     const $menuButton = page.locator('#menu-button')
     const $menuItem1 = page.locator('#menu-item-1')
     const $menuItem2 = page.locator('#menu-item-2')
@@ -57,7 +57,7 @@ describe('MenuButton', () => {
   })
 
   it('should close on `Tab`', async () => {
-    const page = await browser.getPage('/components/menu/menu-button')
+    const page = await browser.getPage('/ui/components/menu/menu-button')
     const $menuButton = page.locator('#menu-button')
     const $nextButton = page.locator('#next-button')
     const $menuItem1 = page.locator('#menu-item-1')
@@ -71,7 +71,7 @@ describe('MenuButton', () => {
   })
 
   it('should close on `Shift+Tab`', async () => {
-    const page = await browser.getPage('/components/menu/menu-button')
+    const page = await browser.getPage('/ui/components/menu/menu-button')
     const $menuButton = page.locator('#menu-button')
     const $prevButton = page.locator('#prev-button')
     const $menuItem1 = page.locator('#menu-item-1')
@@ -85,7 +85,7 @@ describe('MenuButton', () => {
   })
 
   it('should not close when one of the items receives focus', async () => {
-    const page = await browser.getPage('/components/menu/menu-button')
+    const page = await browser.getPage('/ui/components/menu/menu-button')
     const $menuButton = page.locator('#menu-button')
     const $menuItem2 = page.locator('#menu-item-2')
 

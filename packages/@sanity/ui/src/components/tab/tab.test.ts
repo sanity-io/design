@@ -2,7 +2,7 @@ import {browser} from '$test'
 
 describe('Tab', () => {
   it('should use keys to navigate tabs', async () => {
-    const page = await browser.getPage('/components/tab/example')
+    const page = await browser.getPage('/ui/components/tab/example')
     const $fooTab = page.locator('#example-tab-foo')
     const $barTab = page.locator('#example-tab-bar')
     const $fooPanel = page.locator('#example-panel-foo')

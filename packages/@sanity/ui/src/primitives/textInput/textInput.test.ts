@@ -2,7 +2,7 @@ import {browser} from '$test'
 
 describe('TextInput', () => {
   it('read-only input should have focus styling', async () => {
-    const page = await browser.getPage('/primitives/text-input/read-only')
+    const page = await browser.getPage('/ui/primitives/text-input/read-only')
     const $textInput = page.locator('#text-input-example')
     const $textInputSpan = page.locator('#text-input-example + span')
 
