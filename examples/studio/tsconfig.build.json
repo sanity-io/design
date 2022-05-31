@@ -3,7 +3,7 @@
   "files": ["./src/main.tsx"],
   "compilerOptions": {
     "outDir": "./build/dts/",
-    "module": "es6",
+    "module": "esnext",
     "target": "es5",
     "declaration": true,
     "sourceMap": true,
