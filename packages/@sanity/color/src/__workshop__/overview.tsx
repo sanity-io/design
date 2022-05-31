@@ -1,7 +1,6 @@
 import {black, ColorTints, ColorValue, COLOR_HUES, hues, white} from '@sanity/color'
-import {Box, Card, Code, Flex, Grid, Heading, Stack, useToast} from '@sanity/ui'
-import React, {useCallback} from 'react'
-import {hexToRgb, rgbToHsl} from '../../theme'
+import {Box, Card, Code, Flex, Grid, Heading, hexToRgb, rgbToHsl, Stack, useToast} from '@sanity/ui'
+import React, {CSSProperties, useCallback} from 'react'
 
 function ucfirst(str: string) {
   return str.slice(0, 1).toUpperCase() + str.slice(1)
@@ -11,7 +10,7 @@ const clipboard = {
   write(text: string) {
     const type = 'text/plain'
     const blob = new Blob([text], {type})
-    const data = [new ClipboardItem({[type]: blob as any})]
+    const data = [new ClipboardItem({[type]: blob})]
 
     return navigator.clipboard.write(data)
   },
@@ -83,7 +82,7 @@ function ColorTintPreview(props: {tint: ColorValue}) {
           '--card-bg-color': tint.hex,
           '--card-fg-color': hsl.l < 50 ? white.hex : black.hex,
           cursor: 'pointer',
-        } as any
+        } as CSSProperties
       }
     >
       <Flex padding={3}>
