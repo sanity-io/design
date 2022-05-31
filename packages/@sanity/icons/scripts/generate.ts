@@ -157,6 +157,6 @@ async function generate() {
 
 generate().catch((err) => {
   // eslint-disable-next-line no-console
-  console.error(err)
+  console.error('Error:', err)
   process.exit(1)
 })
