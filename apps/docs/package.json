@@ -35,6 +35,7 @@
     "react": "^18.1.0",
     "react-codemirror2": "^7.2.1",
     "react-dom": "^18.1.0",
+    "react-is": "^18.1.0",
     "slugify": "^1.6.5",
     "styled-components": "^5.3.5"
   },
