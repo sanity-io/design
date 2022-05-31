@@ -13,7 +13,7 @@
     "rootDir": "../../../",
     "outDir": "./build/ts/",
     "jsx": "react",
-    "module": "ES2020",
+    "module": "esnext",
     "baseUrl": "../../../",
     "paths": {
       // TODO: Remove this when local workshop stories no longer use the `@sanity/ui` import.
