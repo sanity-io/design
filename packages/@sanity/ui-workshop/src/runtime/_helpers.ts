@@ -1,7 +1,7 @@
 import {access, constants} from 'fs'
 import {readFile} from 'fs/promises'
 import path from 'path'
-import {pkgUp} from 'pkg-up'
+import pkgUp from 'pkg-up'
 import {Observable} from 'rxjs'
 
 export function getExists(filename: string): Promise<boolean> {

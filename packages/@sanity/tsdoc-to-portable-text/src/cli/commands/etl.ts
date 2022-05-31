@@ -1,6 +1,6 @@
 import path from 'path'
 import chalk from 'chalk'
-import {pkgUp} from 'pkg-up'
+import pkgUp from 'pkg-up'
 import {extract} from '../../extract'
 import {load} from '../../load'
 import {transform} from '../../transform'
