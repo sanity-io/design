@@ -5,7 +5,7 @@ import {
   WORKSHOP_PLACEMENT_OPTIONS,
   WORKSHOP_RADIUS_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
 import {PortalProvider} from '../../../utils'
 import {Button} from '../../button'
 import {Card} from '../../card'

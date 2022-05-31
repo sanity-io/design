@@ -1,7 +1,7 @@
 import {ArrowDownIcon, ArrowUpIcon} from '@sanity/icons'
 import {useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
-import {WORKSHOP_DIALOG_POSITION_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_DIALOG_POSITION_OPTIONS} from '../../../../test/workshop'
 import {Box, Stack, Text} from '../../../primitives'
 import {LayerProvider} from '../../../utils'
 import {Dialog} from '../dialog'

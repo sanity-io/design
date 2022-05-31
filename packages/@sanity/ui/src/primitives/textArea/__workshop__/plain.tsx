@@ -5,7 +5,7 @@ import {
   WORKSHOP_RADIUS_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
   WORKSHOP_TEXT_FONT_SIZE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
 import {Container} from '../../container'
 import {Flex} from '../../flex'
 import {Stack} from '../../stack'

@@ -1,6 +1,6 @@
 import {useSelect} from '@sanity/ui-workshop'
 import React from 'react'
-import {WORKSHOP_SPACE_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_SPACE_OPTIONS} from '../../../../test/workshop'
 import {Card} from '../../card'
 import {Container} from '../../container'
 import {Flex} from '../../flex'

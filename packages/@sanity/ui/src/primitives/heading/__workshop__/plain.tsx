@@ -4,7 +4,7 @@ import {
   WORKSHOP_HEADING_FONT_SIZE_OPTIONS,
   WORKSHOP_FONT_WEIGHT_OPTIONS,
   WORKSHOP_TEXT_OVERFLOW_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
 import {Flex} from '../../flex'
 import {Heading} from '../heading'
 

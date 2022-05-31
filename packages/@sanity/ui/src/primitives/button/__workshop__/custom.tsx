@@ -1,5 +1,5 @@
 import React from 'react'
-import {WORKSHOP_BUTTON_TONE_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_BUTTON_TONE_OPTIONS} from '../../../../test/workshop'
 import {Flex} from '../../flex'
 import {Grid} from '../../grid'
 import {Stack} from '../../stack'

@@ -1,6 +1,6 @@
 import {useSelect} from '@sanity/ui-workshop'
 import React from 'react'
-import {WORKSHOP_BADGE_MODE_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_BADGE_MODE_OPTIONS} from '../../../../test/workshop'
 import {Flex} from '../../flex'
 import {Inline} from '../../inline'
 import {Badge} from '../badge'

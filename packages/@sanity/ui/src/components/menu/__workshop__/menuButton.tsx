@@ -1,7 +1,7 @@
 import {ClockIcon, CommentIcon, ExpandIcon, SearchIcon} from '@sanity/icons'
 import {useAction, useBoolean, useSelect} from '@sanity/ui-workshop'
 import React from 'react'
-import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_CARD_TONE_OPTIONS} from '../../../../test/workshop'
 import {Box, Button, Card, Grid} from '../../../primitives'
 import {LayerProvider} from '../../../utils'
 import {Menu} from '../menu'

@@ -8,7 +8,7 @@ import {
   WORKSHOP_ICON_SYMBOL_OPTIONS,
   WORKSHOP_RADIUS_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
 import {Container} from '../../container'
 import {Flex} from '../../flex'
 import {Stack} from '../../stack'

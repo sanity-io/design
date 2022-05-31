@@ -1,6 +1,7 @@
+import {Placement} from '@popperjs/core'
 import {icons, IconSymbol} from '@sanity/icons'
-import {TextInputType} from '../primitives'
-import {ThemeColorSpotKey, ThemeColorToneKey, ThemeFontWeightKey} from '../theme'
+import {TextInputType} from '../../src/primitives'
+import {ThemeColorSpotKey, ThemeColorToneKey, ThemeFontWeightKey} from '../../src/theme'
 import {
   AvatarSize,
   BadgeMode,
@@ -11,9 +12,8 @@ import {
   CardTone,
   DialogPosition,
   FlexJustify,
-  Placement,
   TextAlign,
-} from '../types'
+} from '../../src/types'
 
 export const WORKSHOP_AVATAR_SIZE_OPTIONS: {[key: string]: AvatarSize} = {
   '0 (default)': 0,

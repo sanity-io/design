@@ -4,7 +4,7 @@ import {
   WORKSHOP_BADGE_MODE_OPTIONS,
   WORKSHOP_BADGE_TONE_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
 import {Flex} from '../../flex'
 import {Badge} from '../badge'
 

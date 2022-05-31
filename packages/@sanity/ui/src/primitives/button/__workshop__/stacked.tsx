@@ -8,7 +8,7 @@ import {
   WORKSHOP_ICON_SYMBOL_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
   WORKSHOP_TEXT_SIZE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
 import {Box} from '../../box'
 import {Card} from '../../card'
 import {Container} from '../../container'

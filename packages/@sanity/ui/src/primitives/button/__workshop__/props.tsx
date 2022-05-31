@@ -9,7 +9,7 @@ import {
   WORKSHOP_ICON_SYMBOL_OPTIONS,
   WORKSHOP_TEXT_SIZE_OPTIONS,
   WORKSHOP_SPACE_OPTIONS,
-} from '../../../__workshop__/constants'
+} from '../../../../test/workshop'
 import {Flex} from '../../flex'
 import {Button} from '../button'
 

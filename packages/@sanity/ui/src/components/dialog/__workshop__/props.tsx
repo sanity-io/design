@@ -1,6 +1,6 @@
 import {useBoolean, useSelect, useText} from '@sanity/ui-workshop'
 import React, {useCallback, useRef, useState} from 'react'
-import {WORKSHOP_WIDTH_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_WIDTH_OPTIONS} from '../../../../test/workshop'
 import {Box, Button, Stack, Text} from '../../../primitives'
 import {LayerProvider} from '../../../utils'
 import {Dialog} from '../dialog'

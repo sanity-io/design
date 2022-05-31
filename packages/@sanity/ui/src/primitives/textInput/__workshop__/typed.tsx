@@ -1,6 +1,6 @@
 import {useSelect} from '@sanity/ui-workshop'
 import React, {useCallback, useState} from 'react'
-import {WORKSHOP_TEXT_INPUT_TYPE_OPTIONS} from '../../../__workshop__/constants'
+import {WORKSHOP_TEXT_INPUT_TYPE_OPTIONS} from '../../../../test/workshop'
 import {TextInput} from '../textInput'
 
 export default function TypedStory() {
