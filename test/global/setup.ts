@@ -10,15 +10,20 @@ declare global {
 }
 
 export default async (): Promise<void> => {
+  console.log('')
+  console.log('setup test environment...')
+
   const port = config.build ? 9009 : await getPort()
 
   await fs.writeFile(config.statePath, `module.exports = {port: ${port}}\n`)
+
+  console.log('wrote', config.statePath)
 
   async function _close() {
     try {
       await server.close()
     } catch (err) {
-      console.error(err)
+      console.error('Error:', err)
       process.exit(1)
     }
   }

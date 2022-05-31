@@ -11,12 +11,11 @@ interface RenderOptions extends TLRenderOptions {
   strict?: boolean
 }
 
-const DefaultWrapper: React.FC = ({children}: any) => <main>{children}</main>
+const DefaultWrapper: React.FC = ({children}: {children?: React.ReactNode}) => (
+  <main>{children}</main>
+)
 
-export function render(
-  element: React.ReactElement<any>,
-  options: RenderOptions = {}
-): RenderResult {
+export function render(element: React.ReactElement, options: RenderOptions = {}): RenderResult {
   const {
     baseElement,
     scheme = 'light',
@@ -25,7 +24,7 @@ export function render(
   } = options
   const Mode = strict ? React.StrictMode : React.Fragment
 
-  const Wrapper: React.FC = ({children}: any) => {
+  const Wrapper: React.FC = ({children}: {children?: React.ReactNode}) => {
     return (
       <Mode>
         <InnerWrapper>

@@ -1,64 +1,13 @@
-/* eslint-disable no-console */
-
-import {ChildProcess, spawn, SpawnOptions} from 'child_process'
+import {ChildProcess} from 'child_process'
 import path from 'path'
-import {Observable} from 'rxjs'
 import {filter, switchMap} from 'rxjs/operators'
+import {_spawn} from './_spawn'
 
-const WORKSHOP_PATH = path.resolve(__dirname, '../../../apps/workshop')
+const ROOT_PATH = path.resolve(__dirname, '../../..')
 
 export interface WorkshopServer {
   close: () => Promise<void>
   port: number
-}
-
-function _spawn(
-  command: string,
-  options: SpawnOptions
-): Observable<{child: ChildProcess; chunk?: Buffer}> {
-  return new Observable((observer) => {
-    const child = spawn(command, options)
-
-    console.log(`$ ${command}`)
-
-    child.stdout?.on('data', (chunk) => {
-      observer.next({child, chunk})
-    })
-
-    child.on('error', (error) => {
-      console.log('error', {error})
-      observer.error(error)
-    })
-
-    child.on('close', (code, signal) => {
-      console.log('close', {code, signal})
-      observer.complete()
-    })
-
-    child.on('disconnect', () => {
-      console.log('disconnect')
-      observer.complete()
-    })
-
-    child.on('exit', (code) => {
-      console.log('exit', {code})
-      observer.complete()
-      process.exit(code || 0)
-    })
-
-    child.on('message', (msg, _send) => {
-      console.log('message', {msg})
-    })
-
-    child.on('spawn', () => {
-      console.log('spawn')
-      observer.next({child})
-    })
-
-    return () => {
-      child.kill()
-    }
-  })
 }
 
 export async function startWorkshopServer(opts: {
@@ -69,39 +18,50 @@ export async function startWorkshopServer(opts: {
 }): Promise<WorkshopServer> {
   const {build, debug, onExit, port} = opts
 
-  function dev() {
-    const dev$ = _spawn('yarn dev', {
-      cwd: WORKSHOP_PATH,
-      env: {
-        ...process.env,
-        DEBUG: debug ? '1' : undefined,
-        PORT: port ? String(port) : undefined,
-      },
-      shell: true,
-    })
-
-    const devIsRunning$ = dev$.pipe(
-      filter(({chunk}) => {
-        const d = String(chunk)
-
-        return d.includes('dev server running')
+  function dev(): Promise<{child: ChildProcess}> {
+    return new Promise((resolve, reject) => {
+      const dev$ = _spawn(`bin/workshop`, ['dev', `--port ${port}`], {
+        cwd: ROOT_PATH,
+        env: {
+          ...process.env,
+          DEBUG: debug ? '1' : undefined,
+          PORT: port ? String(port) : undefined,
+        },
+        shell: true,
       })
-    )
 
-    return devIsRunning$.toPromise()
+      let isResolved = false
+
+      dev$.subscribe({
+        error(error) {
+          reject(error)
+        },
+        next({child, chunk}) {
+          if (!isResolved) {
+            const d = String(chunk)
+
+            if (d.includes('workshop running at')) {
+              resolve({child})
+
+              isResolved = true
+            }
+          }
+        },
+      })
+    })
   }
 
   function start() {
-    const build$ = _spawn('yarn build', {
-      cwd: WORKSHOP_PATH,
+    const build$ = _spawn('yarn', ['build'], {
+      cwd: ROOT_PATH,
       env: {
         ...process.env,
         DEBUG: debug ? '1' : undefined,
       },
     })
 
-    const start$ = _spawn('yarn start', {
-      cwd: WORKSHOP_PATH,
+    const start$ = _spawn('yarn', ['start'], {
+      cwd: ROOT_PATH,
       env: {
         ...process.env,
         DEBUG: debug ? '1' : undefined,

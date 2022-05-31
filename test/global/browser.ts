@@ -21,8 +21,9 @@ function createTestBrowser() {
       path: string,
       opts: {viewport?: {width: number; height: number}} = {}
     ): Promise<Page> {
+      const url = `http://localhost:${port}/.workshop/frame/?path=${path}`
+
       const page = await _browser.newPage()
-      const url = `http://localhost:${port}/frame/?path=${path}`
 
       if (opts.viewport) {
         page.setViewportSize(opts.viewport)
