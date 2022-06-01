@@ -29,13 +29,10 @@ jobs:
 
       - name: Install project dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        env:
-          # Keep the Cypress binary in ./node_modules/.cypress
-          CYPRESS_CACHE_FOLDER: './node_modules/.cypress'
         run: yarn install
 
-      - name: Build packages
-        run: yarn type-check && yarn lerna run --scope @sanity/tsdoc-to-portable-text build
+      - name: Build type definitions
+        run: yarn build:dts && yarn prettify:dts
 
       - name: Extract, Transform & Load
         env:
