@@ -20,7 +20,9 @@
 
 # Packages
 /packages/*/.workshop
+/packages/*/build
 /packages/*/lib
 /packages/@sanity/*/.workshop
+/packages/@sanity/*/build
 /packages/@sanity/*/lib
 /packages/@sanity/**/__fixtures__
