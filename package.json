@@ -3,7 +3,8 @@
   "name": "sanity-design",
   "license": "MIT",
   "scripts": {
-    "build": "lerna run --scope @sanity/* build && tsc --build tsconfig.lib.json",
+    "build": "lerna run --scope @sanity/* build && yarn build:dts",
+    "build:dts": "tsc --build tsconfig.lib.json",
     "build:workshop": "rimraf dist && bin/workshop build",
     "clean": "rimraf .workshop build dist etc && lerna run clean",
     "dev": "run-p dev:workshop",
