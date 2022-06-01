@@ -57,7 +57,9 @@ export async function extract(
       const typesPath = subPath ? types?.[subPath]?.[0] : pkg.types
 
       if (!typesPath) {
-        throw new Error(`[${pkg.name}] missing types path`)
+        // eslint-disable-next-line no-console
+        console.warn(`[${pkg.name}] missing types path for export: ${exportPath}`)
+        continue
       }
 
       exports.push({
@@ -162,5 +164,10 @@ async function _doExtract(options: {
     ? ApiPackage.loadFromJsonFile(path.resolve(tempDirPath, 'api.json'))
     : undefined
 
-  return {apiPackage, messages, succeeded: extractorResult.succeeded, tempDirPath}
+  return {
+    apiPackage,
+    messages,
+    succeeded: extractorResult.succeeded,
+    tempDirPath,
+  }
 }
