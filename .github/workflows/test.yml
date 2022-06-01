@@ -30,8 +30,11 @@ jobs:
       - uses: microsoft/playwright-github-action@v1
 
       - name: Install project dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        #if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: yarn install
+
+      - name: Run `playwright install`
+        run: yarn playwright install
 
       - name: Build packages
         run: yarn build
