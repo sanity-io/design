@@ -1,6 +1,6 @@
 import {ChildProcess} from 'child_process'
 import path from 'path'
-import {filter, switchMap} from 'rxjs/operators'
+import {switchMap, takeLast} from 'rxjs/operators'
 import {_spawn} from './_spawn'
 
 const ROOT_PATH = path.resolve(__dirname, '../../..')
@@ -51,33 +51,47 @@ export async function startWorkshopServer(opts: {
     })
   }
 
-  function start() {
-    const build$ = _spawn('yarn', ['build'], {
-      cwd: ROOT_PATH,
-      env: {
-        ...process.env,
-        DEBUG: debug ? '1' : undefined,
-      },
-    })
+  function start(): Promise<{child: ChildProcess}> {
+    return new Promise((resolve, reject) => {
+      const build$ = _spawn('yarn', ['build:workshop'], {
+        cwd: ROOT_PATH,
+        env: {
+          ...process.env,
+          DEBUG: debug ? '1' : undefined,
+        },
+      }).pipe(takeLast(1))
 
-    const start$ = _spawn('yarn', ['start'], {
-      cwd: ROOT_PATH,
-      env: {
-        ...process.env,
-        DEBUG: debug ? '1' : undefined,
-      },
-    })
-
-    const serverIsRunning$ = build$.pipe(
-      switchMap(() => start$),
-      filter(({chunk}) => {
-        const d = String(chunk)
-
-        return d.includes('$ http-server')
+      const start$ = _spawn('yarn', ['start:workshop'], {
+        cwd: ROOT_PATH,
+        env: {
+          ...process.env,
+          DEBUG: debug ? '1' : undefined,
+        },
       })
-    )
 
-    return serverIsRunning$.toPromise()
+      let isResolved = false
+
+      const server$ = build$.pipe(switchMap(() => start$))
+
+      server$.subscribe({
+        error(error) {
+          reject(error)
+        },
+        next(val) {
+          const {child, chunk} = val
+
+          if (chunk && !isResolved) {
+            const d = String(chunk)
+
+            if (d.includes('$ http-server')) {
+              resolve({child})
+
+              isResolved = true
+            }
+          }
+        },
+      })
+    })
   }
 
   const {child} = build ? await start() : await dev()

@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import {ChildProcess, spawn, SpawnOptions} from 'child_process'
 import {Observable} from 'rxjs'
 
@@ -9,9 +7,10 @@ export function _spawn(
   options: SpawnOptions
 ): Observable<{child: ChildProcess; chunk?: Buffer}> {
   return new Observable((observer) => {
-    const child = spawn(command, args, options)
+    // eslint-disable-next-line no-console
+    console.log(`$ ${command} ${args.join(' ')}`)
 
-    console.log(`$ ${command}`)
+    const child = spawn(command, args, options)
 
     child.stdout?.on('data', (chunk: Buffer) => {
       process.stdout.write(chunk)
@@ -24,28 +23,27 @@ export function _spawn(
     })
 
     child.on('error', (error) => {
-      console.log('error', {error})
       observer.error(error)
     })
 
-    child.on('close', (code, signal) => {
-      console.log('close', {code, signal})
+    child.on('close', (_code, _signal) => {
       observer.complete()
     })
 
     child.on('disconnect', () => {
-      console.log('disconnect')
       observer.complete()
     })
 
     child.on('exit', (code) => {
-      console.log('exit', {code})
-      observer.complete()
-      process.exit(code || 0)
+      if (typeof code === 'number' && code > 0) {
+        observer.error(new Error(`process exited with ${code}`))
+      } else {
+        observer.complete()
+      }
     })
 
-    child.on('message', (msg, _send) => {
-      console.log('message', {msg})
+    child.on('message', (_msg, _send) => {
+      // console.log('message', {msg})
     })
 
     child.on('spawn', () => {
