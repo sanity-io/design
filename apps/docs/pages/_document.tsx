@@ -1,4 +1,3 @@
-import {white} from '@sanity/color'
 import NextDocument, {
   DocumentContext,
   DocumentProps,
@@ -41,7 +40,7 @@ class Document extends NextDocument<DocumentProps & {styleTags: React.ReactNode}
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        ),
+        ) as any,
       }
     } finally {
       sheet.seal()

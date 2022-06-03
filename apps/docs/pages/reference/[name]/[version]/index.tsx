@@ -90,9 +90,7 @@ function ReferenceVersionPage({
   return (
     <AppLayout>
       <Head>
-        <title>
-          @sanity/{params.name} v{params.version} – {app.siteName}
-        </title>
+        <title>{`@sanity/${params.name} v${params.version} – ${app.siteName}`}</title>
       </Head>
 
       <PageLayout menu={menu} menuHeader={menuHeader}>

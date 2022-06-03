@@ -68,7 +68,7 @@ export default function ReferencePage({
   return (
     <AppLayout>
       <Head>
-        <title>API Reference – {app.siteName}</title>
+        <title>{`API Reference – ${app.siteName}`}</title>
       </Head>
 
       <PageLayout menu={menu} menuHeader={menuHeader} />
