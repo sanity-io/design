@@ -5,8 +5,7 @@
     "composite": true,
     "emitDeclarationOnly": true,
     "rootDir": "./",
-    "outDir": "./lib/dts/",
-    "declarationDir": "./lib/dts/",
+    "outDir": "./build/ts/",
     "jsx": "react"
   }
 }
