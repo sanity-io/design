@@ -4,9 +4,8 @@
   "exclude": ["./test/__fixtures__/"],
   "compilerOptions": {
     "composite": true,
+    "emitDeclarationOnly": true,
     "rootDir": "./",
-    "outDir": "./lib/dts/",
-    "declarationDir": "./lib/dts/",
-    "jsx": "react"
+    "outDir": "./build/ts/"
   }
 }

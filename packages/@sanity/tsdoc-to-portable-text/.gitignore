@@ -1,3 +1,5 @@
+/.workshop
+/build
 /etc
 /lib
 /node_modules
