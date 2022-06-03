@@ -13,6 +13,7 @@ import {
   responsiveMarginStyle,
   ResponsiveMarginStyleProps,
 } from '../../styles/internal'
+import {AsProperty} from '../../types'
 import {
   ResponsiveBoxProps,
   ResponsiveFlexItemProps,
@@ -30,7 +31,7 @@ export interface BoxProps
     ResponsiveGridItemProps,
     ResponsiveMarginProps,
     ResponsivePaddingProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
 }
 
 const Root = styled.div<

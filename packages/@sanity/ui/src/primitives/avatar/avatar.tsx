@@ -4,7 +4,7 @@ import ReactIs from 'react-is'
 import styled from 'styled-components'
 import {useResponsiveProp} from '../../hooks'
 import {ThemeColorSpotKey, useTheme} from '../../theme'
-import {AvatarPosition, AvatarSize, AvatarStatus} from '../../types'
+import {AsProperty, AvatarPosition, AvatarSize, AvatarStatus} from '../../types'
 import {Text} from '../text'
 import {avatarStyle, responsiveAvatarSizeStyle} from './styles'
 
@@ -14,7 +14,7 @@ import {avatarStyle, responsiveAvatarSizeStyle} from './styles'
 export interface AvatarProps {
   animateArrowFrom?: AvatarPosition
   arrowPosition?: AvatarPosition
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   color?: ThemeColorSpotKey
   initials?: string
   onImageLoadError?: (event: Error) => void

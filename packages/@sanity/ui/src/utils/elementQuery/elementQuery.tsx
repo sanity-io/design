@@ -1,6 +1,7 @@
 import React, {forwardRef, useCallback, useEffect, useMemo, useState} from 'react'
 import {useForwardedRef} from '../../hooks'
 import {useTheme} from '../../theme'
+import {AsProperty} from '../../types'
 import {ResizeObserver} from '../resizeObserver'
 import {findMaxBreakpoints, findMinBreakpoints} from './helpers'
 
@@ -9,7 +10,7 @@ import {findMaxBreakpoints, findMinBreakpoints} from './helpers'
  * @beta
  */
 export interface MediaQueryProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   media?: number[]
 }
 

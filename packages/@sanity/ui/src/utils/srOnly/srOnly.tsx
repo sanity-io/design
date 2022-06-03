@@ -1,11 +1,12 @@
 import React, {forwardRef} from 'react'
 import styled from 'styled-components'
+import {AsProperty} from '../../types'
 
 /**
  * @public
  */
 export interface SrOnlyProps {
-  as?: React.ElementType | keyof JSX.IntrinsicElements
+  as?: AsProperty
   children?: React.ReactNode
 }
 
