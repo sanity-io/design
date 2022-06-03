@@ -1,24 +1,20 @@
-import fs from 'fs'
+import {readFileSync} from 'fs'
+import {readFile, writeFile} from 'fs/promises'
 import path from 'path'
-import util from 'util'
 import {transform} from '@svgr/core'
 import camelCase from 'camelcase'
-import glob from 'glob'
+import {globby} from 'globby'
 import mkdirp from 'mkdirp'
 import {format} from 'prettier'
 
 const ROOT_PATH = path.resolve(__dirname, '../../../..')
-
-const _glob = util.promisify(glob)
-const readFile = util.promisify(fs.readFile)
-const writeFile = util.promisify(fs.writeFile)
 
 const IMPORT_PATH = path.resolve(__dirname, '../export')
 const DEST_PATH = path.resolve(__dirname, '../src/icons')
 
 const GENERATED_BANNER = `/* THIS FILE IS AUTO-GENERATED – DO NOT EDIT */`
 
-const prettierConfig = JSON.parse(fs.readFileSync(path.resolve(ROOT_PATH, '.prettierrc'), 'utf8'))
+const prettierConfig = JSON.parse(readFileSync(path.resolve(ROOT_PATH, '.prettierrc'), 'utf8'))
 
 async function readIcon(filePath: string) {
   const relativePath = path.relative(IMPORT_PATH, filePath)
@@ -101,7 +97,7 @@ async function writeIcon(file: {code: string; targetPath: string}) {
 async function generate() {
   await mkdirp(DEST_PATH)
 
-  const filePaths = await _glob(path.join(IMPORT_PATH, '**/*.svg'))
+  const filePaths = await globby(path.join(IMPORT_PATH, '**/*.svg'))
   const files = await Promise.all(filePaths.map(readIcon))
 
   files.sort((a, b) => {

@@ -12,10 +12,15 @@ module.exports = (baseConfig) => ({
     ...baseConfig?.resolve,
     alias: {
       ...baseConfig?.resolve?.alias,
+
       '@sanity/color': path.resolve(ROOT_PATH, 'packages/@sanity/color/src'),
       '@sanity/icons': path.resolve(ROOT_PATH, 'packages/@sanity/icons/src'),
       '@sanity/logos': path.resolve(ROOT_PATH, 'packages/@sanity/logos/src'),
       '@sanity/ui': path.resolve(ROOT_PATH, 'packages/@sanity/ui/src'),
+
+      react: require.resolve('react'),
+      'react-dom': require.resolve('react-dom'),
+      'styled-components': require.resolve('styled-components'),
     },
   },
 })

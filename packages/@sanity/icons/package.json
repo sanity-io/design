@@ -36,8 +36,8 @@
     "@svgr/core": "^6.2.1",
     "@types/mkdirp": "^1.0.2",
     "camelcase": "^6.3.0",
-    "glob": "^7.2.0",
-    "react": "^17.0.2"
+    "globby": "^13.1.1",
+    "react": "^18.1.0"
   },
   "peerDependencies": {
     "react": "^16.9 || ^17 || ^18"
