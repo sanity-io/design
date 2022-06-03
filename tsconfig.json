@@ -1,7 +1,15 @@
 {
   "extends": "./tsconfig.settings",
-  "include": ["./*.js", "./package.json", "./scripts/", "./test/"],
+  "include": [
+    "./.eslintrc.js",
+    "./jest.config.js",
+    "./package.json",
+    "./scripts/",
+    "./test/",
+    "./workshop.config.ts"
+  ],
   "compilerOptions": {
+    "rootDir": "./",
     "outDir": "./build/ts/",
     "allowJs": true,
     "checkJs": true,
