@@ -6,6 +6,7 @@
   "source": "./src/index.ts",
   "exports": {
     ".": {
+      "source": "./src/index.ts",
       "require": "./lib/sanity-color.js",
       "default": "./lib/sanity-color.modern.js"
     }
@@ -18,17 +19,14 @@
     "src"
   ],
   "scripts": {
-    "build": "run-s build:microbundle",
-    "build:microbundle": "microbundle --format modern,esm,cjs --jsx React.createElement --jsxImportSource react --no-compress --tsconfig tsconfig.lib.json",
-    "clean": "rimraf lib",
+    "build": "../../../bin/pkg-utils bundle --tsconfig tsconfig.lib.json --validate",
+    "clean": "rimraf .workshop build lib",
     "generate": "node -r esbuild-register scripts/generate.ts",
     "lint": "eslint . --ext .js,.ts --quiet",
     "prebuild": "yarn clean && yarn generate",
     "test": "jest",
     "type-check": "tsc --build",
-    "watch": "run-p watch:*",
-    "watch:cjs": "tsc --preserveWatchOutput -w --module CommonJS --outDir lib/cjs --project tsconfig.lib.json --rootDir src --target ES5",
-    "watch:es": "tsc --preserveWatchOutput -w --module ES6 --outDir lib/esm --project tsconfig.lib.json --rootDir src --target ES6"
+    "watch": "../../../bin/pkg-utils bundle --tsconfig tsconfig.lib.json --watch"
   },
   "devDependencies": {
     "polished": "^4.2.2"

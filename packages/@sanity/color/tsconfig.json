@@ -3,8 +3,8 @@
   "include": ["./src/", "./scripts/"],
   "compilerOptions": {
     "composite": true,
+    "emitDeclarationOnly": true,
     "rootDir": "./",
-    "outDir": "./lib/dts/",
-    "declarationDir": "./lib/dts/"
+    "outDir": "./build/ts/"
   }
 }
