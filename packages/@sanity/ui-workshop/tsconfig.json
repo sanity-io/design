@@ -1,8 +1,9 @@
 {
-  "extends": "../../../tsconfig",
-  "include": ["./src/"],
+  "extends": "../../../tsconfig.settings",
+  "include": ["./src/", "./typings/", "./workshop.config.ts"],
   "compilerOptions": {
     "composite": true,
+    "module": "ES2020",
     "rootDir": "./",
     "outDir": "./lib/dts/",
     "declarationDir": "./lib/dts/",

@@ -8,6 +8,6 @@ export interface WorkshopConfig {
   }
   frameUrl?: string
   plugins?: WorkshopPlugin[]
-  scopes: WorkshopScope[]
+  scopes?: WorkshopScope[]
   title?: string
 }
