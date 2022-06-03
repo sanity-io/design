@@ -1,3 +1,5 @@
+/.workshop
 /assets
+/build
 /lib
 /node_modules

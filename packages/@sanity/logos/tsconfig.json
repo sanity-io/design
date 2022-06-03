@@ -3,9 +3,9 @@
   "include": ["./src/"],
   "compilerOptions": {
     "composite": true,
+    "emitDeclarationOnly": true,
     "rootDir": "./",
-    "outDir": "./lib/dts/",
-    "declarationDir": "./lib/dts/",
+    "outDir": "./build/ts/",
     "jsx": "react"
   },
   "references": [{"path": "../color/tsconfig.lib.json"}]
