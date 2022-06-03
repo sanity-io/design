@@ -1,5 +1,6 @@
-/build
 /.workshop
+/build
+/dist
 
 # Apps
 /apps/*/.workshop
