@@ -17,4 +17,9 @@ export default defineScope('ui/primitives/text', 'Text', [
     title: 'Optical alignment',
     component: lazy(() => import('./opticalAlignment')),
   },
+  {
+    name: 'baseline',
+    title: 'Baseline',
+    component: lazy(() => import('./baseline')),
+  },
 ])
