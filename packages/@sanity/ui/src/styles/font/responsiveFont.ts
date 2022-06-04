@@ -48,9 +48,20 @@ export function responsiveFont(
     },
   }
 
-  const resp = responsive(media, getResponsiveProp($size), (sizeIndex) =>
-    fontSize(sizes[sizeIndex] || defaultSize, horizontalOffset)
-  )
+  const resp = responsive(media, getResponsiveProp($size), (sizeIndex) => {
+    const size = sizes[sizeIndex] || defaultSize
+
+    if (size.os?.windows) {
+      const windowsSize = {...size, ...size.os?.windows}
+
+      return {
+        ...fontSize(size, horizontalOffset),
+        'html.windows &': fontSize(windowsSize, horizontalOffset),
+      }
+    }
+
+    return fontSize(size, horizontalOffset)
+  })
 
   return [base, ...resp]
 }
