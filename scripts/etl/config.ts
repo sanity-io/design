@@ -119,9 +119,9 @@ export const config = {
   reporting,
 
   sanity: {
-    projectId: getEnv('SANITY_PROJECT_ID'),
-    dataset: getEnv('SANITY_DATASET'),
-    token: process.env.SANITY_API_TOKEN,
+    projectId: getEnv('EXTRACT_SANITY_PROJECT_ID'),
+    dataset: getEnv('EXTRACT_SANITY_DATASET'),
+    token: process.env.EXTRACT_SANITY_API_TOKEN,
   },
 
   workspace: [

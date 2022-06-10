@@ -13,3 +13,6 @@
 
 # Created by verdaccio
 /storage
+
+# Local environment variables
+/.env.local

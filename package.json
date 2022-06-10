@@ -16,7 +16,7 @@
     "dev:ui": "bin/workshop dev --port 9009 packages/@sanity/ui",
     "dev:ui-workshop": "lerna run --stream --scope @sanity/ui-workshop dev",
     "dev:workshop": "bin/workshop dev --port 9009",
-    "etl": "yarn prettify:dts && cd scripts/etl && node -r dotenv-flow/config -r esbuild-register main",
+    "etl": "node -r dotenv-flow/config -r esbuild-register scripts/etl/main",
     "generate": "lerna run generate",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "postinstall": "yarn husky install",
@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@sanity/client": "^3.3.0",
-    "@sanity/tsdoc-to-portable-text": "^0.3.0",
     "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

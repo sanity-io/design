@@ -13,7 +13,11 @@
     "outDir": "./build/ts/",
     "allowJs": true,
     "checkJs": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@sanity/tsdoc-to-portable-text": ["./packages/@sanity/tsdoc-to-portable-text/src"]
+    }
   },
   "references": [
     {"path": "./apps/docs/"},
@@ -27,7 +31,6 @@
     {"path": "./packages/@sanity/icons/"},
     {"path": "./packages/@sanity/logos/"},
     {"path": "./packages/@sanity/tsdoc-to-portable-text/"},
-    {"path": "./packages/@sanity/tsdoc-to-portable-text/tsconfig.lib.json"},
     {"path": "./packages/@sanity/ui/"},
     {"path": "./packages/@sanity/ui-workshop/"},
 
