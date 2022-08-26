@@ -1,6 +1,6 @@
 {
   "include": ["**/*.tsx", "**/*.ts"],
-  "exclude": ["./build/"],
+  "exclude": ["./build", "./public"],
   "compilerOptions": {
     "composite": true,
     "module": "commonjs",
@@ -11,7 +11,7 @@
     "strict": true,
     "skipLibCheck": true,
     "jsx": "react",
-    "outDir": "./build/dts/"
+    "outDir": "./node_modules/.cache/_dts"
   },
   "references": [
     {"path": "../../packages/@sanity/icons/tsconfig.lib.json"},

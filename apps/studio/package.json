@@ -9,16 +9,13 @@
   "scripts": {
     "build": "sanity build public -y",
     "clean": "rimraf build public",
-    "config:build": "node -r esbuild-register scripts/config/build.ts",
-    "config:watch": "node -r esbuild-register scripts/config/watch.ts",
     "deploy": "sanity deploy",
-    "dev": "yarn start",
-    "prebuild": "run-s clean config:build",
-    "prestart": "yarn config:build",
-    "sanity:start": "sanity start --port 9000",
-    "start": "run-p config:watch sanity:start",
+    "dev": "sanity start",
+    "migrate:atom-to-article": "node -r dotenv-flow/config -r esbuild-register migrations/atom-to-article",
+    "migrate:delete-atoms": "node -r dotenv-flow/config -r esbuild-register migrations/delete-atoms",
+    "start": "sanity start --port 9000",
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --quiet",
-    "type-check": "tsc"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@sanity/code-input": "3.0.0-v3-studio.7",

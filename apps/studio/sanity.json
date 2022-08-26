@@ -1,0 +1,2076 @@
+{
+  "name": "design",
+  "title": "Design",
+  "plugins": [
+    {
+      "name": "@sanity/code-input",
+      "schema": {
+        "types": [
+          {
+            "name": "code",
+            "type": "object",
+            "title": "Code",
+            "components": {},
+            "icon": {},
+            "fields": [
+              {
+                "name": "language",
+                "title": "Language",
+                "type": "string"
+              },
+              {
+                "name": "filename",
+                "title": "Filename",
+                "type": "string"
+              },
+              {
+                "title": "Code",
+                "name": "code",
+                "type": "text"
+              },
+              {
+                "title": "Highlighted lines",
+                "name": "highlightedLines",
+                "type": "array",
+                "of": [
+                  {
+                    "type": "number",
+                    "title": "Highlighted line"
+                  }
+                ]
+              }
+            ],
+            "preview": {
+              "select": {
+                "language": "language",
+                "code": "code",
+                "filename": "filename",
+                "highlightedLines": "highlightedLines"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "@sanity/desk-tool",
+      "tools": [
+        {
+          "name": "desk",
+          "title": "Desk",
+          "icon": {},
+          "component": {
+            "_payload": {
+              "_status": -1
+            }
+          },
+          "options": {},
+          "router": {
+            "_isRoute": true,
+            "route": {
+              "raw": "/",
+              "segments": []
+            },
+            "children": [
+              {
+                "_isRoute": true,
+                "route": {
+                  "raw": "intent/:intent",
+                  "segments": [
+                    {
+                      "type": "dir",
+                      "name": "intent"
+                    },
+                    {
+                      "type": "param",
+                      "name": "intent"
+                    }
+                  ]
+                },
+                "children": [
+                  {
+                    "_isRoute": true,
+                    "route": {
+                      "raw": ":params",
+                      "segments": [
+                        {
+                          "type": "param",
+                          "name": "params"
+                        }
+                      ]
+                    },
+                    "children": [
+                      {
+                        "_isRoute": true,
+                        "route": {
+                          "raw": ":payload",
+                          "segments": [
+                            {
+                              "type": "param",
+                              "name": "payload"
+                            }
+                          ]
+                        },
+                        "children": [],
+                        "transform": {
+                          "payload": {}
+                        }
+                      }
+                    ],
+                    "transform": {
+                      "params": {}
+                    }
+                  }
+                ]
+              },
+              {
+                "_isRoute": true,
+                "route": {
+                  "raw": "/edit/:type/:editDocumentId",
+                  "segments": [
+                    {
+                      "type": "dir",
+                      "name": "edit"
+                    },
+                    {
+                      "type": "param",
+                      "name": "type"
+                    },
+                    {
+                      "type": "param",
+                      "name": "editDocumentId"
+                    }
+                  ]
+                },
+                "children": [
+                  {
+                    "_isRoute": true,
+                    "route": {
+                      "raw": "/:params",
+                      "segments": [
+                        {
+                          "type": "param",
+                          "name": "params"
+                        }
+                      ]
+                    },
+                    "children": [],
+                    "transform": {
+                      "params": {}
+                    }
+                  }
+                ]
+              },
+              {
+                "_isRoute": true,
+                "route": {
+                  "raw": "/:panes",
+                  "segments": [
+                    {
+                      "type": "param",
+                      "name": "panes"
+                    }
+                  ]
+                },
+                "children": [
+                  {
+                    "_isRoute": true,
+                    "route": {
+                      "raw": "/:action",
+                      "segments": [
+                        {
+                          "type": "param",
+                          "name": "action"
+                        }
+                      ]
+                    },
+                    "children": [
+                      {
+                        "_isRoute": true,
+                        "route": {
+                          "raw": "/:legacyEditDocumentId",
+                          "segments": [
+                            {
+                              "type": "param",
+                              "name": "legacyEditDocumentId"
+                            }
+                          ]
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ],
+                "transform": {
+                  "panes": {}
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "schema": {
+    "types": [
+      {
+        "type": "document",
+        "name": "api.class",
+        "title": "Class",
+        "fields": [
+          {
+            "type": "string",
+            "name": "name",
+            "title": "Name"
+          },
+          {
+            "type": "slug",
+            "name": "slug",
+            "title": "Slug"
+          },
+          {
+            "type": "reference",
+            "name": "release",
+            "title": "Release",
+            "to": [
+              {
+                "type": "api.release"
+              }
+            ],
+            "weak": true
+          },
+          {
+            "type": "boolean",
+            "name": "isReactComponentType",
+            "title": "Is React component",
+            "options": {
+              "layout": "checkbox"
+            }
+          },
+          {
+            "type": "tsdoc.docComment",
+            "name": "comment",
+            "title": "Comment"
+          },
+          {
+            "type": "string",
+            "name": "releaseTag",
+            "title": "Release tag",
+            "options": {
+              "list": [
+                {
+                  "value": "beta",
+                  "title": "Beta"
+                },
+                {
+                  "value": "public",
+                  "title": "Public"
+                }
+              ]
+            }
+          }
+        ],
+        "readOnly": true
+      },
+      {
+        "type": "document",
+        "name": "api.function",
+        "title": "Function",
+        "fields": [
+          {
+            "type": "string",
+            "name": "name",
+            "title": "Name"
+          },
+          {
+            "type": "slug",
+            "name": "slug",
+            "title": "Slug"
+          },
+          {
+            "type": "reference",
+            "name": "release",
+            "title": "Release",
+            "to": [
+              {
+                "type": "api.release"
+              }
+            ],
+            "weak": true
+          },
+          {
+            "type": "boolean",
+            "name": "isReactComponentType",
+            "title": "Is React component",
+            "options": {
+              "layout": "checkbox"
+            }
+          },
+          {
+            "type": "tsdoc.docComment",
+            "name": "comment",
+            "title": "Comment"
+          },
+          {
+            "type": "string",
+            "name": "releaseTag",
+            "title": "Release tag",
+            "options": {
+              "list": [
+                {
+                  "value": "beta",
+                  "title": "Beta"
+                },
+                {
+                  "value": "public",
+                  "title": "Public"
+                }
+              ]
+            }
+          },
+          {
+            "type": "array",
+            "name": "parameters",
+            "title": "Parameters",
+            "of": [
+              {
+                "type": "object",
+                "name": "api.functionParameter",
+                "title": "Parameter",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "title": "Name"
+                  },
+                  {
+                    "type": "api.tokens",
+                    "name": "type",
+                    "title": "Type"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "api.tokens",
+            "name": "returnType",
+            "title": "Return type"
+          }
+        ],
+        "readOnly": true
+      },
+      {
+        "type": "document",
+        "name": "api.interface",
+        "title": "Interface",
+        "fields": [
+          {
+            "type": "string",
+            "name": "name",
+            "title": "Name"
+          },
+          {
+            "type": "slug",
+            "name": "slug",
+            "title": "Slug"
+          },
+          {
+            "type": "reference",
+            "name": "release",
+            "title": "Release",
+            "to": [
+              {
+                "type": "api.release"
+              }
+            ],
+            "weak": true
+          },
+          {
+            "type": "tsdoc.docComment",
+            "name": "comment",
+            "title": "Comment"
+          },
+          {
+            "type": "string",
+            "name": "releaseTag",
+            "title": "Release tag",
+            "options": {
+              "list": [
+                {
+                  "value": "beta",
+                  "title": "Beta"
+                },
+                {
+                  "value": "public",
+                  "title": "Public"
+                }
+              ]
+            }
+          },
+          {
+            "type": "array",
+            "name": "typeParameters",
+            "title": "Type parameters",
+            "of": [
+              {
+                "type": "object",
+                "name": "api.typeParameter",
+                "title": "Type parameter",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "title": "Title"
+                  },
+                  {
+                    "type": "api.tokens",
+                    "name": "constraintType",
+                    "title": "Constraint"
+                  },
+                  {
+                    "type": "api.tokens",
+                    "name": "defaultType",
+                    "title": "Default type"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array",
+            "name": "members",
+            "title": "Members",
+            "of": [
+              {
+                "type": "object",
+                "name": "api.property",
+                "title": "Property",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "title": "Name"
+                  },
+                  {
+                    "type": "string",
+                    "name": "releaseTag",
+                    "title": "Release tag",
+                    "options": {
+                      "list": [
+                        {
+                          "value": "beta",
+                          "title": "Beta"
+                        },
+                        {
+                          "value": "public",
+                          "title": "Public"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "api.tokens",
+                    "name": "type",
+                    "title": "Type"
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "optional",
+                    "title": "Optional"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array",
+            "name": "extends",
+            "title": "Extends",
+            "of": [
+              {
+                "type": "object",
+                "name": "api.extend",
+                "title": "Extend",
+                "fields": [
+                  {
+                    "type": "api.tokens",
+                    "name": "type",
+                    "title": "Type"
+                  }
+                ],
+                "preview": {
+                  "select": {
+                    "type": "type"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "readOnly": true
+      },
+      {
+        "type": "document",
+        "icon": {},
+        "name": "api.package",
+        "title": "Package",
+        "fields": [
+          {
+            "type": "string",
+            "name": "scope",
+            "title": "Scope"
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "title": "Name"
+          },
+          {
+            "type": "array",
+            "name": "releases",
+            "title": "Releases",
+            "of": [
+              {
+                "type": "reference",
+                "title": "Reference",
+                "to": [
+                  {
+                    "type": "api.release"
+                  }
+                ],
+                "weak": true
+              }
+            ]
+          },
+          {
+            "type": "reference",
+            "name": "latestRelease",
+            "title": "Latest release",
+            "to": [
+              {
+                "type": "api.release"
+              }
+            ],
+            "weak": true
+          }
+        ],
+        "readOnly": true,
+        "preview": {
+          "select": {
+            "name": "name",
+            "scope": "scope"
+          }
+        }
+      },
+      {
+        "type": "object",
+        "name": "api.reference",
+        "title": "Reference",
+        "fields": [
+          {
+            "type": "string",
+            "name": "text",
+            "title": "Text"
+          },
+          {
+            "type": "reference",
+            "name": "reference",
+            "title": "Reference",
+            "to": [
+              {
+                "type": "api.interface"
+              }
+            ],
+            "weak": true
+          }
+        ],
+        "readOnly": true
+      },
+      {
+        "type": "document",
+        "name": "api.release",
+        "title": "Release",
+        "fields": [
+          {
+            "type": "string",
+            "name": "version",
+            "title": "Version",
+            "readOnly": true
+          },
+          {
+            "type": "array",
+            "name": "content",
+            "title": "Content",
+            "of": [
+              {
+                "type": "block"
+              }
+            ]
+          },
+          {
+            "type": "array",
+            "name": "members",
+            "title": "Members",
+            "of": [
+              {
+                "type": "reference",
+                "title": "Reference",
+                "to": [
+                  {
+                    "type": "api.class"
+                  },
+                  {
+                    "type": "api.function"
+                  },
+                  {
+                    "type": "api.interface"
+                  },
+                  {
+                    "type": "api.typeAlias"
+                  },
+                  {
+                    "type": "api.variable"
+                  }
+                ],
+                "weak": true
+              }
+            ],
+            "readOnly": true
+          }
+        ],
+        "preview": {
+          "select": {
+            "title": "version"
+          }
+        }
+      },
+      {
+        "type": "object",
+        "name": "api.text",
+        "title": "Text",
+        "fields": [
+          {
+            "type": "string",
+            "name": "text",
+            "title": "Text"
+          }
+        ],
+        "readOnly": true
+      },
+      {
+        "type": "array",
+        "name": "api.tokens",
+        "title": "Tokens",
+        "of": [
+          {
+            "type": "api.text"
+          },
+          {
+            "type": "api.reference"
+          }
+        ]
+      },
+      {
+        "type": "document",
+        "name": "api.typeAlias",
+        "title": "Type",
+        "fields": [
+          {
+            "type": "string",
+            "name": "name",
+            "title": "Name"
+          },
+          {
+            "type": "slug",
+            "name": "slug",
+            "title": "Slug"
+          },
+          {
+            "type": "reference",
+            "name": "release",
+            "title": "Release",
+            "to": [
+              {
+                "type": "api.release"
+              }
+            ],
+            "weak": true
+          },
+          {
+            "type": "tsdoc.docComment",
+            "name": "comment",
+            "title": "Comment"
+          },
+          {
+            "type": "string",
+            "name": "releaseTag",
+            "title": "Release tag",
+            "options": {
+              "list": [
+                {
+                  "value": "beta",
+                  "title": "Beta"
+                },
+                {
+                  "value": "public",
+                  "title": "Public"
+                }
+              ]
+            }
+          },
+          {
+            "type": "api.tokens",
+            "name": "type",
+            "title": "Type"
+          }
+        ],
+        "readOnly": true
+      },
+      {
+        "type": "document",
+        "name": "api.variable",
+        "title": "Variable",
+        "fields": [
+          {
+            "type": "string",
+            "name": "name",
+            "title": "Name"
+          },
+          {
+            "type": "slug",
+            "name": "slug",
+            "title": "Slug"
+          },
+          {
+            "type": "reference",
+            "name": "release",
+            "title": "Release",
+            "to": [
+              {
+                "type": "api.release"
+              }
+            ],
+            "weak": true
+          },
+          {
+            "type": "boolean",
+            "name": "isReactComponentType",
+            "title": "Is React component",
+            "options": {
+              "layout": "checkbox"
+            }
+          },
+          {
+            "type": "reference",
+            "name": "propsType",
+            "title": "Props type",
+            "to": [
+              {
+                "type": "api.interface"
+              },
+              {
+                "type": "api.typeAlias"
+              }
+            ],
+            "weak": true
+          },
+          {
+            "type": "tsdoc.docComment",
+            "name": "comment",
+            "title": "Comment"
+          },
+          {
+            "type": "string",
+            "name": "releaseTag",
+            "title": "Release tag",
+            "options": {
+              "list": [
+                {
+                  "value": "beta",
+                  "title": "Beta"
+                },
+                {
+                  "value": "public",
+                  "title": "Public"
+                }
+              ]
+            }
+          },
+          {
+            "type": "api.tokens",
+            "name": "type",
+            "title": "Type"
+          }
+        ],
+        "readOnly": true
+      },
+      {
+        "type": "document",
+        "name": "article",
+        "title": "Article",
+        "fields": [
+          {
+            "type": "string",
+            "name": "title",
+            "title": "Title"
+          },
+          {
+            "type": "object",
+            "name": "figma",
+            "title": "Figma",
+            "fields": [
+              {
+                "type": "string",
+                "name": "title",
+                "title": "Title"
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "title": "URL",
+                "description": "The URL to a Figma resource"
+              }
+            ],
+            "options": {
+              "collapsible": true,
+              "collapsed": true
+            }
+          },
+          {
+            "type": "array",
+            "name": "content",
+            "title": "Content",
+            "of": [
+              {
+                "type": "block"
+              },
+              {
+                "type": "code",
+                "name": "code",
+                "title": "Code"
+              },
+              {
+                "icon": {},
+                "type": "object",
+                "name": "codeExample",
+                "title": "Code example",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "title",
+                    "title": "Title"
+                  },
+                  {
+                    "type": "text",
+                    "name": "description",
+                    "title": "Description"
+                  },
+                  {
+                    "type": "code",
+                    "name": "code",
+                    "title": "Code"
+                  },
+                  {
+                    "type": "code",
+                    "name": "hook",
+                    "title": "React hook code"
+                  }
+                ],
+                "preview": {
+                  "select": {
+                    "title": "title",
+                    "subtitle": "description"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "name": "npmPackageBadge",
+                "title": "NPM package badge",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "title": "Package name"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "propertyTable",
+                "title": "Property table",
+                "fields": [
+                  {
+                    "type": "array",
+                    "name": "properties",
+                    "title": "Properties",
+                    "of": [
+                      {
+                        "type": "object",
+                        "name": "property",
+                        "title": "Property",
+                        "fields": [
+                          {
+                            "type": "string",
+                            "name": "name",
+                            "title": "Name"
+                          },
+                          {
+                            "type": "string",
+                            "name": "type",
+                            "title": "Type (TS)"
+                          },
+                          {
+                            "type": "boolean",
+                            "name": "required",
+                            "title": "Required"
+                          },
+                          {
+                            "type": "array",
+                            "name": "description",
+                            "title": "Description",
+                            "of": [
+                              {
+                                "type": "block"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "caption",
+                    "title": "Caption"
+                  }
+                ],
+                "preview": {
+                  "select": {
+                    "title": "caption"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "name": "content.colorGrid",
+                "title": "Color grid",
+                "fields": [
+                  {
+                    "type": "boolean",
+                    "name": "test",
+                    "title": "Test"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "content.sanityLogoGrid",
+                "title": "Sanity logo grid",
+                "fields": [
+                  {
+                    "type": "boolean",
+                    "name": "test",
+                    "title": "Test"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "content.groqLogoGrid",
+                "title": "GROQ logo grid",
+                "fields": [
+                  {
+                    "type": "boolean",
+                    "name": "test",
+                    "title": "Test"
+                  }
+                ]
+              },
+              {
+                "title": "Image",
+                "name": "image",
+                "type": "image",
+                "fields": [
+                  {
+                    "name": "alt",
+                    "type": "string",
+                    "title": "Alternative text (for screen readers)",
+                    "options": {
+                      "isHighlighted": true
+                    }
+                  },
+                  {
+                    "name": "caption",
+                    "type": "string",
+                    "title": "Caption",
+                    "options": {
+                      "isHighlighted": true
+                    }
+                  }
+                ],
+                "options": {
+                  "hotspot": true
+                }
+              },
+              {
+                "type": "object",
+                "name": "callout",
+                "title": "Callout",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "icon",
+                    "title": "Icon",
+                    "options": {
+                      "list": [
+                        "access-denied",
+                        "activity",
+                        "add-circle",
+                        "add",
+                        "api",
+                        "archive",
+                        "arrow-down",
+                        "arrow-left",
+                        "arrow-right",
+                        "arrow-top-right",
+                        "arrow-up",
+                        "bar-chart",
+                        "basket",
+                        "bell",
+                        "bill",
+                        "binary-document",
+                        "block-element",
+                        "blockquote",
+                        "bold",
+                        "book",
+                        "bottle",
+                        "bulb-filled",
+                        "bulb-outline",
+                        "calendar",
+                        "case",
+                        "chart-upward",
+                        "checkmark-circle",
+                        "checkmark",
+                        "chevron-down",
+                        "chevron-left",
+                        "chevron-right",
+                        "chevron-up",
+                        "circle",
+                        "clipboard",
+                        "clipboard-image",
+                        "clock",
+                        "close-circle",
+                        "close",
+                        "code-block",
+                        "code",
+                        "cog",
+                        "collapse",
+                        "comment",
+                        "component",
+                        "compose",
+                        "controls",
+                        "copy",
+                        "credit-card",
+                        "crop",
+                        "dashboard",
+                        "database",
+                        "desktop",
+                        "document",
+                        "document-pdf",
+                        "document-remove",
+                        "document-sheet",
+                        "document-text",
+                        "document-video",
+                        "document-word",
+                        "document-zip",
+                        "documents",
+                        "dot",
+                        "double-chevron-down",
+                        "double-chevron-left",
+                        "double-chevron-right",
+                        "double-chevron-up",
+                        "download",
+                        "drag-handle",
+                        "drop",
+                        "earth-americas",
+                        "earth-globe",
+                        "edit",
+                        "ellipsis-horizontal",
+                        "ellipsis-vertical",
+                        "envelope",
+                        "equal",
+                        "error-filled",
+                        "error-outline",
+                        "expand",
+                        "eye-closed",
+                        "eye-open",
+                        "filter",
+                        "folder",
+                        "generate",
+                        "heart-filled",
+                        "heart",
+                        "help-circle",
+                        "home",
+                        "ice-cream",
+                        "image",
+                        "image-remove",
+                        "images",
+                        "info-filled",
+                        "info-outline",
+                        "inline-element",
+                        "inline",
+                        "insert-above",
+                        "insert-below",
+                        "italic",
+                        "joystick",
+                        "launch",
+                        "leave",
+                        "lemon",
+                        "link",
+                        "link-removed",
+                        "lock",
+                        "logo-js",
+                        "logo-ts",
+                        "master-detail",
+                        "menu",
+                        "mobile-device",
+                        "moon",
+                        "ok-hand",
+                        "olist",
+                        "overage",
+                        "package",
+                        "pause",
+                        "pin",
+                        "pin-removed",
+                        "play",
+                        "plug",
+                        "presentation",
+                        "publish",
+                        "read-only",
+                        "remove-circle",
+                        "remove",
+                        "reset",
+                        "restore",
+                        "retrieve",
+                        "revert",
+                        "robot",
+                        "rocket",
+                        "search",
+                        "select",
+                        "sort",
+                        "spinner",
+                        "split-horizontal",
+                        "split-vertical",
+                        "square",
+                        "stack-compact",
+                        "stack",
+                        "star",
+                        "stop",
+                        "strikethrough",
+                        "sun",
+                        "sync",
+                        "tag",
+                        "terminal",
+                        "th-large",
+                        "th-list",
+                        "tiers",
+                        "toggle-arrow-right",
+                        "token",
+                        "transfer",
+                        "translate",
+                        "trash",
+                        "trend-upward",
+                        "triangle-outline",
+                        "trolley",
+                        "truncate",
+                        "ulist",
+                        "underline",
+                        "undo",
+                        "unknown",
+                        "unlock",
+                        "unpublish",
+                        "upload",
+                        "user",
+                        "users",
+                        "warning-filled",
+                        "warning-outline"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "string",
+                    "name": "tone",
+                    "title": "Tone",
+                    "options": {
+                      "list": [
+                        "primary",
+                        "positive",
+                        "caution",
+                        "critical"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "name": "content",
+                    "title": "Content",
+                    "of": [
+                      {
+                        "type": "block"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "content.figmaEmbed",
+                "title": "Figma embed",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "title",
+                    "title": "Title"
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "title": "Figma URL"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "content.figmaButton",
+                "title": "Figma button",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "title",
+                    "title": "Title"
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "title": "URL"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "layout",
+            "title": "Layout",
+            "fields": [
+              {
+                "type": "boolean",
+                "name": "wide",
+                "title": "Wide"
+              }
+            ]
+          },
+          {
+            "type": "seo",
+            "name": "seo",
+            "title": "SEO"
+          }
+        ],
+        "preview": {
+          "select": {
+            "title": "title",
+            "media": "seo.og.image"
+          }
+        }
+      },
+      {
+        "type": "document",
+        "name": "machine",
+        "title": "Machine",
+        "fields": [
+          {
+            "type": "string",
+            "name": "title",
+            "title": "Title"
+          },
+          {
+            "type": "string",
+            "name": "key",
+            "title": "Key",
+            "readOnly": true
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "title": "Type",
+            "readOnly": true
+          },
+          {
+            "type": "string",
+            "name": "platform",
+            "title": "Platform",
+            "readOnly": true
+          },
+          {
+            "type": "string",
+            "name": "arch",
+            "title": "Arch",
+            "readOnly": true
+          },
+          {
+            "type": "number",
+            "name": "totalMemoryBytes",
+            "title": "Memory",
+            "description": "In bytes",
+            "readOnly": true
+          },
+          {
+            "type": "array",
+            "name": "cpus",
+            "title": "CPUs",
+            "readOnly": true,
+            "of": [
+              {
+                "type": "object",
+                "name": "cpu",
+                "title": "CPU",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "model",
+                    "title": "Model"
+                  },
+                  {
+                    "type": "number",
+                    "name": "speed",
+                    "title": "Speed"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "liveEdit": true
+      },
+      {
+        "type": "document",
+        "name": "nav",
+        "title": "Navigation",
+        "fields": [
+          {
+            "type": "string",
+            "name": "id",
+            "title": "ID"
+          },
+          {
+            "type": "string",
+            "name": "title",
+            "title": "Title"
+          },
+          {
+            "type": "array",
+            "name": "items",
+            "title": "Items",
+            "of": [
+              {
+                "type": "nav.item"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "nav.item",
+        "title": "Navigation item",
+        "fields": [
+          {
+            "type": "boolean",
+            "name": "hidden",
+            "title": "Hidden"
+          },
+          {
+            "type": "boolean",
+            "name": "collapsed",
+            "title": "Collapsed"
+          },
+          {
+            "type": "string",
+            "name": "title",
+            "title": "Title"
+          },
+          {
+            "type": "string",
+            "name": "menuTitle",
+            "title": "Menu title"
+          },
+          {
+            "type": "string",
+            "name": "segment",
+            "title": "Segment"
+          },
+          {
+            "type": "reference",
+            "name": "target",
+            "title": "Target",
+            "to": [
+              {
+                "type": "article"
+              },
+              {
+                "type": "screen"
+              }
+            ]
+          },
+          {
+            "type": "array",
+            "name": "items",
+            "title": "Items",
+            "of": [
+              {
+                "type": "nav.item"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "screenSection.arcade",
+        "title": "Arcade",
+        "fields": [
+          {
+            "type": "boolean",
+            "name": "test",
+            "title": "Test"
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "screenSection.hero",
+        "title": "Hero",
+        "fields": [
+          {
+            "type": "string",
+            "name": "headline",
+            "title": "Headline"
+          },
+          {
+            "type": "string",
+            "name": "copy",
+            "title": "Copy"
+          },
+          {
+            "type": "string",
+            "name": "linksHeader",
+            "title": "Links header"
+          },
+          {
+            "type": "array",
+            "name": "ctas",
+            "title": "CTAs",
+            "of": [
+              {
+                "type": "object",
+                "name": "cta",
+                "title": "Call to action",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "label",
+                    "title": "Label"
+                  },
+                  {
+                    "type": "string",
+                    "name": "href",
+                    "title": "Hypertext reference"
+                  },
+                  {
+                    "type": "string",
+                    "name": "tone",
+                    "title": "Tone",
+                    "options": {
+                      "list": [
+                        "default",
+                        "primary"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "string",
+                    "name": "mode",
+                    "title": "Mode",
+                    "options": {
+                      "list": [
+                        "default",
+                        "ghost"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array",
+            "name": "links",
+            "title": "Links",
+            "of": [
+              {
+                "type": "object",
+                "name": "link",
+                "title": "Link",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "title",
+                    "title": "Title"
+                  },
+                  {
+                    "type": "text",
+                    "name": "subtitle",
+                    "title": "Subtitle"
+                  },
+                  {
+                    "type": "string",
+                    "name": "href",
+                    "title": "Hypertext reference"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "backgroundImage",
+            "title": "Image",
+            "fields": [
+              {
+                "type": "image",
+                "name": "dark",
+                "title": "Dark mode"
+              },
+              {
+                "type": "image",
+                "name": "light",
+                "title": "Light mode"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "document",
+        "name": "screen",
+        "title": "Screen",
+        "fields": [
+          {
+            "type": "string",
+            "name": "title",
+            "title": "Title"
+          },
+          {
+            "type": "array",
+            "name": "sections",
+            "title": "Sections",
+            "of": [
+              {
+                "type": "screenSection.arcade"
+              },
+              {
+                "type": "screenSection.hero"
+              }
+            ]
+          },
+          {
+            "type": "seo",
+            "name": "seo",
+            "title": "SEO"
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "seo",
+        "title": "SEO",
+        "fields": [
+          {
+            "type": "object",
+            "name": "twitter",
+            "title": "Twitter",
+            "fields": [
+              {
+                "type": "string",
+                "name": "cardType",
+                "title": "Card type",
+                "options": {
+                  "list": [
+                    "summary_large_image"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "og",
+            "title": "OpenGraph",
+            "fields": [
+              {
+                "type": "string",
+                "name": "title",
+                "title": "Title"
+              },
+              {
+                "type": "text",
+                "name": "description",
+                "title": "Description"
+              },
+              {
+                "type": "image",
+                "name": "image",
+                "title": "Image",
+                "options": {
+                  "hotspot": true,
+                  "crop": true
+                }
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "title": "Type",
+                "options": {
+                  "list": [
+                    "website"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "document",
+        "name": "settings",
+        "title": "Title",
+        "fields": [
+          {
+            "type": "object",
+            "name": "banner",
+            "title": "Banner",
+            "fields": [
+              {
+                "type": "boolean",
+                "name": "hidden",
+                "title": "Hidden"
+              },
+              {
+                "type": "string",
+                "name": "icon",
+                "title": "Icon",
+                "options": {
+                  "list": [
+                    "access-denied",
+                    "activity",
+                    "add-circle",
+                    "add",
+                    "api",
+                    "archive",
+                    "arrow-down",
+                    "arrow-left",
+                    "arrow-right",
+                    "arrow-top-right",
+                    "arrow-up",
+                    "bar-chart",
+                    "basket",
+                    "bell",
+                    "bill",
+                    "binary-document",
+                    "block-element",
+                    "blockquote",
+                    "bold",
+                    "book",
+                    "bottle",
+                    "bulb-filled",
+                    "bulb-outline",
+                    "calendar",
+                    "case",
+                    "chart-upward",
+                    "checkmark-circle",
+                    "checkmark",
+                    "chevron-down",
+                    "chevron-left",
+                    "chevron-right",
+                    "chevron-up",
+                    "circle",
+                    "clipboard",
+                    "clipboard-image",
+                    "clock",
+                    "close-circle",
+                    "close",
+                    "code-block",
+                    "code",
+                    "cog",
+                    "collapse",
+                    "comment",
+                    "component",
+                    "compose",
+                    "controls",
+                    "copy",
+                    "credit-card",
+                    "crop",
+                    "dashboard",
+                    "database",
+                    "desktop",
+                    "document",
+                    "document-pdf",
+                    "document-remove",
+                    "document-sheet",
+                    "document-text",
+                    "document-video",
+                    "document-word",
+                    "document-zip",
+                    "documents",
+                    "dot",
+                    "double-chevron-down",
+                    "double-chevron-left",
+                    "double-chevron-right",
+                    "double-chevron-up",
+                    "download",
+                    "drag-handle",
+                    "drop",
+                    "earth-americas",
+                    "earth-globe",
+                    "edit",
+                    "ellipsis-horizontal",
+                    "ellipsis-vertical",
+                    "envelope",
+                    "equal",
+                    "error-filled",
+                    "error-outline",
+                    "expand",
+                    "eye-closed",
+                    "eye-open",
+                    "filter",
+                    "folder",
+                    "generate",
+                    "heart-filled",
+                    "heart",
+                    "help-circle",
+                    "home",
+                    "ice-cream",
+                    "image",
+                    "image-remove",
+                    "images",
+                    "info-filled",
+                    "info-outline",
+                    "inline-element",
+                    "inline",
+                    "insert-above",
+                    "insert-below",
+                    "italic",
+                    "joystick",
+                    "launch",
+                    "leave",
+                    "lemon",
+                    "link",
+                    "link-removed",
+                    "lock",
+                    "logo-js",
+                    "logo-ts",
+                    "master-detail",
+                    "menu",
+                    "mobile-device",
+                    "moon",
+                    "ok-hand",
+                    "olist",
+                    "overage",
+                    "package",
+                    "pause",
+                    "pin",
+                    "pin-removed",
+                    "play",
+                    "plug",
+                    "presentation",
+                    "publish",
+                    "read-only",
+                    "remove-circle",
+                    "remove",
+                    "reset",
+                    "restore",
+                    "retrieve",
+                    "revert",
+                    "robot",
+                    "rocket",
+                    "search",
+                    "select",
+                    "sort",
+                    "spinner",
+                    "split-horizontal",
+                    "split-vertical",
+                    "square",
+                    "stack-compact",
+                    "stack",
+                    "star",
+                    "stop",
+                    "strikethrough",
+                    "sun",
+                    "sync",
+                    "tag",
+                    "terminal",
+                    "th-large",
+                    "th-list",
+                    "tiers",
+                    "toggle-arrow-right",
+                    "token",
+                    "transfer",
+                    "translate",
+                    "trash",
+                    "trend-upward",
+                    "triangle-outline",
+                    "trolley",
+                    "truncate",
+                    "ulist",
+                    "underline",
+                    "undo",
+                    "unknown",
+                    "unlock",
+                    "unpublish",
+                    "upload",
+                    "user",
+                    "users",
+                    "warning-filled",
+                    "warning-outline"
+                  ]
+                }
+              },
+              {
+                "type": "string",
+                "name": "title",
+                "title": "Title"
+              },
+              {
+                "type": "object",
+                "name": "link",
+                "title": "Link",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "title",
+                    "title": "Title"
+                  },
+                  {
+                    "type": "string",
+                    "name": "href",
+                    "title": "Hyperlink reference"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "preview": {}
+      },
+      {
+        "type": "object",
+        "name": "tsdoc.docComment",
+        "title": "TSDoc comment",
+        "fields": [
+          {
+            "type": "array",
+            "name": "summary",
+            "title": "Summary",
+            "of": [
+              {
+                "type": "block"
+              }
+            ]
+          },
+          {
+            "type": "tsdoc.remarksBlock",
+            "name": "remarks",
+            "title": "Remarks"
+          },
+          {
+            "type": "array",
+            "name": "seeBlocks",
+            "title": "See",
+            "of": [
+              {
+                "type": "tsdoc.seeBlock"
+              }
+            ]
+          },
+          {
+            "type": "array",
+            "name": "parameters",
+            "title": "Parameters",
+            "of": [
+              {
+                "type": "tsdoc.paramBlock"
+              }
+            ]
+          },
+          {
+            "type": "tsdoc.returnsBlock",
+            "name": "returns",
+            "title": "Returns"
+          },
+          {
+            "type": "array",
+            "name": "exampleBlocks",
+            "title": "Example blocks",
+            "of": [
+              {
+                "type": "tsdoc.exampleBlock"
+              }
+            ]
+          },
+          {
+            "type": "array",
+            "name": "modifierTags",
+            "title": "Modifier tags",
+            "of": [
+              {
+                "type": "tsdoc.modifierTag"
+              }
+            ]
+          }
+        ],
+        "options": {
+          "collapsible": true
+        }
+      },
+      {
+        "type": "object",
+        "name": "tsdoc.exampleBlock",
+        "title": "Example block",
+        "fields": [
+          {
+            "type": "array",
+            "name": "content",
+            "title": "Content",
+            "of": [
+              {
+                "type": "block"
+              },
+              {
+                "type": "code",
+                "name": "code",
+                "title": "Code"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "tsdoc.modifierTag",
+        "title": "Modifier tag",
+        "fields": [
+          {
+            "type": "string",
+            "name": "name",
+            "title": "Name"
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "tsdoc.paramBlock",
+        "title": "Param block",
+        "fields": [
+          {
+            "type": "string",
+            "name": "name",
+            "title": "Name"
+          },
+          {
+            "type": "array",
+            "name": "content",
+            "title": "Content",
+            "of": [
+              {
+                "type": "block"
+              },
+              {
+                "type": "code",
+                "name": "code",
+                "title": "Code"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "tsdoc.remarksBlock",
+        "title": "Remarks",
+        "fields": [
+          {
+            "type": "array",
+            "name": "content",
+            "title": "Content",
+            "of": [
+              {
+                "type": "block"
+              },
+              {
+                "type": "code",
+                "name": "code",
+                "title": "Code"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "tsdoc.returnsBlock",
+        "title": "Returns block",
+        "fields": [
+          {
+            "type": "array",
+            "name": "content",
+            "title": "Content",
+            "of": [
+              {
+                "type": "block"
+              },
+              {
+                "type": "code",
+                "name": "code",
+                "title": "Code"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "tsdoc.seeBlock",
+        "title": "See block",
+        "fields": [
+          {
+            "type": "array",
+            "name": "content",
+            "title": "Content",
+            "of": [
+              {
+                "type": "block"
+              },
+              {
+                "type": "code",
+                "name": "code",
+                "title": "Code"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
