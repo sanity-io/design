@@ -62,7 +62,7 @@ async function _extractPackage(options: {
 
   const results = await extract(packagePath, {
     reporting: config.reporting,
-    // tsconfigPath: 'tsconfig.lib.json',
+    // tsconfigPath: 'tsconfig.dist.json',
   })
 
   const messages = results.reduce<ExtractorMessage[]>((acc, x) => acc.concat(x.messages), [])

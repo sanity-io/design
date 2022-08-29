@@ -4,21 +4,24 @@
   "sideEffects": false,
   "source": "./src/index.ts",
   "exports": {
-    "require": "./lib/sanity-ui-workshop.js",
-    "default": "./lib/sanity-ui-workshop.modern.js"
+    ".": {
+      "source": "./src/index.ts",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
-  "main": "./lib/sanity-ui-workshop.js",
-  "module": "./lib/sanity-ui-workshop.module.js",
-  "types": "./lib/dts/src/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "lib",
+    "dist",
     "src"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "run-s build:microbundle",
-    "build:microbundle": "microbundle --format modern,esm,cjs --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react --no-compress --tsconfig tsconfig.lib.json",
-    "clean": "rimraf lib",
+    "build": "pkg-utils build --extract --tsconfig tsconfig.dist.json",
+    "clean": "rimraf dist",
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --quiet",
     "prebuild": "yarn clean",
     "test": "jest",

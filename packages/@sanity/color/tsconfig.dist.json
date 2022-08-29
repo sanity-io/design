@@ -1,8 +1,7 @@
 {
   "extends": "../../../tsconfig.settings",
-  "include": ["**/*.ts"],
+  "include": ["./src"],
   "compilerOptions": {
-    "composite": true,
     "rootDir": ".",
     "outDir": "./dist/tmp",
     "declarationDir": "./dist/tmp"

@@ -1,12 +1,12 @@
 {
-  "extends": "../../../tsconfig",
-  "include": ["./src/"],
+  "extends": "../../../tsconfig.settings",
+  "include": ["./src"],
   "compilerOptions": {
     "composite": true,
-    "rootDir": "./",
-    "outDir": "./lib/dts/",
-    "declarationDir": "./lib/dts/",
+    "rootDir": ".",
+    "outDir": "./dist/tmp",
+    "declarationDir": "./dist/tmp",
     "jsx": "react"
   },
-  "references": [{"path": "../color/tsconfig.lib.json"}]
+  "references": [{"path": "../color/tsconfig.dist.json"}]
 }
