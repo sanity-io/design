@@ -13,7 +13,7 @@ exports.createJestConfig = (
   /** @type {import('@jest/types').Config.InitialOptions} */
   config = {}
 ) => {
-  const {setupFiles = [], ...restConfig} = config
+  const {modulePathIgnorePatterns = [], ...restConfig} = config
 
   return {
     ...restConfig,
@@ -21,7 +21,7 @@ exports.createJestConfig = (
       ...restConfig.moduleNameMapper,
       '^@sanity/(.*)$': path.resolve(ROOT_PATH, 'packages/@sanity/$1/src'),
     },
-    setupFiles: [...setupFiles],
+    modulePathIgnorePatterns: [...modulePathIgnorePatterns, '<rootDir>/dist/'],
     testEnvironment: 'jsdom',
     // - match all files in `__tests__` directories
     // - match files ending with `.test.js`, `.test.ts`, `.test.jsx`, or `.test.tsx`
