@@ -1,7 +1,7 @@
 {
   "extends": "../../../tsconfig.settings",
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["./src/**/__workshop__"],
+  "exclude": ["./dist", "./src/**/__workshop__"],
   "compilerOptions": {
     "composite": true,
     "rootDir": ".",

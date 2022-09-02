@@ -9,6 +9,7 @@
     "./src/**/*.test.tsx"
   ],
   "compilerOptions": {
+    "composite": true,
     "rootDir": ".",
     "outDir": "./dist/tmp",
     "declarationDir": "./dist/tmp",

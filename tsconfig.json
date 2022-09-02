@@ -19,7 +19,6 @@
     {"path": "./packages/@sanity/color"},
     {"path": "./packages/@sanity/icons"},
     {"path": "./packages/@sanity/logos"},
-    {"path": "./packages/@sanity/tsdoc-to-portable-text"},
     {"path": "./packages/@sanity/ui"},
     {"path": "./packages/@sanity/ui-workshop"}
   ]
