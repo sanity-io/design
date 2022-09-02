@@ -1,6 +1,7 @@
 /**
  * @public
- * @todo Rename to `ThemeBoxShadow`
+ *
+ * TODO: Rename to `ThemeBoxShadow`
  */
 export type BoxShadow = [
   // offsetX, offsetY, blurRadius, spreadRadius

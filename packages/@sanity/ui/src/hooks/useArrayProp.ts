@@ -1,6 +1,7 @@
 import {useMemo} from 'react'
 import {_getArrayProp} from '../styles'
 
+/** @beta */
 export type Primitive = string | number | boolean | undefined | null
 
 /**
