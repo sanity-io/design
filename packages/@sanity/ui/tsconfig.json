@@ -6,8 +6,6 @@
     "composite": true,
     "rootDir": ".",
     "outDir": "./dist/tmp",
-    "declarationDir": "./dist/tmp",
-    "module": "ES2020",
     "jsx": "react"
   },
   "references": [

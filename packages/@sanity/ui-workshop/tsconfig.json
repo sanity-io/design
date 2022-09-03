@@ -5,7 +5,6 @@
     "composite": true,
     "rootDir": ".",
     "outDir": "./dist/tmp",
-    "declarationDir": "./dist/tmp",
     "jsx": "react"
   },
   "references": [{"path": "../icons/tsconfig.dist.json"}, {"path": "../ui/tsconfig.dist.json"}]

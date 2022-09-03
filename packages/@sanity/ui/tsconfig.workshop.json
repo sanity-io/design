@@ -6,7 +6,6 @@
     "rootDir": ".",
     "outDir": "./dist/workshop",
     "declarationDir": "./dist/workshop",
-    "module": "ES2020",
     "jsx": "react"
   },
   "references": [

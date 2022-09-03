@@ -3573,7 +3573,7 @@
 
 "@sanity/pkg-utils@../pkg-utils/sanity-pkg-utils-v1.3.0.tgz":
   version "1.3.0"
-  resolved "../pkg-utils/sanity-pkg-utils-v1.3.0.tgz#7ae8d494af3084c9c5591d56742dda963d7349e2"
+  resolved "../pkg-utils/sanity-pkg-utils-v1.3.0.tgz#0962b6ecfe96d53e214a14f600f79625ba3baa23"
   dependencies:
     "@microsoft/api-extractor" "^7.29.5"
     "@microsoft/tsdoc-config" "^0.16.1"
@@ -3592,6 +3592,7 @@
     mkdirp "^1.0.4"
     ora "^5.4.1"
     pkg-up "^3.1.0"
+    prettier "^2.7.1"
     pretty-bytes "^5.6.0"
     rimraf "^3.0.2"
     rollup "^2.78.1"

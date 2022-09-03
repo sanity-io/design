@@ -5,7 +5,6 @@
     "composite": true,
     "rootDir": ".",
     "outDir": "./build/dts",
-    "module": "ES2020",
     "jsx": "react",
     "baseUrl": "."
   },
