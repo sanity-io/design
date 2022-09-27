@@ -14,7 +14,6 @@ This repository contains the various projects that make up the Sanity Design Sys
 ### Documentation website
 
 - [`sanity-design-docs`](apps/docs)
-- [`sanity-design-studio`](apps/studio)
 
 ## Documentation
 
