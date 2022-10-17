@@ -3,7 +3,7 @@ import {LayerDebugInfo} from './_debug'
 
 export default function MultipleRootsStory() {
   return (
-    <Stack space={4}>
+    <Stack padding={6} space={4}>
       <LayerProvider zOffset={100}>
         <Card padding={3} shadow={1}>
           <Stack space={3}>
@@ -24,7 +24,7 @@ export default function MultipleRootsStory() {
         </Card>
       </LayerProvider>
       <LayerProvider zOffset={200}>
-        <Card as={Layer as any} padding={3} shadow={5} style={{top: -50, left: 30}}>
+        <Card as={Layer as any} padding={3} shadow={5} style={{top: -51, left: 35}}>
           <Stack space={3}>
             <LayerDebugInfo />
             <Layer>

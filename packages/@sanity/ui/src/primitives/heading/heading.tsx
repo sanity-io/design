@@ -7,8 +7,9 @@ import {
   responsiveTextAlignStyle,
   ResponsiveTextAlignStyleProps,
 } from '../../styles/internal'
-import {ThemeFontWeightKey} from '../../theme'
+import {ThemeFontWeightKey, useTheme} from '../../theme'
 import {TextAlign} from '../../types'
+import {useLevel, useSize} from '../../utils'
 import {headingBaseStyle} from './styles'
 import {HeadingStyleProps} from './types'
 
@@ -19,6 +20,7 @@ export interface HeadingProps {
   accent?: boolean
   align?: TextAlign | TextAlign[]
   as?: React.ElementType | keyof JSX.IntrinsicElements
+  level?: number
   muted?: boolean
   size?: number | number[]
   /**
@@ -41,6 +43,15 @@ const SpanWithTextOverflow = styled.span`
   overflow: hidden;
 `
 
+function useHeadingSize(size?: number | number[]) {
+  const {fonts} = useTheme().sanity
+
+  return useSize({
+    max: fonts.heading.sizes.length,
+    size,
+  })
+}
+
 /**
  * @public
  */
@@ -51,13 +62,19 @@ export const Heading = forwardRef(function Heading(
   const {
     accent = false,
     align,
+    as: asProp,
     children: childrenProp,
+    level: levelProp,
     muted = false,
     size = 2,
     textOverflow,
     weight,
     ...restProps
   } = props
+
+  const $size = useHeadingSize(size)
+  const level = useLevel(levelProp)
+  const as = asProp || `h${level}`
 
   let children = childrenProp
 
@@ -67,12 +84,14 @@ export const Heading = forwardRef(function Heading(
 
   return (
     <Root
+      as={as}
+      data-size={$size.join(',')}
       data-ui="Heading"
       {...restProps}
       $accent={accent}
       $align={useArrayProp(align)}
       $muted={muted}
-      $size={useArrayProp(size)}
+      $size={$size}
       $weight={weight}
       ref={ref}
     >

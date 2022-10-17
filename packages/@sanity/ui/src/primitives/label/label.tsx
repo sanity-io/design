@@ -2,8 +2,9 @@ import {forwardRef} from 'react'
 import styled from 'styled-components'
 import {useArrayProp} from '../../hooks'
 import {responsiveLabelFont, responsiveTextAlignStyle} from '../../styles/internal'
-import {ThemeFontWeightKey} from '../../theme'
+import {ThemeFontWeightKey, useTheme} from '../../theme'
 import {TextAlign} from '../../types'
+import {useSize} from '../../utils'
 import {labelBaseStyle} from './styles'
 
 /**
@@ -38,6 +39,15 @@ const SpanWithTextOverflow = styled.span`
   overflow: hidden;
 `
 
+function useLabelSize(size?: number | number[]) {
+  const {fonts} = useTheme().sanity
+
+  return useSize({
+    max: fonts.label.sizes.length,
+    size,
+  })
+}
+
 /**
  * @public
  */
@@ -56,6 +66,8 @@ export const Label = forwardRef(function Label(
     ...restProps
   } = props
 
+  const $size = useLabelSize(size)
+
   let children = childrenProp
 
   if (textOverflow === 'ellipsis') {
@@ -71,7 +83,7 @@ export const Label = forwardRef(function Label(
       $accent={accent}
       $align={useArrayProp(align)}
       $muted={muted}
-      $size={useArrayProp(size)}
+      $size={$size}
       $weight={weight}
       ref={ref}
     >

@@ -17,6 +17,7 @@ import {
   textInputRootStyle,
 } from '../../styles/internal'
 import {ThemeFontWeightKey, useRootTheme} from '../../theme'
+import {useSize} from '../../utils'
 import {Box} from '../box'
 import {Button, ButtonProps} from '../button'
 import {Card} from '../card'
@@ -159,11 +160,15 @@ export const TextInput = forwardRef(function TextInput(
     ...restProps
   } = props
 
+  const $fontSize = useSize({
+    size: fontSizeProp,
+  })
+
   const ref = useForwardedRef(forwardedRef)
 
   const rootTheme = useRootTheme()
 
-  const fontSize = useArrayProp(fontSizeProp)
+  // const fontSize = useArrayProp(fontSizeProp)
   const padding = useArrayProp(paddingProp)
   const radius = useArrayProp(radiusProp)
   const space = useArrayProp(spaceProp)
@@ -222,7 +227,7 @@ export const TextInput = forwardRef(function TextInput(
       >
         {icon && (
           <LeftBox padding={padding}>
-            <Text size={fontSize}>
+            <Text size={$fontSize}>
               {isValidElement(icon) && icon}
               {isValidElementType(icon) && createElement(icon)}
             </Text>
@@ -231,7 +236,7 @@ export const TextInput = forwardRef(function TextInput(
 
         {!$hasClearButton && iconRight && (
           <RightBox padding={padding}>
-            <Text size={fontSize}>
+            <Text size={$fontSize}>
               {isValidElement(iconRight) && iconRight}
               {isValidElementType(iconRight) && createElement(iconRight)}
             </Text>
@@ -240,8 +245,8 @@ export const TextInput = forwardRef(function TextInput(
       </Presentation>
     ),
     [
+      $fontSize,
       border,
-      fontSize,
       icon,
       iconRight,
       padding,
@@ -293,7 +298,7 @@ export const TextInput = forwardRef(function TextInput(
         >
           <Button
             data-qa="clear-button"
-            fontSize={fontSize}
+            fontSize={$fontSize}
             icon={CloseIcon}
             mode="bleed"
             padding={clearButtonPadding}
@@ -305,13 +310,13 @@ export const TextInput = forwardRef(function TextInput(
         </RightCard>
       ),
     [
+      $fontSize,
       clearButton,
       clearButtonBoxPadding,
       clearButtonPadding,
       clearButtonProps,
       customValidity,
       disabled,
-      fontSize,
       handleClearClick,
       handleClearMouseDown,
       radius,
@@ -340,7 +345,7 @@ export const TextInput = forwardRef(function TextInput(
           data-scheme={rootTheme.scheme}
           data-tone={rootTheme.tone}
           {...restProps}
-          $fontSize={fontSize}
+          $fontSize={$fontSize}
           $iconLeft={$hasIcon}
           $iconRight={$hasIconRight || $hasClearButton}
           $padding={padding}

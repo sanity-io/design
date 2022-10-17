@@ -6,8 +6,9 @@ import {
   responsiveTextAlignStyle,
   responsiveTextFont,
 } from '../../styles/internal'
-import {ThemeFontWeightKey} from '../../theme'
+import {ThemeFontWeightKey, useTheme} from '../../theme'
 import {TextAlign} from '../../types'
+import {useSize} from '../../utils'
 import {textBaseStyle} from './styles'
 
 /**
@@ -41,6 +42,15 @@ const SpanWithTextOverflow = styled.span`
   overflow: hidden;
 `
 
+function useTextSize(size?: number | number[]) {
+  const {fonts} = useTheme().sanity
+
+  return useSize({
+    max: fonts.text.sizes.length,
+    size,
+  })
+}
+
 /**
  * @public
  */
@@ -59,6 +69,8 @@ export const Text = forwardRef(function Text(
     ...restProps
   } = props
 
+  const $size = useTextSize(size)
+
   let children = childrenProp
 
   if (textOverflow === 'ellipsis') {
@@ -73,7 +85,7 @@ export const Text = forwardRef(function Text(
       $align={useArrayProp(align)}
       $muted={muted}
       ref={ref}
-      $size={useArrayProp(size)}
+      $size={$size}
       $weight={weight}
     >
       <span>{children}</span>
