@@ -75,10 +75,8 @@ function Debug() {
 export default function ContextsStory() {
   return (
     <Card padding={5}>
-      <Size delta={3}>
-        <Heading>Heading</Heading>
-
-        <Size delta={-1}>
+      <Stack space={4}>
+        <Size delta={3}>
           <Heading>Heading</Heading>
 
           <Size delta={-1}>
@@ -89,13 +87,22 @@ export default function ContextsStory() {
 
               <Size delta={-1}>
                 <Heading>Heading</Heading>
+
+                <Size delta={-1}>
+                  <Heading>Heading</Heading>
+                </Size>
+
+                <Size delta={-1}>
+                  <Heading>Heading</Heading>
+                </Size>
               </Size>
             </Size>
           </Size>
         </Size>
-      </Size>
+      </Stack>
     </Card>
   )
+
   // return (
   //   <Size>
   //     <Card padding={4}>

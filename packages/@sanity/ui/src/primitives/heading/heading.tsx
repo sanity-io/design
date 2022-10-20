@@ -72,6 +72,8 @@ export const Heading = forwardRef(function Heading(
     ...restProps
   } = props
 
+  const sizeContext = useSize()
+
   const $size = useHeadingSize(size)
   const level = useLevel(levelProp)
   const as = asProp || `h${level}`
@@ -85,6 +87,7 @@ export const Heading = forwardRef(function Heading(
   return (
     <Root
       as={as}
+      data-ctx-size={JSON.stringify(sizeContext)}
       data-size={$size.join(',')}
       data-ui="Heading"
       {...restProps}

@@ -4,13 +4,7 @@
 
 const withTranspileModules = require('next-transpile-modules')
 
-const MONOREPO_PACKAGES = [
-  '@sanity/color',
-  '@sanity/icons',
-  '@sanity/logos',
-  '@sanity/ui',
-  '@sanity/ui-workshop',
-]
+const MONOREPO_PACKAGES = ['@sanity/color', '@sanity/icons', '@sanity/logos', '@sanity/ui']
 
 module.exports = withTranspileModules(
   // Add monorepo sibling packages to includes

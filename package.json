@@ -18,7 +18,7 @@
     "dev:ui": "lerna run --stream --scope sanity-ui-workshop dev",
     "etl": "cd scripts/etl && node -r dotenv-flow/config -r esbuild-register main",
     "generate": "lerna run generate",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint . --ext .cjs,.js,.mjs,.jsx,.ts,.tsx",
     "postinstall": "yarn husky install",
     "release:dryrun": "yarn build && ./scripts/publish/dryrun",
     "release:1.x": "yarn build && lerna publish --force-publish --dist-tag=beta --preid=beta --exact",
@@ -97,6 +97,6 @@
     "packages/@sanity/*"
   ],
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint"
+    "*.{cjs,js,jsx,mjs,ts,tsx}": "eslint"
   }
 }

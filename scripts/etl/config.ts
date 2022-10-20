@@ -124,11 +124,5 @@ export const config = {
     token: process.env.SANITY_API_TOKEN,
   },
 
-  workspace: [
-    '@sanity/color',
-    '@sanity/icons',
-    '@sanity/logos',
-    '@sanity/ui',
-    '@sanity/ui-workshop',
-  ],
+  workspace: ['@sanity/color', '@sanity/icons', '@sanity/logos', '@sanity/ui'],
 }

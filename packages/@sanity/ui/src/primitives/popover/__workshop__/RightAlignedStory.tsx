@@ -5,6 +5,7 @@ import {useCallback, useState} from 'react'
 
 export default function RightAlignedStory() {
   const constrainSize = useBoolean('Constrain size', false)
+  const portal = useBoolean('Portal', false)
 
   const [open, setOpen] = useState(false)
   const [boundaryElement, setBoundaryElement] = useState<HTMLDivElement | null>(null)
@@ -42,7 +43,7 @@ export default function RightAlignedStory() {
             open={open}
             overflow="auto"
             padding={3}
-            portal
+            portal={portal}
             placement="bottom"
             ref={setPopoverElement}
           >

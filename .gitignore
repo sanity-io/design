@@ -1,6 +1,7 @@
 .DS_Store
 /*.log
 /.vscode
+/.workshop
 /build
 /etc
 /lerna-debug.log

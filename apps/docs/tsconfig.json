@@ -28,7 +28,6 @@
     {"path": "../../packages/@sanity/color/tsconfig.dist.json"},
     {"path": "../../packages/@sanity/icons/tsconfig.dist.json"},
     {"path": "../../packages/@sanity/logos/tsconfig.dist.json"},
-    {"path": "../../packages/@sanity/ui/tsconfig.dist.json"},
-    {"path": "../../packages/@sanity/ui-workshop/tsconfig.dist.json"}
+    {"path": "../../packages/@sanity/ui/tsconfig.dist.json"}
   ]
 }
