@@ -12,3 +12,7 @@
 
 # Created by verdaccio
 /storage
+
+# Created by yalc
+/.yalc
+/yalc.lock

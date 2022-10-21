@@ -1,21 +1,9 @@
 import path from 'path'
-import {defineConfig, perfPlugin} from '../ui-workshop/src/core'
-
-const __BROWSER__ = typeof window !== 'undefined'
-
-const alias = __BROWSER__
-  ? undefined
-  : {
-      '@sanity/ui-workshop': __BROWSER__ ? '' : path.resolve(__dirname, '../ui-workshop/src/core'),
-
-      '@sanity/color': __BROWSER__ ? '' : path.resolve(__dirname, 'packages/@sanity/color/src'),
-      '@sanity/icons': __BROWSER__ ? '' : path.resolve(__dirname, 'packages/@sanity/icons/src'),
-      '@sanity/logos': __BROWSER__ ? '' : path.resolve(__dirname, 'packages/@sanity/logos/src'),
-      '@sanity/ui': __BROWSER__ ? '' : path.resolve(__dirname, 'packages/@sanity/ui/src'),
-    }
+import {defineConfig} from '@sanity/ui-workshop'
+import {perfPlugin} from '@sanity/ui-workshop/perf-plugin'
 
 export default defineConfig({
-  alias,
+  alias: getAliases(),
   collections: [
     {
       name: 'components',
@@ -34,7 +22,35 @@ export default defineConfig({
       title: 'Utils',
     },
   ],
-  pattern: ['**/__workshop__/index.ts', '**/__workshop__/index.tsx'],
+  pattern: [
+    'apps/**/__workshop__/index.ts',
+    'apps/**/__workshop__/index.tsx',
+    'examples/**/__workshop__/index.ts',
+    'examples/**/__workshop__/index.tsx',
+    'packages/**/__workshop__/index.ts',
+    'packages/**/__workshop__/index.tsx',
+  ],
   plugins: [perfPlugin()],
+  port: 9009,
   title: 'Sanity UI',
 })
+
+function getAliases() {
+  if (typeof window !== 'undefined') return undefined
+
+  return {
+    '@sanity/ui-workshop/plugin-a11y': path.resolve(
+      __dirname,
+      'node_modules/@sanity/ui-workshop/src/plugin-a11y'
+    ),
+    '@sanity/ui-workshop/plugin-perf': path.resolve(
+      __dirname,
+      'node_modules/@sanity/ui-workshop/src/plugin-perf'
+    ),
+    '@sanity/ui-workshop': path.resolve(__dirname, 'node_modules/@sanity/ui-workshop/src/core'),
+    '@sanity/color': path.resolve(__dirname, 'packages/@sanity/color/src'),
+    '@sanity/icons': path.resolve(__dirname, 'packages/@sanity/icons/src'),
+    '@sanity/logos': path.resolve(__dirname, 'packages/@sanity/logos/src'),
+    '@sanity/ui': path.resolve(__dirname, 'packages/@sanity/ui/src'),
+  }
+}

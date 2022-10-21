@@ -1,6 +1,6 @@
 {
   "extends": "../../../tsconfig.settings",
-  "include": ["./src", "./test", "./typings"],
+  "include": ["./src", "./test", "./typings", "../icons/src/__workshop__"],
   "exclude": ["./src/**/__workshop__"],
   "compilerOptions": {
     "composite": true,
