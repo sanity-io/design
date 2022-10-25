@@ -1,11 +1,22 @@
 import {EllipsisVerticalIcon} from '@sanity/icons'
 import {Button, Card, Flex, Popover, Text, useClickOutside} from '@sanity/ui'
-import {useBoolean} from '@sanity/ui-workshop'
-import {useCallback, useState} from 'react'
+import {useBoolean, useSelect} from '@sanity/ui-workshop'
+import React, {useCallback, useState} from 'react'
+import {
+  WORKSHOP_FLEX_ALIGN_OPTIONS,
+  WORKSHOP_FLEX_JUSTIFY_OPTIONS,
+  WORKSHOP_PLACEMENT_OPTIONS,
+  WORKSHOP_WIDTH_OPTIONS,
+} from '../../../__workshop__/constants'
 
-export default function RightAlignedStory() {
-  const constrainSize = useBoolean('Constrain size', false)
-  const portal = useBoolean('Portal', false)
+export default function AlignedStory() {
+  const constrainSize = useBoolean('Constrain size', true)
+  const placement = useSelect('Placement', WORKSHOP_PLACEMENT_OPTIONS, 'bottom')
+  const portal = useBoolean('Portal', true)
+  const width = useSelect('Width', WORKSHOP_WIDTH_OPTIONS, 'auto')
+
+  const flexAlign = useSelect('Align', WORKSHOP_FLEX_ALIGN_OPTIONS, 'flex-start')
+  const flexJustify = useSelect('Justify', WORKSHOP_FLEX_JUSTIFY_OPTIONS, 'flex-end')
 
   const [open, setOpen] = useState(false)
   const [boundaryElement, setBoundaryElement] = useState<HTMLDivElement | null>(null)
@@ -34,18 +45,25 @@ export default function RightAlignedStory() {
 
   return (
     <Card height="fill" padding={[4, 5, 6]} sizing="border" tone="transparent">
-      <Card height="fill" padding={2} ref={setBoundaryElement} shadow={1}>
-        <Flex justify="flex-end" padding={0}>
+      <Card height="fill" padding={2} ref={setBoundaryElement} shadow={1} sizing="border">
+        <Flex align={flexAlign} height="fill" justify={flexJustify}>
           <Popover
             boundaryElement={boundaryElement}
             constrainSize={constrainSize}
             content={content}
             open={open}
-            overflow="auto"
             padding={3}
             portal={portal}
-            placement="bottom"
+            placement={placement}
             ref={setPopoverElement}
+            style={
+              {
+                // maxWidth: 320,
+                //   minWidth: 220,
+                //   minHeight: 100,
+              }
+            }
+            width={width}
           >
             <Button
               icon={EllipsisVerticalIcon}

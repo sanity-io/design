@@ -46,7 +46,7 @@ export default function MenuGroupRightStory() {
                       <MenuItem icon={TrashIcon} text="Remove" tone="critical" />
                     </Menu>
                   }
-                  popover={{placement: 'right', portal: true}}
+                  popover={{constrainSize: true, placement: 'right', portal: true}}
                 />
               </Box>
             </Flex>

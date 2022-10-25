@@ -11,15 +11,13 @@ import {
   SelectableTone,
   Text,
 } from '@sanity/ui'
-import {useState} from 'react'
+import React, {useState} from 'react'
 import {MenuButtonProps} from '../menuButton'
 
 const POPOVER_PROPS: MenuButtonProps['popover'] = {
   constrainSize: true,
   placement: 'bottom',
   portal: true,
-  // preventOverflow: true,
-  // width: 1,
 }
 
 const items: {tone: SelectableTone; message: string}[] = [
@@ -115,15 +113,11 @@ export default function ConstrainedInBoundaryStory() {
                     id="validation-menu"
                     menu={
                       <Menu>
-                        {items.map((item, itemIndex) => {
-                          return (
-                            <MenuItem key={itemIndex} tone={item.tone}>
-                              <Box padding={3}>
-                                <Text>{item.message}</Text>
-                              </Box>
-                            </MenuItem>
-                          )
-                        })}
+                        {items.map((item, itemIndex) => (
+                          <MenuItem key={itemIndex} padding={5} tone={item.tone}>
+                            <Text>{item.message}</Text>
+                          </MenuItem>
+                        ))}
                       </Menu>
                     }
                     popover={POPOVER_PROPS}
