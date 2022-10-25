@@ -9,9 +9,5 @@
     "module": "ES2020",
     "jsx": "react-jsx"
   },
-  "references": [
-    {"path": "../color/tsconfig.dist.json"},
-    {"path": "../icons/tsconfig.dist.json"},
-    {"path": "./tsconfig.workshop.json"}
-  ]
+  "references": [{"path": "../color/tsconfig.dist.json"}, {"path": "../icons/tsconfig.dist.json"}]
 }

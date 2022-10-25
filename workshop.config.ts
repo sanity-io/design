@@ -1,6 +1,6 @@
 import path from 'path'
 import {defineConfig} from '@sanity/ui-workshop'
-import {perfPlugin} from '@sanity/ui-workshop/perf-plugin'
+import {perfPlugin} from '@sanity/ui-workshop/plugin-perf'
 
 export default defineConfig({
   alias: getAliases(),
@@ -23,12 +23,12 @@ export default defineConfig({
     },
   ],
   pattern: [
-    'apps/**/__workshop__/index.ts',
-    'apps/**/__workshop__/index.tsx',
-    'examples/**/__workshop__/index.ts',
-    'examples/**/__workshop__/index.tsx',
-    'packages/**/__workshop__/index.ts',
-    'packages/**/__workshop__/index.tsx',
+    // 'apps/**/__workshop__/index.ts',
+    // 'apps/**/__workshop__/index.tsx',
+    // 'examples/**/__workshop__/index.ts',
+    // 'examples/**/__workshop__/index.tsx',
+    'packages/*/*/src/**/__workshop__/index.ts',
+    'packages/*/*/src/**/__workshop__/index.tsx',
   ],
   plugins: [perfPlugin()],
   port: 9009,
@@ -38,16 +38,11 @@ export default defineConfig({
 function getAliases() {
   if (typeof window !== 'undefined') return undefined
 
+  // prettier-ignore
   return {
-    '@sanity/ui-workshop/plugin-a11y': path.resolve(
-      __dirname,
-      'node_modules/@sanity/ui-workshop/src/plugin-a11y'
-    ),
-    '@sanity/ui-workshop/plugin-perf': path.resolve(
-      __dirname,
-      'node_modules/@sanity/ui-workshop/src/plugin-perf'
-    ),
-    '@sanity/ui-workshop': path.resolve(__dirname, 'node_modules/@sanity/ui-workshop/src/core'),
+    '@sanity/ui-workshop/plugin-a11y': path.resolve(__dirname, '../ui-workshop/src/plugin-a11y'),
+    '@sanity/ui-workshop/plugin-perf': path.resolve(__dirname, '../ui-workshop/src/plugin-perf'),
+    '@sanity/ui-workshop': path.resolve(__dirname, '../ui-workshop/src/core'),
     '@sanity/color': path.resolve(__dirname, 'packages/@sanity/color/src'),
     '@sanity/icons': path.resolve(__dirname, 'packages/@sanity/icons/src'),
     '@sanity/logos': path.resolve(__dirname, 'packages/@sanity/logos/src'),

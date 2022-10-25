@@ -10,7 +10,7 @@ import {
   Stack,
   Text,
 } from '@sanity/ui'
-import {useCallback, useEffect, useRef, useState} from 'react'
+import React, {useCallback, useEffect, useRef, useState} from 'react'
 import {countriesStore} from '../__mocks__/apiStore'
 
 export default function AsyncStory() {
@@ -104,7 +104,7 @@ export default function AsyncStory() {
         </LayerProvider>
 
         <Card border overflow="auto" padding={3} radius={1}>
-          <Code language="json" size={[1, 1, 2]}>
+          <Code language="json" size={1}>
             {JSON.stringify({loading, options, query, value}, null, 2)}
           </Code>
         </Card>

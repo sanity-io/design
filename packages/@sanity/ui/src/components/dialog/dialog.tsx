@@ -267,7 +267,7 @@ export const Dialog = forwardRef(function Dialog(
     id,
     onClickOutside,
     onClose,
-    padding: paddingProp = 4,
+    padding: paddingProp = 3,
     portal,
     position: positionProp = dialog.position || 'fixed',
     scheme,
