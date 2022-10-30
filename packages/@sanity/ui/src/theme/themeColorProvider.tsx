@@ -1,3 +1,4 @@
+import {ReactElement} from 'react'
 import {ThemeColorName, ThemeColorSchemeKey} from './lib/theme'
 import {ThemeProvider} from './themeProvider'
 import {useRootTheme} from './useRootTheme'
@@ -6,7 +7,7 @@ import {useRootTheme} from './useRootTheme'
  * @public
  */
 export interface ThemeColorProviderProps {
-  children?: React.ReactNode
+  children?: ReactElement
   scheme?: ThemeColorSchemeKey
   tone?: ThemeColorName
 }

@@ -1,4 +1,4 @@
-import {useContext, useMemo} from 'react'
+import {ReactElement, useContext, useMemo} from 'react'
 import {ThemeProvider as StyledThemeProvider} from 'styled-components'
 import {DEFAULT_THEME_LAYER} from './defaults'
 import {ThemeColorSchemeKey, ThemeColorName} from './lib/theme'
@@ -9,7 +9,7 @@ import {RootTheme, Theme, ThemeContextValue} from './types'
  * @public
  */
 export interface ThemeProviderProps {
-  children?: React.ReactNode
+  children?: ReactElement
   scheme?: ThemeColorSchemeKey
   theme?: RootTheme
   tone?: ThemeColorName

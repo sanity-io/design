@@ -1,0 +1,1 @@
+export const DEFAULT_TOOLTIP_PADDING = 4

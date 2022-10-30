@@ -1,7 +1,6 @@
 import {Property} from 'csstype'
-import {CSSObject} from 'styled-components'
 import {_responsive} from '../helpers'
-import {ThemeProps} from '../types'
+import {CSSObject, ThemeProps} from '../types'
 import {ResponsiveBoxStyleProps} from './types'
 
 const BASE_STYLE: CSSObject = {

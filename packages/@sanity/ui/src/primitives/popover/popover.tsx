@@ -20,12 +20,12 @@ import {
   useState,
 } from 'react'
 import {useForwardedRef, useArrayProp, useElementSize} from '../../hooks'
+import {size} from '../../lib/floating-ui/size'
 import {ThemeColorSchemeKey, useTheme} from '../../theme'
 import {BoxOverflow, CardTone, Placement, PopoverMargins} from '../../types'
 import {LayerProps, LayerProvider, Portal, useBoundaryElement} from '../../utils'
 import {ResponsiveRadiusProps, ResponsiveShadowProps, ResponsiveWidthProps} from '../types'
 import {DEFAULT_POPOVER_DISTANCE, DEFAULT_POPOVER_PADDING} from './constants'
-import {size} from './floating-ui/size'
 import {PopoverCard} from './popoverCard'
 
 /**

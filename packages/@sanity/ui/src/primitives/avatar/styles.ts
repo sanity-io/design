@@ -1,5 +1,4 @@
-import {CSSObject} from 'styled-components'
-import {rem, _responsive, ThemeProps} from '../../styles'
+import {CSSObject, ThemeProps, _responsive, rem} from '../../styles'
 import {focusRingStyle} from '../../styles/internal'
 import {AvatarRootStyleProps, ResponsiveAvatarSizeStyleProps} from './types'
 

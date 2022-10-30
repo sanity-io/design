@@ -1,6 +1,5 @@
-import {CSSObject} from 'styled-components'
 import {rem, _responsive} from '../helpers'
-import {ThemeProps} from '../types'
+import {CSSObject, ThemeProps} from '../types'
 import {ResponsiveRadiusStyleProps} from './types'
 
 export function responsiveRadiusStyle(props: ResponsiveRadiusStyleProps & ThemeProps): CSSObject[] {

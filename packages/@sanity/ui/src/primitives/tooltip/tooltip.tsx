@@ -21,11 +21,12 @@ import {
 } from 'react'
 import styled from 'styled-components'
 import {FLOATING_STATIC_SIDES} from '../../constants'
-import {useArrayProp, useForwardedRef} from '../../hooks'
+import {useArrayProp, useElementSize, useForwardedRef} from '../../hooks'
 import {ThemeColorSchemeKey, useTheme} from '../../theme'
 import {Placement} from '../../types'
 import {Layer, LayerProps, Portal, useBoundaryElement} from '../../utils'
 import {Card} from '../card'
+import {DEFAULT_TOOLTIP_PADDING} from './constants'
 import {TooltipArrow} from './tooltipArrow'
 
 /**
@@ -73,6 +74,8 @@ export const Tooltip = forwardRef(function Tooltip(
     zOffset = theme.sanity.layer?.tooltip.zOffset,
     ...restProps
   } = props
+  const boundarySize = useElementSize(disabled || !childProp ? null : boundaryElement)?.border
+  const boundaryWidth = boundarySize?.width
   const fallbackPlacements = useArrayProp(fallbackPlacementsProp)
   const forwardedRef = useForwardedRef(ref)
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(null)
@@ -87,25 +90,34 @@ export const Tooltip = forwardRef(function Tooltip(
       flip({
         boundary: boundaryElement || undefined,
         fallbackPlacements,
-        padding: 4,
+        padding: DEFAULT_TOOLTIP_PADDING,
         rootBoundary,
       })
     )
 
     // Define distance between reference and floating element
-    ret.push(offset({mainAxis: 3}))
+    ret.push(
+      offset({
+        mainAxis: DEFAULT_TOOLTIP_PADDING,
+      })
+    )
 
     // Shift the tooltip so its sits with the boundary eleement
     ret.push(
       shift({
         boundary: boundaryElement || undefined,
         rootBoundary,
-        padding: 4,
+        padding: DEFAULT_TOOLTIP_PADDING,
       })
     )
 
     // Place arrow
-    ret.push(arrow({element: arrowRef, padding: 2}))
+    ret.push(
+      arrow({
+        element: arrowRef,
+        padding: DEFAULT_TOOLTIP_PADDING / 2,
+      })
+    )
 
     return ret
   }, [boundaryElement, fallbackPlacements])
@@ -245,6 +257,7 @@ export const Tooltip = forwardRef(function Tooltip(
         radius={2}
         scheme={scheme}
         shadow={shadow}
+        style={{maxWidth: boundaryWidth ? boundaryWidth - DEFAULT_TOOLTIP_PADDING * 2 : undefined}}
       >
         {content}
         <TooltipArrow ref={setArrow} style={arrowStyle} />

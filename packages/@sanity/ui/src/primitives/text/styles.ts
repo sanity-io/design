@@ -1,5 +1,5 @@
-import {css, FlattenSimpleInterpolation} from 'styled-components'
-import {ThemeProps} from '../../styles'
+import {css} from 'styled-components'
+import {FlattenSimpleInterpolation, ThemeProps} from '../../styles'
 
 export function textBaseStyle(
   props: {$accent?: boolean; $muted?: boolean} & ThemeProps

@@ -1,7 +1,6 @@
-import {CSSObject} from 'styled-components'
 import {ThemeFontSize, ThemeFontKey} from '../../theme'
 import {rem, _responsive} from '../helpers'
-import {ThemeProps} from '../types'
+import {CSSObject, ThemeProps} from '../types'
 import {ResponsiveFontStyleProps} from './types'
 
 /**

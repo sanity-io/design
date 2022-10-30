@@ -1,6 +1,5 @@
-import {CSSObject} from 'styled-components'
 import {_responsive} from '../helpers'
-import {ThemeProps} from '../types'
+import {CSSObject, ThemeProps} from '../types'
 import {ResponsiveBorderStyleProps} from './types'
 
 const BORDER_VALUE = '1px solid var(--card-border-color)'

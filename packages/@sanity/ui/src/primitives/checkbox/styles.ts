@@ -1,12 +1,12 @@
-import {css, FlattenSimpleInterpolation} from 'styled-components'
-import {rem, ThemeProps} from '../../styles'
+import {css} from 'styled-components'
+import {CSSObject, FlattenSimpleInterpolation, rem, ThemeProps} from '../../styles'
 import {focusRingBorderStyle, focusRingStyle} from '../../styles/internal'
 
-export function checkboxBaseStyles(): FlattenSimpleInterpolation {
-  return css`
-    position: relative;
-    display: inline-block;
-  `
+export function checkboxBaseStyles(): CSSObject {
+  return {
+    position: 'relative',
+    display: 'inline-block',
+  }
 }
 
 export function inputElementStyles(props: ThemeProps): FlattenSimpleInterpolation {

@@ -2,7 +2,7 @@ import {forwardRef} from 'react'
 import styled from 'styled-components'
 import {useArrayProp} from '../../hooks'
 import {responsiveLabelFont, responsiveTextAlignStyle} from '../../styles/internal'
-import {ThemeFontWeightKey} from '../../theme'
+// import {ThemeFontWeightKey} from '../../theme'
 import {TextAlign} from '../../types'
 import {labelBaseStyle} from './styles'
 
@@ -21,7 +21,7 @@ export interface LabelProps {
    * @beta
    */
   textOverflow?: 'ellipsis'
-  weight?: ThemeFontWeightKey
+  // weight?: ThemeFontWeightKey
 }
 
 const Root = styled.div<{
@@ -31,12 +31,12 @@ const Root = styled.div<{
   $size: number[]
 }>(responsiveLabelFont, responsiveTextAlignStyle, labelBaseStyle)
 
-const SpanWithTextOverflow = styled.span`
-  display: block;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-`
+const SpanWithTextOverflow = styled.span({
+  display: 'block',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+})
 
 /**
  * @public
@@ -52,7 +52,7 @@ export const Label = forwardRef(function Label(
     muted = false,
     size = 2,
     textOverflow,
-    weight,
+    // weight,
     ...restProps
   } = props
 
@@ -72,7 +72,7 @@ export const Label = forwardRef(function Label(
       $align={useArrayProp(align)}
       $muted={muted}
       $size={useArrayProp(size)}
-      $weight={weight}
+      // $weight={weight}
       ref={ref}
     >
       {children}

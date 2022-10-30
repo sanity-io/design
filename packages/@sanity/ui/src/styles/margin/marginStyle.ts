@@ -1,6 +1,5 @@
-import {CSSObject} from 'styled-components'
 import {_getResponsiveSpace} from '../helpers'
-import {ThemeProps} from '../types'
+import {CSSObject, ThemeProps} from '../types'
 import {ResponsiveMarginStyleProps} from './types'
 
 export function responsiveMarginStyle(

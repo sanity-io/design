@@ -1,8 +1,7 @@
-import {CSSObject} from 'styled-components'
 import {EMPTY_RECORD} from '../../constants'
 import {BoxShadow, ThemeShadow} from '../../theme'
 import {rem, _responsive} from '../helpers'
-import {ThemeProps} from '../types'
+import {CSSObject, ThemeProps} from '../types'
 import {ResponsiveShadowStyleProps} from './types'
 
 function toBoxShadow(shadow: BoxShadow, color: string) {

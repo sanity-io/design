@@ -1,6 +1,5 @@
-import {CSSObject} from 'styled-components'
 import {rem, _responsive} from '../helpers'
-import {ThemeProps} from '../types'
+import {CSSObject, ThemeProps} from '../types'
 import {ResponsiveFlexStyleProps} from './types'
 
 const BASE_STYLE: CSSObject = {
@@ -37,9 +36,13 @@ function responsiveFlexGapStyle(props: ResponsiveFlexStyleProps & ThemeProps) {
   const {theme} = props
   const {media, space} = theme.sanity
 
-  return _responsive(media, props.$gap, (gap) => ({
-    gap: gap ? rem(space[gap]) : undefined,
-  }))
+  return _responsive(media, props.$gap, (gap) =>
+    gap
+      ? {
+          gap: rem(space[gap]),
+        }
+      : ({} as {})
+  )
 }
 
 export function responsiveFlexWrapStyle(props: ResponsiveFlexStyleProps & ThemeProps): CSSObject[] {

@@ -1,9 +1,9 @@
-import {css, CSSObject, FlattenSimpleInterpolation} from 'styled-components'
+import {css} from 'styled-components'
 import {ThemeColorSchemeKey, ThemeFontWeightKey} from '../../theme'
 import {CardTone} from '../../types'
 import {focusRingBorderStyle, focusRingStyle} from '../focusRing'
 import {rem, _responsive} from '../helpers'
-import {ThemeProps} from '../types'
+import {CSSObject, FlattenSimpleInterpolation, ThemeProps} from '../types'
 
 /**
  * @internal
@@ -25,15 +25,15 @@ export interface TextInputRepresentationStyleProps {
   $tone: CardTone
 }
 
-const ROOT_STYLE = css`
-  &:not([hidden]) {
-    display: flex;
-  }
+const ROOT_STYLE: CSSObject = {
+  '&:not([hidden])': {
+    display: 'flex',
+  },
 
-  align-items: center;
-`
+  alignItems: 'center',
+}
 
-export function textInputRootStyle(): FlattenSimpleInterpolation {
+export function textInputRootStyle(): CSSObject {
   return ROOT_STYLE
 }
 

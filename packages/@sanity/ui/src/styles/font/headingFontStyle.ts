@@ -1,5 +1,4 @@
-import {CSSObject} from 'styled-components'
-import {ThemeProps} from '../types'
+import {CSSObject, ThemeProps} from '../types'
 import {responsiveFont} from './responsiveFont'
 import {ResponsiveFontStyleProps} from './types'
 

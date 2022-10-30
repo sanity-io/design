@@ -1,5 +1,5 @@
-import {css, CSSObject, FlattenSimpleInterpolation} from 'styled-components'
-import {ThemeProps} from '../../styles'
+import {css} from 'styled-components'
+import {CSSObject, FlattenSimpleInterpolation, ThemeProps} from '../../styles'
 import {_colorVarsStyle} from '../../styles/colorVars'
 import {focusRingBorderStyle, focusRingStyle} from '../../styles/internal'
 import {ButtonMode, ButtonTone} from '../../types'
