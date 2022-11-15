@@ -1,76 +1,71 @@
 import {ColorHueConfig} from './types'
 
-export const black = '#101112'
-export const white = '#fff'
+export const black: ColorHueConfig = {
+  title: 'Black',
+  hue: 263,
+  chroma: 13,
+  tone: 7,
+}
+
+export const white: ColorHueConfig = {
+  title: 'White',
+  hue: 0,
+  chroma: 0,
+  tone: 100,
+}
+
+// ---------------------------------------------------------------------------------------------- //
 
 export const gray: ColorHueConfig = {
   title: 'Gray',
-  darkest: black,
-  mid: '#8690A0',
-  lightest: white,
-  midPoint: 500,
+  hue: 263,
+  chroma: 7,
 }
 
 export const red: ColorHueConfig = {
   title: 'Red',
-  darkest: black,
-  mid: '#F03E2F',
-  lightest: white,
-  midPoint: 500,
+  hue: 28,
+  chroma: 100,
 }
 
 export const orange: ColorHueConfig = {
   title: 'Orange',
-  darkest: black,
-  mid: '#FB7D24',
-  lightest: white,
-  midPoint: 450,
+  hue: 41,
+  chroma: 100,
 }
 
 export const yellow: ColorHueConfig = {
   title: 'Yellow',
-  darkest: black,
-  mid: '#FBD024',
-  lightest: white,
-  midPoint: 300,
+  hue: 86,
+  chroma: 100,
 }
 
 export const green: ColorHueConfig = {
   title: 'Green',
-  darkest: black,
-  mid: '#43D675',
-  lightest: white,
-  midPoint: 400,
+  hue: 150,
+  chroma: 100,
 }
 
 export const cyan: ColorHueConfig = {
   title: 'Cyan',
-  darkest: black,
-  mid: '#22DAF4',
-  lightest: white,
-  midPoint: 400,
+  hue: 204,
+  chroma: 100,
 }
 
 export const blue: ColorHueConfig = {
   title: 'Blue',
-  darkest: black,
-  mid: '#2276FC',
-  lightest: white,
-  midPoint: 500,
+  hue: 263,
+  chroma: 100,
 }
 
 export const purple: ColorHueConfig = {
   title: 'Purple',
-  darkest: black,
-  mid: '#C123FC',
-  lightest: white,
-  midPoint: 500,
+  hue: 321,
+  chroma: 100,
 }
 
 export const magenta: ColorHueConfig = {
   title: 'Magenta',
-  darkest: black,
-  mid: '#E5389E',
-  lightest: white,
-  midPoint: 500,
+  hue: 357,
+  chroma: 100,
 }

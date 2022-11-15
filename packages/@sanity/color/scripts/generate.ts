@@ -5,50 +5,42 @@
 
 import {writeFileSync, readFileSync} from 'fs'
 import path from 'path'
-import {mix} from 'polished'
 import {format} from 'prettier'
-import * as colors from '../src/config'
-import {COLOR_HUES, COLOR_TINTS} from '../src/constants'
-import {ColorHueKey, ColorValue, ColorHueConfig, ColorTintKey} from '../src/types'
+import {ColorHueKey, ColorValue, ColorTintKey, HCT} from '../src'
+import {COLOR_HUES, COLOR_TINTS} from '../src'
+import {hctToRgb} from '../src'
+import {rgbToHex} from '../src'
+import {screen} from '../src'
+import * as config from '../src/config'
 
 const ROOT_PATH = path.resolve(__dirname, '../../../..')
 
 const GENERATED_BANNER = `/* THIS FILE IS AUTO-GENERATED – DO NOT EDIT */`
-
-function getColorHex(config: ColorHueConfig, tint: string): string {
-  const tintNum = Number(tint)
-  const midPoint = config.midPoint || 500
-  const darkSize = 1000 - midPoint
-  const lightPosition = tintNum / midPoint
-  const darkPosition = (tintNum - midPoint) / darkSize
-
-  if (tintNum === midPoint) {
-    return config.mid.toLowerCase()
-  }
-
-  // light side of scale: x < midPoint
-  if (tintNum < midPoint) {
-    return mix(lightPosition, config.mid, config.lightest)
-  }
-
-  // dark side of scale: x > midPoint
-  return mix(darkPosition, config.darkest, config.mid)
-}
 
 // Given a hue (eg red, blue) - grab the colors from configured values
 // and generate a named export containing a generated set of tints
 // Note: A more compact format + expander function was considered,
 // but only amounted to ~72 byte decrease in bundle size after gziping
 function buildExport(hue: ColorHueKey) {
-  if (!colors[hue]) {
+  const colorConfig = config[hue]
+  const blackRgb = hctToRgb([config.black.hue, config.black.chroma, config.black.tone || 0])
+
+  if (!colorConfig) {
     throw new Error(`src/config is missing export for ${hue}`)
   }
 
   const initial = {} as Partial<{[key in ColorTintKey]: ColorValue}>
   const tints = COLOR_TINTS.reduce((acc, tint) => {
+    const tone = 100 - Number(tint) / 10
+    const hct: HCT = [colorConfig.hue, colorConfig.chroma, tone]
+    const rgb = screen(blackRgb, hctToRgb(hct))
+    const hex = rgbToHex([Math.round(rgb[0]), Math.round(rgb[1]), Math.round(rgb[2])])
+
     acc[tint] = {
       title: `${hue.slice(0, 1).toUpperCase()}${hue.slice(1)} ${tint}`,
-      hex: getColorHex(colors[hue], tint),
+      // lab,
+      hct,
+      hex,
     }
 
     return acc

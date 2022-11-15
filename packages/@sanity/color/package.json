@@ -33,7 +33,7 @@
     "watch": "pkg watch"
   },
   "devDependencies": {
-    "polished": "^4.2.2"
+    "@material/material-color-utilities": "^0.1.2"
   },
   "repository": {
     "type": "git",
