@@ -88,7 +88,7 @@ export const WorkshopFrame = memo(function WorkshopFrame(
             viewport={viewport}
             zoom={zoom}
           >
-            <Card height="fill" tone="transparent" ref={setBoundaryElement}>
+            <Card data-ui="WorkshopFrame" height="fill" tone="transparent" ref={setBoundaryElement}>
               <WorkshopCanvas />
               <div data-portal="" ref={setPortalElement} />
             </Card>

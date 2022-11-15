@@ -213,7 +213,13 @@ export const Workshop = memo(function Workshop(props: WorkshopProps): React.Reac
       <ToastProvider>
         <BoundaryElementProvider element={boundaryElement}>
           <PortalProvider element={portalElement}>
-            <Flex data-boundary="" direction="column" height="fill" ref={setBoundaryElement}>
+            <Flex
+              data-boundary=""
+              data-ui="Workshop"
+              direction="column"
+              height="fill"
+              ref={setBoundaryElement}
+            >
               {withNavbar && <WorkshopNavbar />}
 
               <Flex flex={1}>
