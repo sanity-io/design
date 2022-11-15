@@ -9,7 +9,10 @@ function toBoxShadow(shadow: BoxShadow, color: string) {
   return `${shadow.map(rem).join(' ')} ${color}`
 }
 
-function shadowStyle(shadow: ThemeShadow | null): CSSObject {
+/**
+ * @internal
+ */
+export function shadowStyle(shadow: ThemeShadow | null): CSSObject {
   if (!shadow) return EMPTY_RECORD
 
   const outline = `0 0 0 ${rem(1)} var(--card-shadow-outline-color)`
