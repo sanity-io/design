@@ -36,7 +36,10 @@ function ColorHuePreview(props: {hueKey: string; tints: ColorTints}) {
         {ucfirst(hueKey)}
       </Heading>
 
-      <Stack marginTop={[3, 3, 4]} space={1}>
+      <Stack
+        marginTop={[3, 3, 4]}
+        //  space={1}
+      >
         {Object.entries(tints).map(([tintKey, tint]) => {
           return <ColorTintPreview key={tintKey} tint={tint} />
         })}
@@ -77,7 +80,7 @@ function ColorTintPreview(props: {tint: ColorValue}) {
       __unstable_focusRing
       as="button"
       onClick={handleClick}
-      radius={2}
+      // radius={2}
       style={{
         ['--card-bg-color' as any]: tint.hex,
         ['--card-fg-color' as any]: hsl.l < 50 ? white.hex : black.hex,

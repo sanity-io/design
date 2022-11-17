@@ -84,12 +84,14 @@ const Presentation = styled.div(({theme}) => {
   `
 })
 
+/** @alpha */
 export interface SliderProps {
   max?: number
   min?: number
   value?: number
 }
 
+/** @alpha */
 export function SliderInput(
   props: SliderProps &
     Omit<React.HTMLProps<HTMLInputElement>, 'as' | 'children' | 'height' | 'min' | 'ref'>
