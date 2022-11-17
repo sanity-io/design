@@ -6,11 +6,8 @@
 import {writeFileSync, readFileSync} from 'fs'
 import path from 'path'
 import {format} from 'prettier'
-import {ColorHueKey, ColorValue, ColorTintKey, HCT} from '../src'
-import {COLOR_HUES, COLOR_TINTS} from '../src'
-import {hctToRgb} from '../src'
-import {rgbToHex} from '../src'
-import {screen} from '../src'
+import {ColorHueKey, _buildTints} from '../src'
+import {COLOR_HUES} from '../src'
 import * as config from '../src/config'
 
 const ROOT_PATH = path.resolve(__dirname, '../../../..')
@@ -23,28 +20,12 @@ const GENERATED_BANNER = `/* THIS FILE IS AUTO-GENERATED – DO NOT EDIT */`
 // but only amounted to ~72 byte decrease in bundle size after gziping
 function buildExport(hue: ColorHueKey) {
   const colorConfig = config[hue]
-  const blackRgb = hctToRgb([config.black.hue, config.black.chroma, config.black.tone || 0])
 
   if (!colorConfig) {
     throw new Error(`src/config is missing export for ${hue}`)
   }
 
-  const initial = {} as Partial<{[key in ColorTintKey]: ColorValue}>
-  const tints = COLOR_TINTS.reduce((acc, tint) => {
-    const tone = 100 - Number(tint) / 10
-    const hct: HCT = [colorConfig.hue, colorConfig.chroma, tone]
-    const rgb = screen(blackRgb, hctToRgb(hct))
-    const hex = rgbToHex([Math.round(rgb[0]), Math.round(rgb[1]), Math.round(rgb[2])])
-
-    acc[tint] = {
-      title: `${hue.slice(0, 1).toUpperCase()}${hue.slice(1)} ${tint}`,
-      // lab,
-      hct,
-      hex,
-    }
-
-    return acc
-  }, initial)
+  const tints = _buildTints({color: colorConfig, hueKey: hue, black: config.black})
 
   return `/**\n * @public\n */\nexport const ${hue}: ColorTints = ${JSON.stringify(tints, null, 2)}`
 }

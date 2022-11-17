@@ -32,8 +32,11 @@
     "type-check": "tsc --build",
     "watch": "pkg watch"
   },
+  "dependencies": {
+    "color-space": "^2.0.0"
+  },
   "devDependencies": {
-    "@material/material-color-utilities": "^0.1.2"
+    "@material/material-color-utilities": "^0.2.0"
   },
   "repository": {
     "type": "git",

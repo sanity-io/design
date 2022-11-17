@@ -1,6 +1,6 @@
 {
   "extends": "../../../tsconfig",
-  "include": ["./src", "./scripts"],
+  "include": ["./src", "./scripts", "./typings"],
   "compilerOptions": {
     "composite": true,
     "rootDir": ".",
