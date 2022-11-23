@@ -1,15 +1,16 @@
 import {HSL} from '@sanity/color'
 import {ReactElement, useEffect, useRef} from 'react'
 import styled from 'styled-components'
-import {Stack, Text} from '../../../primitives'
+import {Box, Code, Flex, TextInput, Tooltip} from '../../../primitives'
+import {ThemeColorSpotKey} from '../../../theme'
 import {SLIDER_H} from './constants'
 import {useHandle} from './useHandle'
 
-const Handle = styled.button`
+const Handle = styled.button<{$color: ThemeColorSpotKey}>`
   appearance: none;
   border: 0;
   position: absolute;
-  background-color: #000;
+  background-color: ${({$color, theme}) => theme.sanity.color.spot[$color]};
   width: 12px;
   height: 12px;
   left: calc(50% - 6px);
@@ -18,11 +19,11 @@ const Handle = styled.button`
   padding: 0;
 
   &:focus {
-    outline: 2px solid blue;
+    outline: ${({$color, theme}) => `2px solid ${theme.sanity.color.spot[$color]}`};
   }
 `
 
-export function Slider(props: {onHSLChange: (hsl: HSL) => void; value: HSL}): ReactElement {
+export function HSLSlider(props: {onHSLChange: (hsl: HSL) => void; value: HSL}): ReactElement {
   const {onHSLChange, value} = props
   const wrapperRef = useRef<HTMLDivElement>(null)
 
@@ -55,15 +56,24 @@ export function Slider(props: {onHSLChange: (hsl: HSL) => void; value: HSL}): Re
           height: SLIDER_H + 12,
         }}
       >
-        <Handle ref={hRef} style={{backgroundColor: 'red', top: hTop}} />
-        <Handle ref={sRef} style={{backgroundColor: 'green', top: sTop}} />
-        <Handle ref={lRef} style={{backgroundColor: 'blue', top: lTop}} />
+        <Tooltip content={<Code size={1}>H={h}</Code>} padding={2} placement="top" portal>
+          <Handle $color="red" ref={hRef} style={{top: hTop}} />
+        </Tooltip>
+        <Tooltip content={<Code size={1}>S={s}</Code>} padding={2} placement="top" portal>
+          <Handle $color="green" ref={sRef} style={{top: sTop}} />
+        </Tooltip>
+        <Tooltip content={<Code size={1}>L={l}</Code>} padding={2} placement="top" portal>
+          <Handle $color="blue" ref={lRef} style={{top: lTop}} />
+        </Tooltip>
       </div>
-      <Stack padding={3} space={2} style={{borderTop: '1px solid var(--card-border-color)'}}>
-        <Text align="center">H: {value[0]}</Text>
-        <Text align="center">S: {value[1]}</Text>
-        <Text align="center">L: {value[2]}</Text>
-      </Stack>
+
+      <Box padding={1} style={{borderTop: '1px solid var(--card-border-color)'}}>
+        <Flex gap={1}>
+          <TextInput fontSize={0} padding={1} readOnly value={h} />
+          <TextInput fontSize={0} padding={1} readOnly value={s} />
+          <TextInput fontSize={0} padding={1} readOnly value={l} />
+        </Flex>
+      </Box>
     </div>
   )
 }

@@ -26,13 +26,16 @@ export function useHandle(props: {
 
       handle.focus()
 
+      let scrollY = window.scrollY
+
       offsetTop = wrapper.offsetTop
 
-      setTop(Math.min(Math.max(event.clientY - offsetTop - 6, 0), SLIDER_H))
+      setTop(Math.min(Math.max(event.clientY - offsetTop + scrollY - 6, 0), SLIDER_H))
 
       function handleMouseMove(moveEvent: MouseEvent) {
+        scrollY = window.scrollY
         moveEvent.preventDefault()
-        setTop(Math.min(Math.max(moveEvent.clientY - offsetTop - 6, 0), SLIDER_H))
+        setTop(Math.min(Math.max(moveEvent.clientY - offsetTop + scrollY - 6, 0), SLIDER_H))
       }
 
       function handleMouseUp() {

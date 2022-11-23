@@ -5,7 +5,7 @@ import {useElementSize} from '../../../hooks'
 import {Card, Flex, Text} from '../../../primitives'
 import {useTheme} from '../../../theme'
 import {SLIDER_H} from './constants'
-import {Slider} from './Slider'
+import {HSLSlider} from './Slider'
 import {ColorSwatch} from './types'
 
 export const ColorSwatchesEditor = memo(function ColorSwatchesEditor(props: {
@@ -54,7 +54,7 @@ const SwatchSlider = memo(function SwatchSlider(props: {
 
   const handleChange = useCallback((hsl: HSL) => updateSwatch(tint, hsl), [updateSwatch, tint])
 
-  return <Slider onHSLChange={handleChange} value={swatch.hsl} />
+  return <HSLSlider onHSLChange={handleChange} value={swatch.hsl} />
 })
 
 function Connectors(props: {swatches: ColorSwatch[]; wrapper: HTMLDivElement | null}) {
@@ -129,7 +129,7 @@ const ColorPreview = memo(function ColorPreview(props: {expanded: boolean; hsl: 
     <Card
       flex={1}
       style={{
-        height: expanded ? 200 : 50,
+        height: expanded ? 100 : 50,
         backgroundColor: `hsl(${hsl[0]}deg ${hsl[1]}% ${hsl[2]}%)`,
       }}
     >
