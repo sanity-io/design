@@ -19,14 +19,9 @@ export function propsReducer(state: PropsState, msg: WorkshopMsg | PropsMsg): Pr
   }
 
   if (msg.type === 'workshop/props/unregisterProp') {
-    const value = {...state.value}
-
-    delete value[msg.name]
-
     return {
       ...state,
       schemas: state.schemas.filter((s) => s.name !== msg.name),
-      value,
     }
   }
 

@@ -13,12 +13,26 @@ export const PropsProvider = memo(function PropsProvider(props: {
 }): React.ReactElement {
   const {children} = props
   const {channel, broadcast, payload} = useWorkshop<PropsMsg>()
-  const encodedValue = payload.value
+  const encodedValue =
+    typeof payload.value === 'string' ? payload.value.replace(/ /g, '+') : payload.value
   const encodedValueRef = useRef(encodedValue)
+
+  const decodedValue = useMemo(() => {
+    if (!encodedValue) return {}
+
+    try {
+      return decodeValue(String(encodedValue))
+    } catch (parseErr) {
+      // eslint-disable-next-line no-console
+      console.warn(parseErr)
+
+      return {}
+    }
+  }, [encodedValue])
 
   const [{schemas, value}, setState] = useState<PropsState>({
     schemas: [],
-    value: decodeValue(String(encodedValue)) || {},
+    value: decodedValue,
   })
 
   const registerProp = useCallback(
@@ -85,10 +99,17 @@ export const PropsProvider = memo(function PropsProvider(props: {
 
     encodedValueRef.current = encodedValue
 
-    setState((prevState) => ({
-      ...prevState,
-      value: decodeValue(String(encodedValue)) || {},
-    }))
+    try {
+      const nextValue = encodedValue ? decodeValue(String(encodedValue)) : {}
+
+      setState((prevState) => ({
+        ...prevState,
+        value: nextValue,
+      }))
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.warn(err)
+    }
   }, [encodedValue])
 
   return <PropsContext.Provider value={ctx}>{children}</PropsContext.Provider>
