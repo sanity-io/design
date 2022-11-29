@@ -1,29 +1,9 @@
 # Sanity Design
 
-This repository contains the various projects that make up the Sanity Design System.
+**⚠️ This repository has been deprecated.** New repositories have been created here:
 
-## Contents
-
-### Core libraries
-
-- [`@sanity/color`](packages/@sanity/color)
-- [`@sanity/icons`](packages/@sanity/icons)
-- [`@sanity/logos`](packages/@sanity/logos)
-- [`@sanity/ui`](packages/@sanity/ui)
-
-### Documentation website
-
-- [`sanity-design-docs`](apps/docs)
-- [`sanity-design-studio`](apps/studio)
-
-## Documentation
-
-See [sanity.io/ui](https://www.sanity.io/ui).
-
-## Contributing
-
-See the [contribution guide](CONTRIBUTING.md).
-
-## License
-
-MIT-licensed. See LICENSE.
+- [`@sanity/color`](https://github.com/sanity-io/color)
+- [`@sanity/icons`](https://github.com/sanity-io/icons)
+- [`@sanity/logos`](https://github.com/sanity-io/logos)
+- [`@sanity/ui`](https://github.com/sanity-io/ui)
+- [`@sanity/ui-workshop`](https://github.com/sanity-io/ui-workshop)
